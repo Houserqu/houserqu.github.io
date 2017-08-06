@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[test,text]]></title>
-    <url>%2F2017%2F08%2F06%2Ftest%2F</url>
-    <content type="text"></content>
+    <title><![CDATA[更换新的Blog系统]]></title>
+    <url>%2F2017%2F08%2F06%2F%E6%9B%B4%E6%8D%A2%E6%96%B0%E7%9A%84Blog%2F</url>
+    <content type="text"><![CDATA[经过长时间的调研，钻研，新的blog系统终于上线了 从wordpress，到个人用react+laravel开发，到现在的github pages 觉得目前的模式还是挺不错的，github，nodejs，markdown都是我非常喜欢的技术，这三者的结合希望能给我带来愉快的码字体验 当然最重要的还是多敲多写 好记性不如烂指头]]></content>
+      <categories>
+        <category>其他</category>
+      </categories>
   </entry>
   <entry>
     <title><![CDATA[Hello World]]></title>
