@@ -1,6 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[fetch post formData]]></title>
+    <url>%2F2017%2F08%2F18%2Ffetch-post-formData%2F</url>
+    <content type="text"><![CDATA[当使用fetch用表单的方式post json类型的数据时候，需要注意几个问题 header设置header 的 ‘Content-Type’,’application/x-www-form-urlencoded;charset=utf-8’ 序列化json尝试过多种方式，需要处理成 ‘username=admin&amp;password=password’这种方式才能被正确的识别成 formData格式，可以在浏览器查看具体的请求体采用类似 new FormData() 方式会被处理成——WebKitFormBoundary 具体示例 //序列化json const formBody = Object.keys(paramsArray).map(key=&gt;encodeURIComponent(key)+&apos;=&apos;+encodeURIComponent(paramsArray[key])) .join(&apos;&amp;&apos;); var headers = new Headers(); headers.set(&apos;Content-Type&apos;,&apos;application/x-www-form-urlencoded;charset=utf-8&apos;); fetch(&apos;api/auth/login&apos;,{ method:&apos;post&apos;, mode:&apos;cors&apos;, credentials: &quot;include&quot;, headers, body: formBody }).then((response)=&gt;{ return response.json(); }).then((responseData)=&gt;{ console.log(responseData); }); 参考：四种常见的 POST 提交数据方式how to post a x-www-form-urlencoded request from react-nativeHow to make a post request with JSON data in application/x-www-form-urlencoded]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>javascript</tag>
+        <tag>fetch</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[AJAX/Fetch 在跨域情况下发送cookie并保持 sessionid一致]]></title>
+    <url>%2F2017%2F08%2F18%2FAJAX-Fetch%E5%9C%A8%E8%B7%A8%E5%9F%9F%E6%83%85%E5%86%B5%E5%8F%91%E9%80%81cookie%E5%B9%B6%E4%BF%9D%E6%8C%81sessionid%E4%B8%80%E8%87%B4%2F</url>
+    <content type="text"><![CDATA[Ajaxajax在跨域发送请求的时候需要添加 xhrFields $.ajax({ url:&apos;example.com&apos;, method:&apos;post&apos;, datatype:&apos;json&apos;, xhrFields: { withCredentials: true }, crossDomain: true, data:param, success:function(data){ console.log(data); } }) Fetchfetch在跨域发送请求的时候需要添加 credentials: “include” fetch(&apos;http://example.com&apos;,{ method:&apos;post&apos;, mode:&apos;cors&apos;, credentials: &quot;include&quot;, body: param }).then((response)=&gt;{ return response.json(); }).then((responseData)=&gt;{ console.log(responseData); }); 参考：Ajax跨域请求，同时保证session一致Fetch API with Cookie]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>javascript</tag>
+        <tag>ajax</tag>
+        <tag>fetch</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[更换新的Blog系统]]></title>
     <url>%2F2017%2F08%2F06%2F%E6%9B%B4%E6%8D%A2%E6%96%B0%E7%9A%84Blog%2F</url>
     <content type="text"><![CDATA[经过长时间的调研，钻研，新的blog系统终于上线了 从wordpress，到个人用react+laravel开发，到现在的github pages 觉得目前的模式还是挺不错的，github，nodejs，markdown都是我非常喜欢的技术，这三者的结合希望能给我带来愉快的码字体验 当然最重要的还是多敲多写 好记性不如烂指头]]></content>
