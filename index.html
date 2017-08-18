@@ -434,24 +434,8 @@
 <h4 id="header"><a href="#header" class="headerlink" title="header"></a>header</h4><p>设置header 的 ‘Content-Type’,’application/x-www-form-urlencoded;charset=utf-8’</p>
 <h4 id="序列化json"><a href="#序列化json" class="headerlink" title="序列化json"></a>序列化json</h4><p>尝试过多种方式，需要处理成 ‘username=admin&amp;password=password’这种方式才能被正确的识别成 formData格式，可以在浏览器查看具体的请求体<br>采用类似  new FormData() 方式会被处理成——WebKitFormBoundary</p>
 <p>具体示例</p>
-<pre><code>//序列化json
-const formBody = Object.keys(paramsArray).map(key=&gt;encodeURIComponent(key)+&apos;=&apos;+encodeURIComponent(paramsArray[key])) .join(&apos;&amp;&apos;);
-
-var headers = new Headers();
-headers.set(&apos;Content-Type&apos;,&apos;application/x-www-form-urlencoded;charset=utf-8&apos;);
-
-fetch(&apos;api/auth/login&apos;,{
-    method:&apos;post&apos;,
-    mode:&apos;cors&apos;,
-    credentials: &quot;include&quot;,
-    headers,
-    body: formBody
-}).then((response)=&gt;{
-    return response.json(); 
-}).then((responseData)=&gt;{
-    console.log(responseData);
-});
-</code></pre><p>参考：<br><a href="https://imququ.com/post/four-ways-to-post-data-in-http.html" target="_blank" rel="external">四种常见的 POST 提交数据方式</a><br><a href="https://stackoverflow.com/questions/35325370/how-to-post-a-x-www-form-urlencoded-request-from-react-native" target="_blank" rel="external">how to post a x-www-form-urlencoded request from react-native</a><br><a href="https://github.com/github/fetch/issues/263" target="_blank" rel="external">How to make a post request with JSON data in application/x-www-form-urlencoded</a></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//序列化json</span></div><div class="line"><span class="keyword">const</span> formBody = <span class="built_in">Object</span>.keys(paramsArray).map(<span class="function"><span class="params">key</span>=&gt;</span><span class="built_in">encodeURIComponent</span>(key)+<span class="string">'='</span>+<span class="built_in">encodeURIComponent</span>(paramsArray[key])) .join(<span class="string">'&amp;'</span>);</div><div class="line"></div><div class="line"><span class="keyword">var</span> headers = <span class="keyword">new</span> Headers();</div><div class="line">headers.set(<span class="string">'Content-Type'</span>,<span class="string">'application/x-www-form-urlencoded;charset=utf-8'</span>);</div><div class="line"></div><div class="line">fetch(<span class="string">'api/auth/login'</span>,&#123;</div><div class="line">    method:<span class="string">'post'</span>,</div><div class="line">    mode:<span class="string">'cors'</span>,</div><div class="line">    credentials: <span class="string">"include"</span>,</div><div class="line">    headers,</div><div class="line">    body: formBody</div><div class="line">&#125;).then(<span class="function">(<span class="params">response</span>)=&gt;</span>&#123;</div><div class="line">    <span class="keyword">return</span> response.json(); </div><div class="line">&#125;).then(<span class="function">(<span class="params">responseData</span>)=&gt;</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(responseData);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>参考：<br><a href="https://imququ.com/post/four-ways-to-post-data-in-http.html" target="_blank" rel="external">四种常见的 POST 提交数据方式</a><br><a href="https://stackoverflow.com/questions/35325370/how-to-post-a-x-www-form-urlencoded-request-from-react-native" target="_blank" rel="external">how to post a x-www-form-urlencoded request from react-native</a><br><a href="https://github.com/github/fetch/issues/263" target="_blank" rel="external">How to make a post request with JSON data in application/x-www-form-urlencoded</a></p>
 
           
         
@@ -606,31 +590,10 @@ fetch(&apos;api/auth/login&apos;,{
         
           
             <h3 id="Ajax"><a href="#Ajax" class="headerlink" title="Ajax"></a>Ajax</h3><p>ajax在跨域发送请求的时候需要添加 <strong>xhrFields</strong></p>
-<pre><code>$.ajax({
-        url:&apos;example.com&apos;,
-        method:&apos;post&apos;,
-        datatype:&apos;json&apos;,
-        xhrFields: {
-            withCredentials: true
-        },
-        crossDomain: true,
-        data:param,
-        success:function(data){
-            console.log(data);
-        }
-    })
-</code></pre><h3 id="Fetch"><a href="#Fetch" class="headerlink" title="Fetch"></a>Fetch</h3><p>fetch在跨域发送请求的时候需要添加 <a href="https://developer.mozilla.org/en-US/docs/Web/API/Request/credentials" target="_blank" rel="external"><strong>credentials: “include”</strong></a></p>
-<pre><code>fetch(&apos;http://example.com&apos;,{
-    method:&apos;post&apos;,
-    mode:&apos;cors&apos;,
-    credentials: &quot;include&quot;,
-    body: param
-}).then((response)=&gt;{
-    return response.json(); 
-}).then((responseData)=&gt;{
-    console.log(responseData);
-});
-</code></pre><p>参考：<br><a href="http://www.julyme.com/20161110/23.html" target="_blank" rel="external">Ajax跨域请求，同时保证session一致</a><br><a href="https://stackoverflow.com/questions/34558264/fetch-api-with-cookie" target="_blank" rel="external">Fetch API with Cookie</a></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">$.ajax(&#123;</div><div class="line">        url:<span class="string">'example.com'</span>,</div><div class="line">        method:<span class="string">'post'</span>,</div><div class="line">        datatype:<span class="string">'json'</span>,</div><div class="line">        xhrFields: &#123;</div><div class="line">            withCredentials: <span class="literal">true</span></div><div class="line">        &#125;,</div><div class="line">        crossDomain: <span class="literal">true</span>,</div><div class="line">        data:param,</div><div class="line">        success:<span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;</div><div class="line">            <span class="built_in">console</span>.log(data);</div><div class="line">        &#125;</div><div class="line">    &#125;)</div></pre></td></tr></table></figure>
+<h3 id="Fetch"><a href="#Fetch" class="headerlink" title="Fetch"></a>Fetch</h3><p>fetch在跨域发送请求的时候需要添加 <a href="https://developer.mozilla.org/en-US/docs/Web/API/Request/credentials" target="_blank" rel="external"><strong>credentials: “include”</strong></a></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">fetch(<span class="string">'http://example.com'</span>,&#123;</div><div class="line">    method:<span class="string">'post'</span>,</div><div class="line">    mode:<span class="string">'cors'</span>,</div><div class="line">    credentials: <span class="string">"include"</span>,</div><div class="line">    body: param</div><div class="line">&#125;).then(<span class="function">(<span class="params">response</span>)=&gt;</span>&#123;</div><div class="line">    <span class="keyword">return</span> response.json(); </div><div class="line">&#125;).then(<span class="function">(<span class="params">responseData</span>)=&gt;</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(responseData);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>参考：<br><a href="http://www.julyme.com/20161110/23.html" target="_blank" rel="external">Ajax跨域请求，同时保证session一致</a><br><a href="https://stackoverflow.com/questions/34558264/fetch-api-with-cookie" target="_blank" rel="external">Fetch API with Cookie</a></p>
 
           
         

@@ -82,18 +82,18 @@
 
 
 
-<meta name="description" content="Ajaxajax在跨域发送请求的时候需要添加 xhrFields $.ajax({         url:&amp;apos;example.com&amp;apos;,         method:&amp;apos;post&amp;apos;,         datatype:&amp;apos;json&amp;apos;,         xhrFields: {             withCredentials: tru">
+<meta name="description" content="Ajaxajax在跨域发送请求的时候需要添加 xhrFields 12345678910111213$.ajax(&amp;#123;        url:&apos;example.com&apos;,        method:&apos;post&apos;,        datatype:&apos;json&apos;,        xhrFields: &amp;#123;            withCredentials: true">
 <meta name="keywords" content="javascript,ajax,fetch">
 <meta property="og:type" content="article">
 <meta property="og:title" content="AJAX&#x2F;Fetch 在跨域情况下发送cookie并保持 sessionid一致">
 <meta property="og:url" content="http://houserqu.com/2017/08/18/AJAX-Fetch在跨域情况发送cookie并保持sessionid一致/index.html">
 <meta property="og:site_name" content="Houser&#39;s Blog">
-<meta property="og:description" content="Ajaxajax在跨域发送请求的时候需要添加 xhrFields $.ajax({         url:&amp;apos;example.com&amp;apos;,         method:&amp;apos;post&amp;apos;,         datatype:&amp;apos;json&amp;apos;,         xhrFields: {             withCredentials: tru">
+<meta property="og:description" content="Ajaxajax在跨域发送请求的时候需要添加 xhrFields 12345678910111213$.ajax(&amp;#123;        url:&apos;example.com&apos;,        method:&apos;post&apos;,        datatype:&apos;json&apos;,        xhrFields: &amp;#123;            withCredentials: true">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-08-18T12:26:39.000Z">
+<meta property="og:updated_time" content="2017-08-18T12:30:59.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="AJAX&#x2F;Fetch 在跨域情况下发送cookie并保持 sessionid一致">
-<meta name="twitter:description" content="Ajaxajax在跨域发送请求的时候需要添加 xhrFields $.ajax({         url:&amp;apos;example.com&amp;apos;,         method:&amp;apos;post&amp;apos;,         datatype:&amp;apos;json&amp;apos;,         xhrFields: {             withCredentials: tru">
+<meta name="twitter:description" content="Ajaxajax在跨域发送请求的时候需要添加 xhrFields 12345678910111213$.ajax(&amp;#123;        url:&apos;example.com&apos;,        method:&apos;post&apos;,        datatype:&apos;json&apos;,        xhrFields: &amp;#123;            withCredentials: true">
 
 
 
@@ -426,31 +426,10 @@
 
       
         <h3 id="Ajax"><a href="#Ajax" class="headerlink" title="Ajax"></a>Ajax</h3><p>ajax在跨域发送请求的时候需要添加 <strong>xhrFields</strong></p>
-<pre><code>$.ajax({
-        url:&apos;example.com&apos;,
-        method:&apos;post&apos;,
-        datatype:&apos;json&apos;,
-        xhrFields: {
-            withCredentials: true
-        },
-        crossDomain: true,
-        data:param,
-        success:function(data){
-            console.log(data);
-        }
-    })
-</code></pre><h3 id="Fetch"><a href="#Fetch" class="headerlink" title="Fetch"></a>Fetch</h3><p>fetch在跨域发送请求的时候需要添加 <a href="https://developer.mozilla.org/en-US/docs/Web/API/Request/credentials" target="_blank" rel="external"><strong>credentials: “include”</strong></a></p>
-<pre><code>fetch(&apos;http://example.com&apos;,{
-    method:&apos;post&apos;,
-    mode:&apos;cors&apos;,
-    credentials: &quot;include&quot;,
-    body: param
-}).then((response)=&gt;{
-    return response.json(); 
-}).then((responseData)=&gt;{
-    console.log(responseData);
-});
-</code></pre><p>参考：<br><a href="http://www.julyme.com/20161110/23.html" target="_blank" rel="external">Ajax跨域请求，同时保证session一致</a><br><a href="https://stackoverflow.com/questions/34558264/fetch-api-with-cookie" target="_blank" rel="external">Fetch API with Cookie</a></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">$.ajax(&#123;</div><div class="line">        url:<span class="string">'example.com'</span>,</div><div class="line">        method:<span class="string">'post'</span>,</div><div class="line">        datatype:<span class="string">'json'</span>,</div><div class="line">        xhrFields: &#123;</div><div class="line">            withCredentials: <span class="literal">true</span></div><div class="line">        &#125;,</div><div class="line">        crossDomain: <span class="literal">true</span>,</div><div class="line">        data:param,</div><div class="line">        success:<span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;</div><div class="line">            <span class="built_in">console</span>.log(data);</div><div class="line">        &#125;</div><div class="line">    &#125;)</div></pre></td></tr></table></figure>
+<h3 id="Fetch"><a href="#Fetch" class="headerlink" title="Fetch"></a>Fetch</h3><p>fetch在跨域发送请求的时候需要添加 <a href="https://developer.mozilla.org/en-US/docs/Web/API/Request/credentials" target="_blank" rel="external"><strong>credentials: “include”</strong></a></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">fetch(<span class="string">'http://example.com'</span>,&#123;</div><div class="line">    method:<span class="string">'post'</span>,</div><div class="line">    mode:<span class="string">'cors'</span>,</div><div class="line">    credentials: <span class="string">"include"</span>,</div><div class="line">    body: param</div><div class="line">&#125;).then(<span class="function">(<span class="params">response</span>)=&gt;</span>&#123;</div><div class="line">    <span class="keyword">return</span> response.json(); </div><div class="line">&#125;).then(<span class="function">(<span class="params">responseData</span>)=&gt;</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(responseData);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>参考：<br><a href="http://www.julyme.com/20161110/23.html" target="_blank" rel="external">Ajax跨域请求，同时保证session一致</a><br><a href="https://stackoverflow.com/questions/34558264/fetch-api-with-cookie" target="_blank" rel="external">Fetch API with Cookie</a></p>
 
       
     </div>
