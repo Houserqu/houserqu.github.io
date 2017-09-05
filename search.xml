@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[曲折回学路]]></title>
+    <url>%2F2017%2F09%2F05%2F%E6%9B%B2%E6%8A%98%E5%9B%9E%E5%AD%A6%E8%B7%AF%2F</url>
+    <content type="text"><![CDATA[时隔五个月，终于再次回到学校，从去年12月份检查出病到现在，居然已经有十余月，真的不知道是如何走到现在的。这次病魔缠身，对我身体和精神带来了巨大打击，对家人也是带来了沉重的负担，感触颇深，希望对生命有重新的认识吧。不彻底痛苦一次，就不会知道生活恶习所引发的蝴蝶效应。 虽然已经回到学校，但似乎还没有那么顺利上课，治疗时间还没有达到规定，只好按规定办事了。 左手静脉血管上扎的疤痕依旧清晰可见，一天大把的药还需要服用，革命尚未成功！只能告诫自己好好爱惜身体吧。 这次回校真的激动万分，见到了等待已久的她，见到了高谈阔论的室友。生活很美好！]]></content>
+      <categories>
+        <category>随笔</category>
+      </categories>
+  </entry>
+  <entry>
     <title><![CDATA[fetch post formData]]></title>
     <url>%2F2017%2F08%2F18%2Ffetch-post-formData%2F</url>
     <content type="text"><![CDATA[当使用fetch用表单的方式post json类型的数据时候，需要注意几个问题 header设置header 的 ‘Content-Type’,’application/x-www-form-urlencoded;charset=utf-8’ 序列化json尝试过多种方式，需要处理成 ‘username=admin&amp;password=password’这种方式才能被正确的识别成 formData格式，可以在浏览器查看具体的请求体采用类似 new FormData() 方式会被处理成——WebKitFormBoundary 具体示例 1234567891011121314151617//序列化jsonconst formBody = Object.keys(paramsArray).map(key=&gt;encodeURIComponent(key)+'='+encodeURIComponent(paramsArray[key])) .join('&amp;');var headers = new Headers();headers.set('Content-Type','application/x-www-form-urlencoded;charset=utf-8');fetch('api/auth/login',&#123; method:'post', mode:'cors', credentials: "include", headers, body: formBody&#125;).then((response)=&gt;&#123; return response.json(); &#125;).then((responseData)=&gt;&#123; console.log(responseData);&#125;); 参考：四种常见的 POST 提交数据方式how to post a x-www-form-urlencoded request from react-nativeHow to make a post request with JSON data in application/x-www-form-urlencoded]]></content>
