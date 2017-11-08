@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[周总结]]></title>
+    <url>%2F2017%2F11%2F08%2F%E5%91%A8%E6%8A%A5%2F</url>
+    <content type="text"><![CDATA[本周概况 完成 水墨人生 JSSDK相关功能的开发以及一些收尾工作 开启 经英教育 项目并完成基本项目架构以及页面规划 完成复学相关手续 下周安排 继续 经英教育 项目的开发 完善 react-cli 脚手架项目 完成 学院官网 扫描的漏洞问题]]></content>
+      <categories>
+        <category>总结</category>
+      </categories>
+      <tags>
+        <tag>总结</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[个人总结的react脚手架]]></title>
     <url>%2F2017%2F09%2F07%2F%E4%B8%AA%E4%BA%BA%E6%80%BB%E7%BB%93%E7%9A%84react%E8%84%9A%E6%89%8B%E6%9E%B6%2F</url>
     <content type="text"><![CDATA[react-clireact应用的起步工程和总结 Github传送门 特点采用时下流行的技术栈，视图：react，状态管理：redux，路由：react-router 作为基础，配合webpack等开发工具而搭建的项目架构，适用于中小型项目，也可以在此基础上进行调整适合更多类型的项目。 同时还会提供react开发相关的资料、疑问、解决方案等，希望对开发者有所帮助，也对自己的技术有所提升。欢迎大家提供建议 技术栈 react redux react-router mock pace whatwg-fetch 项目构建目录结构123456789101112131415161718192021222324252627282930313233343536.├── README.md├── build #构建生成目录│ ├── bundle │ └── index.html├── package-lock.json├── package.json├── src #源代码文件│ ├── action.js #action创建函数文件│ ├── components #组件目录 *1│ │ ├── layout│ │ └── notify│ ├── http.js #所有fetch请求 *2│ ├── index.html #webpack生成html的模板 *3│ ├── index.js #入口文件│ ├── reducer.js #reducer *4│ ├── router.js #路由定义│ ├── routes #路由对应的page目录│ │ ├── App.js #入口文件 *5│ │ ├── index #一个页面对应一个文件夹 *6│ │ │ ├── Index.js│ │ │ └── index.scss│ │ └── login│ │ ├── Login.js│ │ └── login.scss│ ├── static #静态文件夹│ │ └── logo.jpg│ ├── store.js #store创建文件 *7│ └── utils #工具集│ ├── config.js #项目配置│ ├── mock.js #本地mock数据│ ├── pace.css #首屏加载动画css│ ├── pace.js #首屏加载动画js│ └── theme.scss #主题sass变量├── webpack.config.js #webpack开发配置文件└── webpack.production.config.js #webpack构建配置文件 目录结构说明 components 每一个组件对应一个文件夹，包含该组件js以及css，更小的组件也放在该文件夹下 将所有的请求独立出来放在一个文件里，每个fetch请求封装成一个回调函数并export 采用自定义html模板进行打包便于引用cdn等文件，或者其他自定义操作 项目复杂的时候可以创建reducer文件夹，进一步拆分 每个页面都是该组件的字组件，便于引入例如通知等全局组件 每个页面对应一个文件夹，因为一个页面包含的组件较多，利于拆分 独立出来store是便于在非组件的文件中操作reducer的store 开发说明克隆项目: 1git clone https://github.com/Houserqu/react-cli.git 进入项目目录安装依赖: 1npm i 开发: 1npm run dev 构建: 1npm run build]]></content>
