@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[周总结-13周]]></title>
+    <url>%2F2017%2F12%2F03%2F%E5%91%A8%E6%80%BB%E7%BB%93-13%E5%91%A8%2F</url>
+    <content type="text"><![CDATA[本周概况 初步完成 经英教育 项目 英语强化学习计划 操作系统使用英文语言 日常新闻使用BBC 周报使用英文 日常文档优先使用英文版 下周安排 创建个人React组件库项目，整合目前个人具有代表性的组件 了解在线测评系统，并总结其前端基于react的最佳实现 了解数据挖掘，研究应用于摄图网的可行性 完成一篇技术博文：阿里云视频点播在React中的实现]]></content>
+      <categories>
+        <category>总结</category>
+      </categories>
+  </entry>
+  <entry>
     <title><![CDATA[周总结-12周]]></title>
     <url>%2F2017%2F11%2F26%2F%E5%91%A8%E6%80%BB%E7%BB%93-12%E5%91%A8%2F</url>
     <content type="text"><![CDATA[本周概况 研究调试微信支付功能，熟悉微信支付原理和流程，并成功应用 研究学习 React 框架 学习编译原理 解决视频播放在 react 组件中实例化问题 下周安排 继续 经英教育 微信项目的开发 继续学习 编译原理 制定英语锻炼计划，并将一些日常学习工作英文化]]></content>
