@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[vscode中开启emmet对jsx的支持]]></title>
+    <url>%2F2018%2F03%2F03%2Fvscode%E4%B8%AD%E5%BC%80%E5%90%AFemmet%E5%AF%B9jsx%E7%9A%84%E6%94%AF%E6%8C%81%2F</url>
+    <content type="text"><![CDATA[在用户配置文件里添加如下配置, class会自动转化为className 1234"emmet.syntaxProfiles": &#123; "javascript": "jsx" &#125;,"emmet.triggerExpansionOnTab": true,]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>vscode</tag>
+        <tag>jsx</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[react-mobx-less-router架构起手]]></title>
     <url>%2F2018%2F03%2F02%2Freact-mobx-less-router%E6%9E%B6%E6%9E%84%E8%B5%B7%E6%89%8B%2F</url>
     <content type="text"><![CDATA[使用create-react-app创建项目创建项目create-react-app project 抛出配置文件npm run eject mobx安装mobxnpm install mobx mobx-react –save mobx中文文档 启用装饰器语法 在MobX 中使用 ES.next 装饰器是可选的。本章节将解释如何(避免)使用它们。 使用装饰器的优势: 样板文件最小化，声明式代码。易于使用和阅读。大多数 MobX 用户都在使用。 Babel中启用装饰器安装依赖npm i –save-dev babel-plugin-transform-decorators-legacy 编辑package.json，添加plugins，修改后如下 12345678"babel": &#123; "presets": [ "react-app" ], "plugins": [ "transform-decorators-legacy" ] &#125;, 在index.js文件中注入store1234567891011121314151617181920import React from 'react';import ReactDOM from 'react-dom';import './index.css';import App from './App';import registerServiceWorker from './registerServiceWorker';import &#123; HashRouter &#125; from 'react-router-dom';import &#123; Provider &#125; from 'mobx-react';import ResumeStore from './store/ResumeStore';let stores = &#123; ResumeStore,&#125;;ReactDOM.render(( &lt;Provider &#123;...stores&#125;&gt; &lt;HashRouter&gt; &lt;App /&gt; &lt;/HashRouter&gt; &lt;/Provider&gt;),document.getElementById('root'));registerServiceWorker(); 配置react-router安装react-routernpm install –save react-router App.js文件中配置路由123456789101112131415161718192021import React, &#123; Component &#125; from 'react';import './App.less';import &#123; Route, Switch,&#125; from 'react-router-dom'import Index from './page/Index';class App extends Component &#123; render() &#123; return ( &lt;div&gt; &lt;Switch&gt; &lt;Route path="/" component=&#123;Index&#125; /&gt; &lt;/Switch&gt; &lt;/div&gt; ); &#125;&#125;export default App; 配置 less安装依赖npm install less-loader less –save-dev 修改配置文件修改 config文件夹下的 webpack.config.dev.js 和 webpack.config-prod.js test: /.css$/ 改为 /.(css|less)$/ test: /.css$/ 的 use 数组配置增加 less-loader 修改后 1234567891011121314151617181920212223242526272829303132333435&#123; test: /\.(css|less)$/, use: [ require.resolve('style-loader'), &#123; loader: require.resolve('css-loader'), options: &#123; importLoaders: 1, &#125;, &#125;, &#123; loader: require.resolve('postcss-loader'), options: &#123; // Necessary for external CSS imports to work // https://github.com/facebookincubator/create-react-app/issues/2677 ident: 'postcss', plugins: () =&gt; [ require('postcss-flexbugs-fixes'), autoprefixer(&#123; browsers: [ '&gt;1%', 'last 4 versions', 'Firefox ESR', 'not ie &lt; 9', // React doesn't support IE8 anyway ], flexbox: 'no-2009', &#125;), ], &#125;, &#125;, &#123; loader: require.resolve('less-loader') // compiles Less to CSS &#125; ],&#125;]]></content>
