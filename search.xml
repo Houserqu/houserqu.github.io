@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[SQL常用语句]]></title>
+    <url>%2F2018%2F03%2F25%2FSQL%E5%B8%B8%E7%94%A8%E8%AF%AD%E5%8F%A5%2F</url>
+    <content type="text"><![CDATA[创建数据库 1CREATE DATABASE new_database; 显示数据库 1SHOW DATABASES ; 删除数据库 1DROP DATABASE example_1; 选择数据库 1USE example; 建表 CREATE TABLE 表名称(属性名 数据类型[约束条件]，属性名 数据类型[约束条件]); 1234567CREATE TABLE `fund_data` ( `id` bigint(20) NOT NULL AUTO_INCREMENT, `product_alias` varchar(64) NOT NULL DEFAULT '', `datetimes` varchar(64) NOT NULL DEFAULT '', `datas` varchar(64) NOT NULL DEFAULT '',PRIMARY KEY (`id`)) ENGINE=MyISAM AUTO_INCREMENT=691865 DEFAULT CHARSET=utf8; 显示表 1show tables; 修改表名 1alter table 旧表名 rename to 新表名; 插入数据 insert [into] 表名 [(列名1, 列名2, 列名3, …)] values (值1, 值2, 值3, …); 1insert into students values(NULL, "王刚", "男", 20, "13811371377"); 1insert into students (name, sex, age) values("王刚", "男", 21); 更新数据 update 表名称 set 列名1=取值1，列名2=取值2 where … 删除数据 delete from 表名称 where… 1delete from students where id=2; 1delete from students where age&lt;20; 1delete from students;]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>sql</tag>
+        <tag>mysql</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[node验证码生成工具]]></title>
     <url>%2F2018%2F03%2F25%2F%E3%80%90%E6%94%B6%E8%97%8F%E3%80%91node%E9%AA%8C%E8%AF%81%E7%A0%81%E7%94%9F%E6%88%90%E5%B7%A5%E5%85%B7%2F</url>
     <content type="text"><![CDATA[推荐一款node验证码生成工具 ccap 以下内容翻译自官方说明 不需要安装额外的库和软件，只需要用npm安装ccap就可以生成验证码。支持的node版本 0.12.x and 4.x.x 安装12345678910111213141516171819202122232425var captcha = ccap();var captcha = ccap(width, height, offset);var captcha = ccap(&#123; width:256,//set width,default is 256 height:60,//set height,default is 60 offset:40,//set text spacing,default is 40 quality:100,//set pic quality,default is 50 fontsize:57,//set font size,default is 57 generate:function()&#123;//Custom the function to generate captcha text //generate captcha text here return text;//return the captcha text &#125;&#125;); 简单示例123456789101112131415161718192021var http = require('http');var ccap = require('ccap')();//Instantiated ccap class http.createServer(function (request, response) &#123; if(request.url == '/favicon.ico')return response.end('');//Intercept request favicon.ico var ary = ccap.get(); var txt = ary[0]; var buf = ary[1]; response.end(buf); console.log(txt);&#125;).listen(8124);console.log('Server running at http://127.0.0.1:8124/'); API1234567var captcha = ccap();var ary = captcha.get();//ary[0] is captcha's text,ary[1] is captcha picture buffer.var text = ary[0];var buffer = ary[1]; 停止或开启缓存定时器1234567891011var ccap = require('ccap')();ccap.timerIsRunning(); //now timer is running, return 1ccap.clearTimeout(); //stop all create capature image, so will use the same the 20(default is 20) capature imagesccap.timerIsRunning();//now timer is stoped, return 0captcha8.setTimeout();//now timer is start againccap.timerIsRunning();//now timer is stoped, return 1]]></content>
