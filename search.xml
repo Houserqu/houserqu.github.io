@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[node验证码生成工具]]></title>
+    <url>%2F2018%2F03%2F25%2F%E3%80%90%E6%94%B6%E8%97%8F%E3%80%91node%E9%AA%8C%E8%AF%81%E7%A0%81%E7%94%9F%E6%88%90%E5%B7%A5%E5%85%B7%2F</url>
+    <content type="text"><![CDATA[推荐一款node验证码生成工具 ccap 以下内容翻译自官方说明 不需要安装额外的库和软件，只需要用npm安装ccap就可以生成验证码。支持的node版本 0.12.x and 4.x.x 安装12345678910111213141516171819202122232425var captcha = ccap();var captcha = ccap(width, height, offset);var captcha = ccap(&#123; width:256,//set width,default is 256 height:60,//set height,default is 60 offset:40,//set text spacing,default is 40 quality:100,//set pic quality,default is 50 fontsize:57,//set font size,default is 57 generate:function()&#123;//Custom the function to generate captcha text //generate captcha text here return text;//return the captcha text &#125;&#125;); 简单示例123456789101112131415161718192021var http = require('http');var ccap = require('ccap')();//Instantiated ccap class http.createServer(function (request, response) &#123; if(request.url == '/favicon.ico')return response.end('');//Intercept request favicon.ico var ary = ccap.get(); var txt = ary[0]; var buf = ary[1]; response.end(buf); console.log(txt);&#125;).listen(8124);console.log('Server running at http://127.0.0.1:8124/'); API1234567var captcha = ccap();var ary = captcha.get();//ary[0] is captcha's text,ary[1] is captcha picture buffer.var text = ary[0];var buffer = ary[1]; 停止或开启缓存定时器1234567891011var ccap = require('ccap')();ccap.timerIsRunning(); //now timer is running, return 1ccap.clearTimeout(); //stop all create capature image, so will use the same the 20(default is 20) capature imagesccap.timerIsRunning();//now timer is stoped, return 0captcha8.setTimeout();//now timer is start againccap.timerIsRunning();//now timer is stoped, return 1]]></content>
+      <categories>
+        <category>收藏</category>
+      </categories>
+      <tags>
+        <tag>javascript</tag>
+        <tag>node</tag>
+        <tag>验证码</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[vscode中开启emmet对jsx的支持]]></title>
     <url>%2F2018%2F03%2F03%2Fvscode%E4%B8%AD%E5%BC%80%E5%90%AFemmet%E5%AF%B9jsx%E7%9A%84%E6%94%AF%E6%8C%81%2F</url>
     <content type="text"><![CDATA[在用户配置文件里添加如下配置, class会自动转化为className 1234"emmet.syntaxProfiles": &#123; "javascript": "jsx" &#125;,"emmet.triggerExpansionOnTab": true,]]></content>
@@ -173,8 +186,8 @@
       </categories>
       <tags>
         <tag>javascript</tag>
-        <tag>fetch</tag>
         <tag>ajax</tag>
+        <tag>fetch</tag>
       </tags>
   </entry>
   <entry>
