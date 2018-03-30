@@ -1,9 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[排序算法对比]]></title>
+    <url>%2F2018%2F03%2F29%2F%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E5%AF%B9%E6%AF%94%2F</url>
+    <content type="text"><![CDATA[主要参考 十大经典排序算法总结（JavaScript描述） 原文更详细 名称 平均复杂度 最差复杂度 最优复杂度 空间开销 是否稳定 冒泡排序 $O( n^2 )$ $O( n^2 )$ $O( n^2 )$ $O(1) 是 选择排序 $O( n^2 )$ $O( n^2 )$ $O( n^2 )$ $O(1) 否 插入排序 $O( n^2 )$ $O( n^2 )$ $O( n^2 )$ $O(1) 是 希尔排序 $O( n\log(n) )$ $O( n^2 )$ $O( n\log_2n )$ $O(1) 否 快速排序 $O( n\log(n) )$ $O( n^2 )$ $O( n\log(n) )$ $O(1) 否 归并排序 $O( n\log(n) )$ $O( n\log(n) )$ $O( n\log(n) )$ $O(1) 是 堆排序 $O( n\log(n) )$ $O( n\log(n) )$ $O( n\log(n) )$ $O(1) 否 计数排序 $O( n + k )$ $O( n + k )$ $O( n + k )$ $O(1) 是 基数排序 $O( n * k )$ $O( n * k )$ $O( n * k )$ $O(1) 是 桶排序 $O( n + K )$ $O( n + K )$ $O( n^2 )$ $O(1) 是 堆排序中建堆过程的时间复杂度是 $O(n)$ 桶排序和基数排序均属于分配排序。分配排序的基本思想：排序过程无须比较关键字，而是通过用额外的空间来”分配”和”收集”来实现排序，它们的时间复杂度可达到线性阶：O(n)。简言之就是：用空间换时间，所以性能与基于比较的排序才有数量级的提高！ 参考 hexo中插入数学公式MathJax]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>算法</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Linux 常用命令]]></title>
+    <url>%2F2018%2F03%2F27%2FLinux-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%2F</url>
+    <content type="text"><![CDATA[文件和目录cd 进入文件夹1$ cd ~ //进入用户目录 chmod 更改文件或目录权限 chmod [-R] xyz 1$ chmod 770 xyz ls 列出 –l 显示一个文件的属性以及文件所属的用户和组 -a 显示包含隐藏文件 1$ ls -a // 列出包含隐藏的文件 cp 复制 cp [-adfilprsu] 来源档(source) 目标档(destination) 1$ cp -r source destination // 递归持续复制，用於目录的复制行为；(常用) rm 删除 -f ：就是 force 的意思，忽略不存在的文件，不会出现警告信息； -i ：互动模式，在删除前会询问使用者是否动作 -r ：递归删除啊！最常用在目录的删除了！这是非常危险的选项！！！ mv 移动文件与目录，或修改名称 mv [options] source1 source2 source3 …. directorymv [-fiu] source destination 磁盘管理df 列出文件系统的整体磁盘使用量 -a ：列出所有的文件系统，包括系统特有的 /proc 等文件系统； -k ：以 KBytes 的容量显示各文件系统； -m ：以 MBytes 的容量显示各文件系统； -h ：以人们较易阅读的 GBytes, MBytes, KBytes 等格式自行显示； -H ：以 M=1000K 取代 M=1024K 的进位方式； -T ：显示文件系统类型, 连同该 partition 的 filesystem 名称 (例如 ext3) 也列出； -i ：不用硬盘容量，而以 inode 的数量来显示 du 查看文件和目录磁盘使用的空间 du [-ahskm] 文件或目录名称 -a ：列出所有的文件与目录容量，因为默认仅统计目录底下的文件量而已。 -h ：以人们较易读的容量格式 (G/M) 显示； -s ：列出总量而已，而不列出每个各别的目录占用容量； -S ：不包括子目录下的总计，与 -s 有点差别。 -k ：以 KBytes 列出容量显示； -m ：以 MBytes 列出容量显示；]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>shell</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[前端技术栈速查（持续完善）]]></title>
     <url>%2F2018%2F03%2F26%2F%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF%E6%A0%88%E9%80%9F%E6%9F%A5%2F</url>
-    <content type="text"><![CDATA[个人使用或收藏的前端开发工具，便于快速查找需要的工具，完善项目技术栈 react UI库antd]]></content>
+    <content type="text"><![CDATA[个人使用或收藏的前端开发工具，便于快速查找需要的工具，完善项目技术栈 react UI库antd element]]></content>
       <categories>
         <category>笔记</category>
       </categories>
