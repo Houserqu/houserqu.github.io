@@ -312,160 +312,6 @@
   <section id="posts" class="posts-expand">
     
       
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://houserqu.com/2018/03/02/react-mobx-less-router架构起手/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Houser">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="http://houser.oss-cn-shanghai.aliyuncs.com/houserpage/houser.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Houser's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2018/03/02/react-mobx-less-router架构起手/" itemprop="url">
-                  react-mobx-less-router架构起手
-                </a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-02T11:06:15+08:00">
-                2018-03-02
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-              <span class="post-meta-divider">|</span>
-              <span class="post-meta-item-icon">
-                <i class="fa fa-comment-o"></i>
-              </span>
-              
-                <a href="/2018/03/02/react-mobx-less-router架构起手/#SOHUCS" itemprop="discussionUrl">
-                  <span id="url::http://houserqu.com/2018/03/02/react-mobx-less-router架构起手/" class="cy_cmt_count" data-xid="2018/03/02/react-mobx-less-router架构起手/" itemprop="commentsCount" ></span>
-                </a>
-              
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="使用create-react-app创建项目"><a href="#使用create-react-app创建项目" class="headerlink" title="使用create-react-app创建项目"></a>使用create-react-app创建项目</h1><h2 id="创建项目"><a href="#创建项目" class="headerlink" title="创建项目"></a>创建项目</h2><p>create-react-app project</p>
-<h2 id="抛出配置文件"><a href="#抛出配置文件" class="headerlink" title="抛出配置文件"></a>抛出配置文件</h2><p>npm run eject</p>
-<h1 id="mobx"><a href="#mobx" class="headerlink" title="mobx"></a>mobx</h1><h2 id="安装mobx"><a href="#安装mobx" class="headerlink" title="安装mobx"></a>安装mobx</h2><p>npm install mobx mobx-react –save</p>
-<blockquote>
-<p><a href="http://cn.mobx.js.org/" target="_blank" rel="external">mobx中文文档</a></p>
-</blockquote>
-<h2 id="启用装饰器语法"><a href="#启用装饰器语法" class="headerlink" title="启用装饰器语法"></a>启用装饰器语法</h2><blockquote>
-<p>在MobX 中使用 ES.next 装饰器是可选的。本章节将解释如何(避免)使用它们。</p>
-<p>使用装饰器的优势:</p>
-<p>样板文件最小化，声明式代码。<br>易于使用和阅读。大多数 MobX 用户都在使用。</p>
-</blockquote>
-<h3 id="Babel中启用装饰器"><a href="#Babel中启用装饰器" class="headerlink" title="Babel中启用装饰器"></a>Babel中启用装饰器</h3><p>安装依赖<br>npm i –save-dev babel-plugin-transform-decorators-legacy</p>
-<p>编辑package.json，添加plugins，修改后如下</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="string">"babel"</span>: &#123;</div><div class="line">    <span class="string">"presets"</span>: [</div><div class="line">      <span class="string">"react-app"</span></div><div class="line">    ],</div><div class="line">    <span class="string">"plugins"</span>: [</div><div class="line">      <span class="string">"transform-decorators-legacy"</span></div><div class="line">    ]</div><div class="line">  &#125;,</div></pre></td></tr></table></figure>
-<h3 id="在index-js文件中注入store"><a href="#在index-js文件中注入store" class="headerlink" title="在index.js文件中注入store"></a>在index.js文件中注入store</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">'react'</span>;</div><div class="line"><span class="keyword">import</span> ReactDOM <span class="keyword">from</span> <span class="string">'react-dom'</span>;</div><div class="line"><span class="keyword">import</span> <span class="string">'./index.css'</span>;</div><div class="line"><span class="keyword">import</span> App <span class="keyword">from</span> <span class="string">'./App'</span>;</div><div class="line"><span class="keyword">import</span> registerServiceWorker <span class="keyword">from</span> <span class="string">'./registerServiceWorker'</span>;</div><div class="line"><span class="keyword">import</span> &#123; HashRouter &#125; <span class="keyword">from</span> <span class="string">'react-router-dom'</span>;</div><div class="line"><span class="keyword">import</span> &#123; Provider &#125; <span class="keyword">from</span> <span class="string">'mobx-react'</span>;</div><div class="line"><span class="keyword">import</span> ResumeStore <span class="keyword">from</span> <span class="string">'./store/ResumeStore'</span>;</div><div class="line"><span class="keyword">let</span> stores = &#123;</div><div class="line">  ResumeStore,</div><div class="line">&#125;;</div><div class="line"></div><div class="line">ReactDOM.render((</div><div class="line">  &lt;Provider &#123;...stores&#125;&gt;</div><div class="line">    &lt;HashRouter&gt;</div><div class="line">      &lt;App /&gt;</div><div class="line">    &lt;<span class="regexp">/HashRouter&gt;</span></div><div class="line"><span class="regexp">  &lt;/</span>Provider&gt;</div><div class="line">),<span class="built_in">document</span>.getElementById(<span class="string">'root'</span>));</div><div class="line">registerServiceWorker();</div></pre></td></tr></table></figure>
-<h1 id="配置react-router"><a href="#配置react-router" class="headerlink" title="配置react-router"></a>配置react-router</h1><h2 id="安装react-router"><a href="#安装react-router" class="headerlink" title="安装react-router"></a>安装react-router</h2><p>npm install –save react-router</p>
-<h2 id="App-js文件中配置路由"><a href="#App-js文件中配置路由" class="headerlink" title="App.js文件中配置路由"></a>App.js文件中配置路由</h2><figure class="highlight jsx"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> React, &#123; Component &#125; <span class="keyword">from</span> <span class="string">'react'</span>;</div><div class="line"><span class="keyword">import</span> <span class="string">'./App.less'</span>;</div><div class="line"><span class="keyword">import</span> &#123;</div><div class="line">  Route,</div><div class="line">  Switch,</div><div class="line">&#125; <span class="keyword">from</span> <span class="string">'react-router-dom'</span></div><div class="line"><span class="keyword">import</span> Index <span class="keyword">from</span> <span class="string">'./page/Index'</span>;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">App</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</div><div class="line">  render() &#123;</div><div class="line">    <span class="keyword">return</span> (</div><div class="line">      &lt;div&gt;</div><div class="line">        &lt;Switch&gt;</div><div class="line">          &lt;Route path=<span class="string">"/"</span> component=&#123;Index&#125; /&gt;</div><div class="line">        &lt;<span class="regexp">/Switch&gt;</span></div><div class="line"><span class="regexp">      &lt;/</span>div&gt;</div><div class="line">    );</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> App;</div></pre></td></tr></table></figure>
-<h1 id="配置-less"><a href="#配置-less" class="headerlink" title="配置 less"></a>配置 less</h1><h2 id="安装依赖"><a href="#安装依赖" class="headerlink" title="安装依赖"></a>安装依赖</h2><p>npm install less-loader less –save-dev</p>
-<h2 id="修改配置文件"><a href="#修改配置文件" class="headerlink" title="修改配置文件"></a>修改配置文件</h2><p>修改 config文件夹下的 webpack.config.dev.js 和 webpack.config-prod.js </p>
-<ol>
-<li>test: /.css$/ 改为 /.(css|less)$/</li>
-<li>test: /.css$/ 的 use 数组配置增加 less-loader</li>
-</ol>
-<p>修改后</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  test: <span class="regexp">/\.(css|less)$/</span>,</div><div class="line">  use: [</div><div class="line">    <span class="built_in">require</span>.resolve(<span class="string">'style-loader'</span>),</div><div class="line">    &#123;</div><div class="line">      loader: <span class="built_in">require</span>.resolve(<span class="string">'css-loader'</span>),</div><div class="line">      options: &#123;</div><div class="line">        importLoaders: <span class="number">1</span>,</div><div class="line">      &#125;,</div><div class="line">    &#125;,</div><div class="line">    &#123;</div><div class="line">      loader: <span class="built_in">require</span>.resolve(<span class="string">'postcss-loader'</span>),</div><div class="line">      options: &#123;</div><div class="line">        <span class="comment">// Necessary for external CSS imports to work</span></div><div class="line">        <span class="comment">// https://github.com/facebookincubator/create-react-app/issues/2677</span></div><div class="line">        ident: <span class="string">'postcss'</span>,</div><div class="line">        plugins: <span class="function"><span class="params">()</span> =&gt;</span> [</div><div class="line">          <span class="built_in">require</span>(<span class="string">'postcss-flexbugs-fixes'</span>),</div><div class="line">          autoprefixer(&#123;</div><div class="line">            browsers: [</div><div class="line">              <span class="string">'&gt;1%'</span>,</div><div class="line">              <span class="string">'last 4 versions'</span>,</div><div class="line">              <span class="string">'Firefox ESR'</span>,</div><div class="line">              <span class="string">'not ie &lt; 9'</span>, <span class="comment">// React doesn't support IE8 anyway</span></div><div class="line">            ],</div><div class="line">            flexbox: <span class="string">'no-2009'</span>,</div><div class="line">          &#125;),</div><div class="line">        ],</div><div class="line">      &#125;,</div><div class="line">    &#125;,</div><div class="line">    &#123;</div><div class="line">      loader: <span class="built_in">require</span>.resolve(<span class="string">'less-loader'</span>) <span class="comment">// compiles Less to CSS</span></div><div class="line">    &#125;</div><div class="line">  ],</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
       
 
   
@@ -599,7 +445,9 @@
   </article>
 
 
+      
     
+      
       
 
   
@@ -766,7 +614,9 @@
   </article>
 
 
+      
     
+      
       
 
   
@@ -960,185 +810,9 @@
   </article>
 
 
+      
     
       
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://houserqu.com/2018/01/01/周总结-17周/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Houser">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="http://houser.oss-cn-shanghai.aliyuncs.com/houserpage/houser.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Houser's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2018/01/01/周总结-17周/" itemprop="url">
-                  周总结-17周
-                </a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-01T16:15:23+08:00">
-                2018-01-01
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/总结/" itemprop="url" rel="index">
-                    <span itemprop="name">总结</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-              <span class="post-meta-divider">|</span>
-              <span class="post-meta-item-icon">
-                <i class="fa fa-comment-o"></i>
-              </span>
-              
-                <a href="/2018/01/01/周总结-17周/#SOHUCS" itemprop="discussionUrl">
-                  <span id="url::http://houserqu.com/2018/01/01/周总结-17周/" class="cy_cmt_count" data-xid="2018/01/01/周总结-17周/" itemprop="commentsCount" ></span>
-                </a>
-              
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="关于个人发展的思考"><a href="#关于个人发展的思考" class="headerlink" title="关于个人发展的思考"></a>关于个人发展的思考</h3><p>想了很久，以论文/专利为出发点去写论文/专利对话，感觉无从下手，范围太广，盲目深钻很需要时间，就算写成，但不一定对将来发展有很好的帮助，主要是个人目前不打算往学术路上发展，以就业为主。个人发展规划是 前端工程师 &gt;&gt; 全栈工程师 &gt;&gt; 架构师。</p>
-<h3 id="主要目标"><a href="#主要目标" class="headerlink" title="主要目标"></a>主要目标</h3><p>打算还是<strong>依托产品去做点事情，目标是技术层面深入学习，同时能从中产生论文/专利/软著</strong>。目前我也没有比较满意的代表作品，尤其是前端领域的应用。项目对就业来说更有吸引力，面试对时候也更有说辞。保证在2018年秋招的时候达到一线公司的要求。</p>
-<h3 id="不足之处和侧重点"><a href="#不足之处和侧重点" class="headerlink" title="不足之处和侧重点"></a>不足之处和侧重点</h3><p>目前有一些校内校外项目实践经验，有一定的技术架构能力，完成一个比较完善的产品没有太大问题，但是还是存在一些短板</p>
-<ul>
-<li>前端技术还是不够精通，对于一些前端应用没有信手拈来对思路。</li>
-<li>企业级架构建设上还有所缺乏，目前做的项目也没有涉及到，无法去实践，例如 <strong>Redis、mongodb、消息队列、容器技术、分布式部署、服务端渲染</strong>等等企业级应用。所以打算在接下来到项目中能去应用和实践，这也是架构师必须有的能力。</li>
-<li>技术输出不够多，无法很好对现有的技术/思路进行总结和表达，博客维护不够多。</li>
-</ul>
-<p>上述的都是接下来项目技术层面需要侧重注意的，即：前端的高级应用、企业级架构的实践以及技术产出</p>
-<h3 id="关于产品"><a href="#关于产品" class="headerlink" title="关于产品"></a>关于产品</h3><p>目前有几个产品方向</p>
-<h5 id="私人助理应用"><a href="#私人助理应用" class="headerlink" title="私人助理应用"></a>私人助理应用</h5><p>面向工作者的功能集成应用，统一碎片化功能，例如笔记，清单，运动，饮食，记账，备忘，语音控制 等等，结合云计算API可以实现很多日常适用的功能，相当于个人助理一样</p>
-<ul>
-<li>跨平台：用JavaScript可以实现，提现前端能力</li>
-<li>并发处理</li>
-<li>企业架构实践</li>
-<li>。。。</li>
-</ul>
-<h5 id="Node企业级框架"><a href="#Node企业级框架" class="headerlink" title="Node企业级框架"></a>Node企业级框架</h5><p>目前Node还缺乏类似java的Spring、php的yii的框架，这个方向值得去尝试，但是难度很大，在技术界推广更是难以实现</p>
-<h5 id="React-组件库"><a href="#React-组件库" class="headerlink" title="React 组件库"></a>React 组件库</h5><p>纯粹是前端应用，技术广度不够</p>
-<h3 id="2017年总结"><a href="#2017年总结" class="headerlink" title="2017年总结"></a>2017年总结</h3><p>由于身体原因，最终做多事情不多，主要做的还是前端项目实践上，尤其是React的应用，值得去深入研究，也是未来方向。</p>
-<h3 id="2018年初步打算"><a href="#2018年初步打算" class="headerlink" title="2018年初步打算"></a>2018年初步打算</h3><ul>
-<li>上半年完成这个产品，尝试从中产生 论文/专利，并参与一些合适多比赛。</li>
-<li>技术产出</li>
-<li>准备好秋招</li>
-</ul>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
       
 
   
@@ -1271,7 +945,9 @@
   </article>
 
 
+      
     
+      
       
 
   
@@ -1403,7 +1079,9 @@
   </article>
 
 
+      
     
+      
       
 
   
@@ -1413,7 +1091,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://houserqu.com/2017/12/17/周总结-15周/">
+    <link itemprop="mainEntityOfPage" href="http://houserqu.com/2017/09/07/个人总结的react脚手架/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Houser">
@@ -1435,8 +1113,8 @@
             
               
                 
-                <a class="post-title-link" href="/2017/12/17/周总结-15周/" itemprop="url">
-                  周总结-15周
+                <a class="post-title-link" href="/2017/09/07/个人总结的react脚手架/" itemprop="url">
+                  个人总结的react脚手架
                 </a>
               
             
@@ -1452,8 +1130,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-17T19:44:42+08:00">
-                2017-12-17
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-07T17:39:00+08:00">
+                2017-09-07
               </time>
             
 
@@ -1475,8 +1153,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/总结/" itemprop="url" rel="index">
-                    <span itemprop="name">总结</span>
+                  <a href="/categories/原创/" itemprop="url" rel="index">
+                    <span itemprop="name">原创</span>
                   </a>
                 </span>
 
@@ -1494,8 +1172,8 @@
                 <i class="fa fa-comment-o"></i>
               </span>
               
-                <a href="/2017/12/17/周总结-15周/#SOHUCS" itemprop="discussionUrl">
-                  <span id="url::http://houserqu.com/2017/12/17/周总结-15周/" class="cy_cmt_count" data-xid="2017/12/17/周总结-15周/" itemprop="commentsCount" ></span>
+                <a href="/2017/09/07/个人总结的react脚手架/#SOHUCS" itemprop="discussionUrl">
+                  <span id="url::http://houserqu.com/2017/09/07/个人总结的react脚手架/" class="cy_cmt_count" data-xid="2017/09/07/个人总结的react脚手架/" itemprop="commentsCount" ></span>
                 </a>
               
             
@@ -1523,23 +1201,676 @@
       
         
           
-            <h2 id="本周概况"><a href="#本周概况" class="headerlink" title="本周概况"></a>本周概况</h2><h4 id="任务完成情况"><a href="#任务完成情况" class="headerlink" title="任务完成情况"></a>任务完成情况</h4><p><strong> 继续：完成一篇技术博文：阿里云视频点播在React中的实现 </strong></p>
-<blockquote>
-<p>需要继续完善</p>
-</blockquote>
-<p><strong> 完成经英教育扫尾工作 </strong></p>
-<blockquote>
-<p>基本完成，根据下周反应情况继续微调</p>
-</blockquote>
-<p><strong> 完成视频监控小项目 </strong></p>
-<blockquote>
-<p>基本完成，截图功能需要继续研究和实现，根据反应完善</p>
-</blockquote>
-<h2 id="下周安排"><a href="#下周安排" class="headerlink" title="下周安排"></a>下周安排</h2><ul>
-<li>结合时间，方向，对比论文和专利，确定下一步学术工作（主要）</li>
+            <h1 id="react-cli"><a href="#react-cli" class="headerlink" title="react-cli"></a><a href="https://github.com/Houserqu/react-cli" target="_blank" rel="external">react-cli</a></h1><p>react应用的起步工程和总结 <a href="https://github.com/Houserqu/react-cli" target="_blank" rel="external">Github传送门</a></p>
+<h2 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h2><p>采用时下流行的技术栈，视图：react，状态管理：redux，路由：react-router 作为基础，配合webpack等开发工具而搭建的项目架构，适用于中小型项目，也可以在此基础上进行调整适合更多类型的项目。</p>
+<p>同时还会提供react开发相关的资料、疑问、解决方案等，希望对开发者有所帮助，也对自己的技术有所提升。欢迎大家提供建议</p>
+<h2 id="技术栈"><a href="#技术栈" class="headerlink" title="技术栈"></a>技术栈</h2><ul>
+<li><a href="https://facebook.github.io/react/" target="_blank" rel="external">react</a></li>
+<li><a href="https://github.com/reactjs/redux" target="_blank" rel="external">redux</a></li>
+<li><a href="https://github.com/ReactTraining/react-router" target="_blank" rel="external">react-router</a></li>
+<li><a href="https://github.com/nuysoft/Mock" target="_blank" rel="external">mock</a></li>
+<li><a href="https://github.com/HubSpot/pace" target="_blank" rel="external">pace</a></li>
+<li><a href="https://github.com/github/fetch" target="_blank" rel="external">whatwg-fetch</a></li>
 </ul>
+<h2 id="项目构建"><a href="#项目构建" class="headerlink" title="项目构建"></a>项目构建</h2><h3 id="目录结构"><a href="#目录结构" class="headerlink" title="目录结构"></a>目录结构</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line">.</div><div class="line">├── README.md</div><div class="line">├── build                             #构建生成目录</div><div class="line">│   ├── bundle                        </div><div class="line">│   └── index.html</div><div class="line">├── package-lock.json</div><div class="line">├── package.json</div><div class="line">├── src                             #源代码文件</div><div class="line">│   ├── action.js                   #action创建函数文件</div><div class="line">│   ├── components                  #组件目录 *1</div><div class="line">│   │   ├── layout</div><div class="line">│   │   └── notify</div><div class="line">│   ├── http.js                     #所有fetch请求  *2</div><div class="line">│   ├── index.html                  #webpack生成html的模板 *3</div><div class="line">│   ├── index.js                    #入口文件</div><div class="line">│   ├── reducer.js                  #reducer  *4</div><div class="line">│   ├── router.js                   #路由定义</div><div class="line">│   ├── routes                      #路由对应的page目录</div><div class="line">│   │   ├── App.js                  #入口文件 *5</div><div class="line">│   │   ├── index                   #一个页面对应一个文件夹  *6</div><div class="line">│   │   │   ├── Index.js</div><div class="line">│   │   │   └── index.scss</div><div class="line">│   │   └── login</div><div class="line">│   │       ├── Login.js</div><div class="line">│   │       └── login.scss</div><div class="line">│   ├── static                      #静态文件夹</div><div class="line">│   │   └── logo.jpg</div><div class="line">│   ├── store.js                    #store创建文件  *7</div><div class="line">│   └── utils                       #工具集</div><div class="line">│       ├── config.js               #项目配置</div><div class="line">│       ├── mock.js                 #本地mock数据</div><div class="line">│       ├── pace.css                #首屏加载动画css</div><div class="line">│       ├── pace.js                 #首屏加载动画js</div><div class="line">│       └── theme.scss              #主题sass变量</div><div class="line">├── webpack.config.js               #webpack开发配置文件</div><div class="line">└── webpack.production.config.js    #webpack构建配置文件</div></pre></td></tr></table></figure>
+<h3 id="目录结构说明"><a href="#目录结构说明" class="headerlink" title="目录结构说明"></a>目录结构说明</h3><ol>
+<li>components 每一个组件对应一个文件夹，包含该组件js以及css，更小的组件也放在该文件夹下</li>
+<li>将所有的请求独立出来放在一个文件里，每个fetch请求封装成一个回调函数并export</li>
+<li>采用自定义html模板进行打包便于引用cdn等文件，或者其他自定义操作</li>
+<li>项目复杂的时候可以创建reducer文件夹，进一步拆分</li>
+<li>每个页面都是该组件的字组件，便于引入例如通知等全局组件</li>
+<li>每个页面对应一个文件夹，因为一个页面包含的组件较多，利于拆分</li>
+<li>独立出来store是便于在非组件的文件中操作reducer的store</li>
+</ol>
+<h3 id="开发说明"><a href="#开发说明" class="headerlink" title="开发说明"></a>开发说明</h3><p>克隆项目:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git <span class="built_in">clone</span> https://github.com/Houserqu/react-cli.git</div></pre></td></tr></table></figure>
+<p>进入项目目录安装依赖:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm i</div></pre></td></tr></table></figure>
+<p>开发:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm run dev</div></pre></td></tr></table></figure>
+<p>构建:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm run build</div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+      
+    
+      
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://houserqu.com/2017/09/05/曲折回学路/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Houser">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://houser.oss-cn-shanghai.aliyuncs.com/houserpage/houser.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Houser's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/09/05/曲折回学路/" itemprop="url">
+                  曲折回学路
+                </a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-05T22:40:51+08:00">
+                2017-09-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/随笔/" itemprop="url" rel="index">
+                    <span itemprop="name">随笔</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-comment-o"></i>
+              </span>
+              
+                <a href="/2017/09/05/曲折回学路/#SOHUCS" itemprop="discussionUrl">
+                  <span id="url::http://houserqu.com/2017/09/05/曲折回学路/" class="cy_cmt_count" data-xid="2017/09/05/曲折回学路/" itemprop="commentsCount" ></span>
+                </a>
+              
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>时隔五个月，终于再次回到学校，从去年12月份检查出病到现在，居然已经有十余月，真的不知道是如何走到现在的。<br>这次病魔缠身，对我身体和精神带来了巨大打击，对家人也是带来了沉重的负担，感触颇深，希望对生命有重新的认识吧。不彻底痛苦一次，就不会知道生活恶习所引发的蝴蝶效应。</p>
+<p>虽然已经回到学校，但似乎还没有那么顺利上课，治疗时间还没有达到规定，只好按规定办事了。</p>
+<p>左手静脉血管上扎的疤痕依旧清晰可见，一天大把的药还需要服用，革命尚未成功！只能告诫自己好好爱惜身体吧。</p>
+<p>这次回校真的激动万分，见到了等待已久的她，见到了高谈阔论的室友。生活很美好！</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+      
+    
+      
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://houserqu.com/2017/08/18/fetch-post-formData/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Houser">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://houser.oss-cn-shanghai.aliyuncs.com/houserpage/houser.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Houser's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/08/18/fetch-post-formData/" itemprop="url">
+                  fetch post formData
+                </a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-18T19:29:46+08:00">
+                2017-08-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-comment-o"></i>
+              </span>
+              
+                <a href="/2017/08/18/fetch-post-formData/#SOHUCS" itemprop="discussionUrl">
+                  <span id="url::http://houserqu.com/2017/08/18/fetch-post-formData/" class="cy_cmt_count" data-xid="2017/08/18/fetch-post-formData/" itemprop="commentsCount" ></span>
+                </a>
+              
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>当使用fetch用表单的方式post json类型的数据时候，需要注意几个问题</p>
+<h4 id="header"><a href="#header" class="headerlink" title="header"></a>header</h4><p>设置header 的 ‘Content-Type’,’application/x-www-form-urlencoded;charset=utf-8’</p>
+<h4 id="序列化json"><a href="#序列化json" class="headerlink" title="序列化json"></a>序列化json</h4><p>尝试过多种方式，需要处理成 ‘username=admin&amp;password=password’这种方式才能被正确的识别成 formData格式，可以在浏览器查看具体的请求体<br>采用类似  new FormData() 方式会被处理成——WebKitFormBoundary</p>
+<p>具体示例</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//序列化json</span></div><div class="line"><span class="keyword">const</span> formBody = <span class="built_in">Object</span>.keys(paramsArray).map(<span class="function"><span class="params">key</span>=&gt;</span><span class="built_in">encodeURIComponent</span>(key)+<span class="string">'='</span>+<span class="built_in">encodeURIComponent</span>(paramsArray[key])) .join(<span class="string">'&amp;'</span>);</div><div class="line"></div><div class="line"><span class="keyword">var</span> headers = <span class="keyword">new</span> Headers();</div><div class="line">headers.set(<span class="string">'Content-Type'</span>,<span class="string">'application/x-www-form-urlencoded;charset=utf-8'</span>);</div><div class="line"></div><div class="line">fetch(<span class="string">'api/auth/login'</span>,&#123;</div><div class="line">    method:<span class="string">'post'</span>,</div><div class="line">    mode:<span class="string">'cors'</span>,</div><div class="line">    credentials: <span class="string">"include"</span>,</div><div class="line">    headers,</div><div class="line">    body: formBody</div><div class="line">&#125;).then(<span class="function">(<span class="params">response</span>)=&gt;</span>&#123;</div><div class="line">    <span class="keyword">return</span> response.json(); </div><div class="line">&#125;).then(<span class="function">(<span class="params">responseData</span>)=&gt;</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(responseData);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>参考：<br><a href="https://imququ.com/post/four-ways-to-post-data-in-http.html" target="_blank" rel="external">四种常见的 POST 提交数据方式</a><br><a href="https://stackoverflow.com/questions/35325370/how-to-post-a-x-www-form-urlencoded-request-from-react-native" target="_blank" rel="external">how to post a x-www-form-urlencoded request from react-native</a><br><a href="https://github.com/github/fetch/issues/263" target="_blank" rel="external">How to make a post request with JSON data in application/x-www-form-urlencoded</a></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+      
+    
+      
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://houserqu.com/2017/08/18/AJAX-Fetch在跨域情况发送cookie并保持sessionid一致/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Houser">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://houser.oss-cn-shanghai.aliyuncs.com/houserpage/houser.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Houser's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/08/18/AJAX-Fetch在跨域情况发送cookie并保持sessionid一致/" itemprop="url">
+                  AJAX/Fetch 在跨域情况下发送cookie并保持 sessionid一致
+                </a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-18T18:24:03+08:00">
+                2017-08-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-comment-o"></i>
+              </span>
+              
+                <a href="/2017/08/18/AJAX-Fetch在跨域情况发送cookie并保持sessionid一致/#SOHUCS" itemprop="discussionUrl">
+                  <span id="url::http://houserqu.com/2017/08/18/AJAX-Fetch在跨域情况发送cookie并保持sessionid一致/" class="cy_cmt_count" data-xid="2017/08/18/AJAX-Fetch在跨域情况发送cookie并保持sessionid一致/" itemprop="commentsCount" ></span>
+                </a>
+              
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="Ajax"><a href="#Ajax" class="headerlink" title="Ajax"></a>Ajax</h3><p>ajax在跨域发送请求的时候需要添加 <strong>xhrFields</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">$.ajax(&#123;</div><div class="line">        url:<span class="string">'example.com'</span>,</div><div class="line">        method:<span class="string">'post'</span>,</div><div class="line">        datatype:<span class="string">'json'</span>,</div><div class="line">        xhrFields: &#123;</div><div class="line">            withCredentials: <span class="literal">true</span></div><div class="line">        &#125;,</div><div class="line">        crossDomain: <span class="literal">true</span>,</div><div class="line">        data:param,</div><div class="line">        success:<span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;</div><div class="line">            <span class="built_in">console</span>.log(data);</div><div class="line">        &#125;</div><div class="line">    &#125;)</div></pre></td></tr></table></figure>
+<h3 id="Fetch"><a href="#Fetch" class="headerlink" title="Fetch"></a>Fetch</h3><p>fetch在跨域发送请求的时候需要添加 <a href="https://developer.mozilla.org/en-US/docs/Web/API/Request/credentials" target="_blank" rel="external"><strong>credentials: “include”</strong></a></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">fetch(<span class="string">'http://example.com'</span>,&#123;</div><div class="line">    method:<span class="string">'post'</span>,</div><div class="line">    mode:<span class="string">'cors'</span>,</div><div class="line">    credentials: <span class="string">"include"</span>,</div><div class="line">    body: param</div><div class="line">&#125;).then(<span class="function">(<span class="params">response</span>)=&gt;</span>&#123;</div><div class="line">    <span class="keyword">return</span> response.json(); </div><div class="line">&#125;).then(<span class="function">(<span class="params">responseData</span>)=&gt;</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(responseData);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>参考：<br><a href="http://www.julyme.com/20161110/23.html" target="_blank" rel="external">Ajax跨域请求，同时保证session一致</a><br><a href="https://stackoverflow.com/questions/34558264/fetch-api-with-cookie" target="_blank" rel="external">Fetch API with Cookie</a></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+      
+    
+      
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://houserqu.com/2017/08/06/更换新的Blog/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Houser">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://houser.oss-cn-shanghai.aliyuncs.com/houserpage/houser.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Houser's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/08/06/更换新的Blog/" itemprop="url">
+                  更换新的Blog系统
+                </a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-06T21:30:51+08:00">
+                2017-08-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/随笔/" itemprop="url" rel="index">
+                    <span itemprop="name">随笔</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-comment-o"></i>
+              </span>
+              
+                <a href="/2017/08/06/更换新的Blog/#SOHUCS" itemprop="discussionUrl">
+                  <span id="url::http://houserqu.com/2017/08/06/更换新的Blog/" class="cy_cmt_count" data-xid="2017/08/06/更换新的Blog/" itemprop="commentsCount" ></span>
+                </a>
+              
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>经过长时间的调研，钻研，新的blog系统终于上线了</p>
+<p>从wordpress，到个人用react+laravel开发，到现在的github pages</p>
+<p>觉得目前的模式还是挺不错的，github，nodejs，markdown都是我非常喜欢的技术，这三者的结合希望能给我带来愉快的码字体验</p>
+<p>当然最重要的还是多敲多写</p>
 <blockquote>
-<p>之前搁置了一篇论文，方向是流数据处理，需要重新考虑一下究竟是论文还是专利更适合现阶段去做。有过一篇论文经验，但是对专利的发表比较陌生，需要详细了解。</p>
+<p>好记性不如烂指头</p>
 </blockquote>
 
           
@@ -1574,350 +1905,7 @@
   </article>
 
 
-    
       
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://houserqu.com/2017/12/10/周总结-14周/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Houser">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="http://houser.oss-cn-shanghai.aliyuncs.com/houserpage/houser.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Houser's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/12/10/周总结-14周/" itemprop="url">
-                  周总结-14周
-                </a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-10T21:11:52+08:00">
-                2017-12-10
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/总结/" itemprop="url" rel="index">
-                    <span itemprop="name">总结</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-              <span class="post-meta-divider">|</span>
-              <span class="post-meta-item-icon">
-                <i class="fa fa-comment-o"></i>
-              </span>
-              
-                <a href="/2017/12/10/周总结-14周/#SOHUCS" itemprop="discussionUrl">
-                  <span id="url::http://houserqu.com/2017/12/10/周总结-14周/" class="cy_cmt_count" data-xid="2017/12/10/周总结-14周/" itemprop="commentsCount" ></span>
-                </a>
-              
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="本周概况"><a href="#本周概况" class="headerlink" title="本周概况"></a>本周概况</h2><h4 id="任务完成情况"><a href="#任务完成情况" class="headerlink" title="任务完成情况"></a>任务完成情况</h4><p><strong> 创建个人React组件库项目，整合目前个人具有代表性的组件 </strong></p>
-<blockquote>
-<p>已经完成，已经整合的有 Ueditor， Github地址：<a href="https://github.com/Houserqu/react-component" target="_blank" rel="external">https://github.com/Houserqu/react-component</a></p>
-</blockquote>
-<p><strong> 了解在线测评系统，并总结其前端基于react的最佳实现 </strong></p>
-<blockquote>
-<p>网上没有现成方案，需要开发。目前方案：服务端返回所有题目，前端渲染成左右切换式，每次完成一题，请求后端创建记录，切换下一题。服务端会记录每一题的完成情况</p>
-</blockquote>
-<p><strong> 了解数据挖掘，研究应用于*图网的可行性 </strong></p>
-<blockquote>
-<p>带水印图片是固定链接，由目录、分类id、分辨路构成，无水印原图由目录、分类id、加密字符串构成，该字符串与用户有关，是突破难点</p>
-</blockquote>
-<p><strong> 完成一篇技术博文：阿里云视频点播在React中的实现 </strong></p>
-<blockquote>
-<p>未完成。。。</p>
-</blockquote>
-<h2 id="下周安排"><a href="#下周安排" class="headerlink" title="下周安排"></a>下周安排</h2><ul>
-<li>继续：完成一篇技术博文：阿里云视频点播在React中的实现</li>
-<li>完成经英教育扫尾工作（主要）</li>
-<li>完成视频监控小项目 （主要）</li>
-<li>完成至少一半网络原理需要补交的作业 </li>
-</ul>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://houserqu.com/2017/12/03/周总结-13周/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Houser">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="http://houser.oss-cn-shanghai.aliyuncs.com/houserpage/houser.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Houser's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/12/03/周总结-13周/" itemprop="url">
-                  周总结-13周
-                </a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-03T22:56:39+08:00">
-                2017-12-03
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/总结/" itemprop="url" rel="index">
-                    <span itemprop="name">总结</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-              <span class="post-meta-divider">|</span>
-              <span class="post-meta-item-icon">
-                <i class="fa fa-comment-o"></i>
-              </span>
-              
-                <a href="/2017/12/03/周总结-13周/#SOHUCS" itemprop="discussionUrl">
-                  <span id="url::http://houserqu.com/2017/12/03/周总结-13周/" class="cy_cmt_count" data-xid="2017/12/03/周总结-13周/" itemprop="commentsCount" ></span>
-                </a>
-              
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="本周概况"><a href="#本周概况" class="headerlink" title="本周概况"></a>本周概况</h2><ul>
-<li>初步完成 <strong>经英教育</strong> 项目</li>
-<li>英语强化学习计划<ul>
-<li>操作系统使用英文语言</li>
-<li>日常新闻使用BBC</li>
-<li>周报使用英文</li>
-<li>日常文档优先使用英文版</li>
-</ul>
-</li>
-</ul>
-<h2 id="下周安排"><a href="#下周安排" class="headerlink" title="下周安排"></a>下周安排</h2><ul>
-<li>创建个人React组件库项目，整合目前个人具有代表性的组件</li>
-<li>了解在线测评系统，并总结其前端基于react的最佳实现</li>
-<li>了解数据挖掘，研究应用于摄图网的可行性</li>
-<li>完成一篇技术博文：阿里云视频点播在React中的实现</li>
-</ul>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
     
   </section>
 
@@ -1968,7 +1956,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">29</span>
+                <span class="site-state-item-count">21</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
