@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[前端开发中用到的位置和尺寸]]></title>
     <url>%2F2018%2F04%2F13%2F%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%E4%B8%AD%E7%94%A8%E5%88%B0%E7%9A%84%E8%B7%9D%E7%A6%BB%E5%92%8C%E4%BD%8D%E7%BD%AE%2F</url>
-    <content type="text"><![CDATA[dom元素的位置和尺寸属性 clientWidth clientHeight和clientWidth用于描述元素内尺寸，是指 元素内容+内边距 大小，不包括边框（IE下实际包括）、外边距、滚动条部分 clientHeight]]></content>
+    <content type="text"><![CDATA[dom元素的位置和尺寸属性clientWidth/clientHeightclientHeight和clientWidth用于描述元素内尺寸，是指 元素内容+内边距 大小，不包括边框（IE下实际包括）、外边距、滚动条部分 clientLeft/clientTopclientTop和clientLeft返回内边距的边缘和边框的外边缘之间的水平和垂直距离，也就是左，上边框宽度 offsetWidth/offsetHeightoffsetHeight和offsetWidth用于描述元素外尺寸，是指 元素内容+内边距+边框，不包括外边距和滚动条部分 offsetLeft/offsetTopoffsetTop和offsetLeft表示该元素的左上角（边框外边缘）与已定位的父容器（offsetParent对象）左上角的距离 scrollWidth/scrollHeightscrollLeft/scrollTop参考链接 JavaScript获取DOM元素位置和尺寸大小JS获取浏览器窗口大小 获取屏幕，浏览器，网页高度宽度]]></content>
   </entry>
   <entry>
     <title><![CDATA[腾讯2018前端实习生招聘面试记录]]></title>
@@ -189,8 +189,8 @@
       </categories>
       <tags>
         <tag>javascript</tag>
-        <tag>ajax</tag>
         <tag>fetch</tag>
+        <tag>ajax</tag>
       </tags>
   </entry>
   <entry>
