@@ -321,6 +321,148 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://houserqu.com/2018/04/18/p-标签的嵌套规则/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Houser">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://houser.oss-cn-shanghai.aliyuncs.com/houserpage/houser.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Houser's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2018/04/18/p-标签的嵌套规则/" itemprop="url">
+                  html 中 p 标签的嵌套规则
+                </a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-18T16:36:13+08:00">
+                2018-04-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-comment-o"></i>
+              </span>
+              
+                <a href="/2018/04/18/p-标签的嵌套规则/#SOHUCS" itemprop="discussionUrl">
+                  <span id="url::http://houserqu.com/2018/04/18/p-标签的嵌套规则/" class="cy_cmt_count" data-xid="2018/04/18/p-标签的嵌套规则/" itemprop="commentsCount" ></span>
+                </a>
+              
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>偶然遇到了 </p><p> 标签的嵌套问题，有必要mark一下。</p>
+<p><strong> p 标签内部不能嵌套 原始块元素，否则会通过自动闭合p标签，使块元素暴露出来 </strong></p>
+<p>例如如下写法</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">id</span>=<span class="string">"a"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">p</span> <span class="attr">id</span>=<span class="string">"b"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"display: inline"</span>&gt;</span>123<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">""</span> <span class="attr">id</span>=<span class="string">"c"</span>&gt;</span>ccc<span class="tag">&lt;/<span class="name">a</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">p</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>经过浏览器就会解析成</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">id</span>=<span class="string">"a"</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">id</span>=<span class="string">"b"</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"display: inline"</span>&gt;</span>123<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">""</span> <span class="attr">id</span>=<span class="string">"c"</span>&gt;</span>ccc<span class="tag">&lt;/<span class="name">a</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></div></pre></td></tr></table></figure>
+<blockquote>
+<p>div 虽然加上了 display:inline 但是其本身是块级元素，所以在p标签中依然当做块元素对待</p>
+</blockquote>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+      
+    
+      
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://houserqu.com/2018/04/13/前端开发中用到的距离和位置/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1576,163 +1718,6 @@
 
       
     
-      
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://houserqu.com/2018/03/02/react-mobx-less-router架构起手/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Houser">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="http://houser.oss-cn-shanghai.aliyuncs.com/houserpage/houser.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Houser's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2018/03/02/react-mobx-less-router架构起手/" itemprop="url">
-                  react-mobx-less-router架构起手
-                </a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-02T11:06:15+08:00">
-                2018-03-02
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-              <span class="post-meta-divider">|</span>
-              <span class="post-meta-item-icon">
-                <i class="fa fa-comment-o"></i>
-              </span>
-              
-                <a href="/2018/03/02/react-mobx-less-router架构起手/#SOHUCS" itemprop="discussionUrl">
-                  <span id="url::http://houserqu.com/2018/03/02/react-mobx-less-router架构起手/" class="cy_cmt_count" data-xid="2018/03/02/react-mobx-less-router架构起手/" itemprop="commentsCount" ></span>
-                </a>
-              
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="使用create-react-app创建项目"><a href="#使用create-react-app创建项目" class="headerlink" title="使用create-react-app创建项目"></a>使用create-react-app创建项目</h1><h2 id="创建项目"><a href="#创建项目" class="headerlink" title="创建项目"></a>创建项目</h2><p>create-react-app project</p>
-<h2 id="抛出配置文件"><a href="#抛出配置文件" class="headerlink" title="抛出配置文件"></a>抛出配置文件</h2><p>npm run eject</p>
-<h1 id="mobx"><a href="#mobx" class="headerlink" title="mobx"></a>mobx</h1><h2 id="安装mobx"><a href="#安装mobx" class="headerlink" title="安装mobx"></a>安装mobx</h2><p>npm install mobx mobx-react –save</p>
-<blockquote>
-<p><a href="http://cn.mobx.js.org/" target="_blank" rel="external">mobx中文文档</a></p>
-</blockquote>
-<h2 id="启用装饰器语法"><a href="#启用装饰器语法" class="headerlink" title="启用装饰器语法"></a>启用装饰器语法</h2><blockquote>
-<p>在MobX 中使用 ES.next 装饰器是可选的。本章节将解释如何(避免)使用它们。</p>
-<p>使用装饰器的优势:</p>
-<p>样板文件最小化，声明式代码。<br>易于使用和阅读。大多数 MobX 用户都在使用。</p>
-</blockquote>
-<h3 id="Babel中启用装饰器"><a href="#Babel中启用装饰器" class="headerlink" title="Babel中启用装饰器"></a>Babel中启用装饰器</h3><p>安装依赖<br>npm i –save-dev babel-plugin-transform-decorators-legacy</p>
-<p>编辑package.json，添加plugins，修改后如下</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="string">"babel"</span>: &#123;</div><div class="line">    <span class="string">"presets"</span>: [</div><div class="line">      <span class="string">"react-app"</span></div><div class="line">    ],</div><div class="line">    <span class="string">"plugins"</span>: [</div><div class="line">      <span class="string">"transform-decorators-legacy"</span></div><div class="line">    ]</div><div class="line">  &#125;,</div></pre></td></tr></table></figure>
-<h3 id="在index-js文件中注入store"><a href="#在index-js文件中注入store" class="headerlink" title="在index.js文件中注入store"></a>在index.js文件中注入store</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">'react'</span>;</div><div class="line"><span class="keyword">import</span> ReactDOM <span class="keyword">from</span> <span class="string">'react-dom'</span>;</div><div class="line"><span class="keyword">import</span> <span class="string">'./index.css'</span>;</div><div class="line"><span class="keyword">import</span> App <span class="keyword">from</span> <span class="string">'./App'</span>;</div><div class="line"><span class="keyword">import</span> registerServiceWorker <span class="keyword">from</span> <span class="string">'./registerServiceWorker'</span>;</div><div class="line"><span class="keyword">import</span> &#123; HashRouter &#125; <span class="keyword">from</span> <span class="string">'react-router-dom'</span>;</div><div class="line"><span class="keyword">import</span> &#123; Provider &#125; <span class="keyword">from</span> <span class="string">'mobx-react'</span>;</div><div class="line"><span class="keyword">import</span> ResumeStore <span class="keyword">from</span> <span class="string">'./store/ResumeStore'</span>;</div><div class="line"><span class="keyword">let</span> stores = &#123;</div><div class="line">  ResumeStore,</div><div class="line">&#125;;</div><div class="line"></div><div class="line">ReactDOM.render((</div><div class="line">  &lt;Provider &#123;...stores&#125;&gt;</div><div class="line">    &lt;HashRouter&gt;</div><div class="line">      &lt;App /&gt;</div><div class="line">    &lt;<span class="regexp">/HashRouter&gt;</span></div><div class="line"><span class="regexp">  &lt;/</span>Provider&gt;</div><div class="line">),<span class="built_in">document</span>.getElementById(<span class="string">'root'</span>));</div><div class="line">registerServiceWorker();</div></pre></td></tr></table></figure>
-<h1 id="配置react-router"><a href="#配置react-router" class="headerlink" title="配置react-router"></a>配置react-router</h1><h2 id="安装react-router"><a href="#安装react-router" class="headerlink" title="安装react-router"></a>安装react-router</h2><p>npm install –save react-router</p>
-<h2 id="App-js文件中配置路由"><a href="#App-js文件中配置路由" class="headerlink" title="App.js文件中配置路由"></a>App.js文件中配置路由</h2><figure class="highlight jsx"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> React, &#123; Component &#125; <span class="keyword">from</span> <span class="string">'react'</span>;</div><div class="line"><span class="keyword">import</span> <span class="string">'./App.less'</span>;</div><div class="line"><span class="keyword">import</span> &#123;</div><div class="line">  Route,</div><div class="line">  Switch,</div><div class="line">&#125; <span class="keyword">from</span> <span class="string">'react-router-dom'</span></div><div class="line"><span class="keyword">import</span> Index <span class="keyword">from</span> <span class="string">'./page/Index'</span>;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">App</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</div><div class="line">  render() &#123;</div><div class="line">    <span class="keyword">return</span> (</div><div class="line">      &lt;div&gt;</div><div class="line">        &lt;Switch&gt;</div><div class="line">          &lt;Route path=<span class="string">"/"</span> component=&#123;Index&#125; /&gt;</div><div class="line">        &lt;<span class="regexp">/Switch&gt;</span></div><div class="line"><span class="regexp">      &lt;/</span>div&gt;</div><div class="line">    );</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> App;</div></pre></td></tr></table></figure>
-<h1 id="配置-less"><a href="#配置-less" class="headerlink" title="配置 less"></a>配置 less</h1><h2 id="安装依赖"><a href="#安装依赖" class="headerlink" title="安装依赖"></a>安装依赖</h2><p>npm install less-loader less –save-dev</p>
-<h2 id="修改配置文件"><a href="#修改配置文件" class="headerlink" title="修改配置文件"></a>修改配置文件</h2><p>修改 config文件夹下的 webpack.config.dev.js 和 webpack.config-prod.js </p>
-<ol>
-<li>test: /.css$/ 改为 /.(css|less)$/</li>
-<li>test: /.css$/ 的 use 数组配置增加 less-loader</li>
-</ol>
-<p>修改后</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  test: <span class="regexp">/\.(css|less)$/</span>,</div><div class="line">  use: [</div><div class="line">    <span class="built_in">require</span>.resolve(<span class="string">'style-loader'</span>),</div><div class="line">    &#123;</div><div class="line">      loader: <span class="built_in">require</span>.resolve(<span class="string">'css-loader'</span>),</div><div class="line">      options: &#123;</div><div class="line">        importLoaders: <span class="number">1</span>,</div><div class="line">      &#125;,</div><div class="line">    &#125;,</div><div class="line">    &#123;</div><div class="line">      loader: <span class="built_in">require</span>.resolve(<span class="string">'postcss-loader'</span>),</div><div class="line">      options: &#123;</div><div class="line">        <span class="comment">// Necessary for external CSS imports to work</span></div><div class="line">        <span class="comment">// https://github.com/facebookincubator/create-react-app/issues/2677</span></div><div class="line">        ident: <span class="string">'postcss'</span>,</div><div class="line">        plugins: <span class="function"><span class="params">()</span> =&gt;</span> [</div><div class="line">          <span class="built_in">require</span>(<span class="string">'postcss-flexbugs-fixes'</span>),</div><div class="line">          autoprefixer(&#123;</div><div class="line">            browsers: [</div><div class="line">              <span class="string">'&gt;1%'</span>,</div><div class="line">              <span class="string">'last 4 versions'</span>,</div><div class="line">              <span class="string">'Firefox ESR'</span>,</div><div class="line">              <span class="string">'not ie &lt; 9'</span>, <span class="comment">// React doesn't support IE8 anyway</span></div><div class="line">            ],</div><div class="line">            flexbox: <span class="string">'no-2009'</span>,</div><div class="line">          &#125;),</div><div class="line">        ],</div><div class="line">      &#125;,</div><div class="line">    &#125;,</div><div class="line">    &#123;</div><div class="line">      loader: <span class="built_in">require</span>.resolve(<span class="string">'less-loader'</span>) <span class="comment">// compiles Less to CSS</span></div><div class="line">    &#125;</div><div class="line">  ],</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-      
-    
   </section>
 
   
@@ -1782,7 +1767,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">21</span>
+                <span class="site-state-item-count">22</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
