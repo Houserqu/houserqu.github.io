@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[对table进行排序]]></title>
+    <url>%2F2018%2F04%2F19%2F%E5%AF%B9table%E8%BF%9B%E8%A1%8C%E6%8E%92%E5%BA%8F%2F</url>
+    <content type="text"><![CDATA[百度2019前端实习生招聘的一道编程题：根据给定table字段进行升降排序，当时做得不太好，事后再实现一遍。 当时被HtmCollection卡住了一下，建议参考NodeList v.s. HTMLCollection 完整代码如下 123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172&lt;!DOCTYPE html&gt;&lt;html lang="en"&gt;&lt;head&gt; &lt;meta charset="UTF-8"&gt; &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt; &lt;meta http-equiv="X-UA-Compatible" content="ie=edge"&gt; &lt;title&gt;Document&lt;/title&gt;&lt;/head&gt;&lt;body&gt; &lt;table id="jsList"&gt; &lt;thead&gt; &lt;tr&gt;&lt;th&gt;id&lt;/th&gt;&lt;th&gt;price&lt;/th&gt;&lt;th&gt;sales&lt;/th&gt;&lt;/tr&gt; &lt;/thead&gt; &lt;tbody&gt; &lt;tr&gt;&lt;td&gt;1&lt;/td&gt;&lt;td&gt;10.0&lt;/td&gt;&lt;td&gt;800&lt;/td&gt;&lt;/tr&gt; &lt;tr&gt;&lt;td&gt;2&lt;/td&gt;&lt;td&gt;30.0&lt;/td&gt;&lt;td&gt;600&lt;/td&gt;&lt;/tr&gt; &lt;tr&gt;&lt;td&gt;3&lt;/td&gt;&lt;td&gt;20.5&lt;/td&gt;&lt;td&gt;700&lt;/td&gt;&lt;/tr&gt; &lt;tr&gt;&lt;td&gt;4&lt;/td&gt;&lt;td&gt;40.5&lt;/td&gt;&lt;td&gt;500&lt;/td&gt;&lt;/tr&gt; &lt;tr&gt;&lt;td&gt;5&lt;/td&gt;&lt;td&gt;60.5&lt;/td&gt;&lt;td&gt;300&lt;/td&gt;&lt;/tr&gt; &lt;tr&gt;&lt;td&gt;6&lt;/td&gt;&lt;td&gt;50.0&lt;/td&gt;&lt;td&gt;400&lt;/td&gt;&lt;/tr&gt; &lt;tr&gt;&lt;td&gt;7&lt;/td&gt;&lt;td&gt;70.0&lt;/td&gt;&lt;td&gt;200&lt;/td&gt;&lt;/tr&gt; &lt;tr&gt;&lt;td&gt;8&lt;/td&gt;&lt;td&gt;80.5&lt;/td&gt;&lt;td&gt;100&lt;/td&gt;&lt;/tr&gt; &lt;/tbody&gt; &lt;/table&gt;&lt;/body&gt;&lt;script&gt;var tableSort = function(selector, column, order) &#123; var table = document.querySelector(selector); var column_index = -1; //排序字段的索引 // 查找字段index var th_collection = table.querySelector('thead').querySelector('tr').getElementsByTagName('th'); Array.prototype.forEach.call(th_collection, function(el, index) &#123; if(el.innerHTML == column)&#123; column_index = index; &#125; &#125;) if(column_index == -1)&#123; alert('字段不存在'); return; &#125; // 获取dom collection var dom_lines = table.querySelector('tbody').children; // domlines 是HTML Collection对象，类数组，但不具有数组相关的方法，所以转换成数组 var lines = Array.prototype.slice.call(dom_lines, 0); lines.sort(function(a, b) &#123; var a_value = a.getElementsByTagName('td')[column_index].innerHTML; var b_value = b.getElementsByTagName('td')[column_index].innerHTML; return order == 'asc' ? a_value - b_value : b_value - a_value; &#125;) var new_table = document.createElement('tbody'); lines.forEach(function(el)&#123; new_table.appendChild(el); &#125;); table.replaceChild(new_table, table.querySelector('tbody'));&#125;tableSort('#jsList', 'id', 'desc'); &lt;/script&gt;&lt;/html&gt;]]></content>
+      <categories>
+        <category>原创</category>
+      </categories>
+      <tags>
+        <tag>javascript</tag>
+        <tag>html</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[html 中 p 标签的嵌套规则]]></title>
     <url>%2F2018%2F04%2F18%2Fp-%E6%A0%87%E7%AD%BE%E7%9A%84%E5%B5%8C%E5%A5%97%E8%A7%84%E5%88%99%2F</url>
     <content type="text"><![CDATA[偶然遇到了 标签的嵌套问题，有必要mark一下。 p 标签内部不能嵌套 原始块元素，否则会通过自动闭合p标签，使块元素暴露出来 例如如下写法 123456&lt;p id="a"&gt; &lt;p id="b"&gt; &lt;div style="display: inline"&gt;123&lt;/div&gt; &lt;a href="" id="c"&gt;ccc&lt;/a&gt; &lt;/p&gt;&lt;/p&gt; 经过浏览器就会解析成 123456&lt;p id="a"&gt;&lt;/p&gt;&lt;p id="b"&gt;&lt;/p&gt;&lt;div style="display: inline"&gt;123&lt;/div&gt;&lt;a href="" id="c"&gt;ccc&lt;/a&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;&lt;/p&gt; div 虽然加上了 display:inline 但是其本身是块级元素，所以在p标签中依然当做块元素对待]]></content>
