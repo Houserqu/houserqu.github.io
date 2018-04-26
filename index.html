@@ -321,6 +321,155 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://houserqu.com/2018/04/26/create-react-app-配置多页面/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Houser">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://houser.oss-cn-shanghai.aliyuncs.com/houserpage/houser.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Houser's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2018/04/26/create-react-app-配置多页面/" itemprop="url">
+                  create-react-app 配置多页面
+                </a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-26T10:26:01+08:00">
+                2018-04-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-comment-o"></i>
+              </span>
+              
+                <a href="/2018/04/26/create-react-app-配置多页面/#SOHUCS" itemprop="discussionUrl">
+                  <span id="url::http://houserqu.com/2018/04/26/create-react-app-配置多页面/" class="cy_cmt_count" data-xid="2018/04/26/create-react-app-配置多页面/" itemprop="commentsCount" ></span>
+                </a>
+              
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>最近遇到一个需求，开发chrome插件的时候存在多个html页面，<a href="https://github.com/facebook/create-react-app" target="_blank" rel="external">create-react-app</a> 脚手架默认是单html开发的，所以需要重新配置一下wepack，实现多个页面输入和输出。</p>
+<h2 id="实例说明"><a href="#实例说明" class="headerlink" title="实例说明"></a>实例说明</h2><p><a href="https://github.com/Houserqu/chrome-tab" target="_blank" rel="external">项目地址</a></p>
+<h4 id="完成后的目录结构"><a href="#完成后的目录结构" class="headerlink" title="完成后的目录结构"></a>完成后的目录结构</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div></pre></td><td class="code"><pre><div class="line">.</div><div class="line">├── LICENSE</div><div class="line">├── README.md</div><div class="line">├── build</div><div class="line">│   ├── asset-manifest.json</div><div class="line">│   ├── favicon.ico</div><div class="line">│   ├── houser.jpg</div><div class="line">│   ├── index.html</div><div class="line">│   ├── location.png</div><div class="line">│   ├── popup.html</div><div class="line">│   ├── service-worker.js</div><div class="line">│   └── static</div><div class="line">│       ├── css</div><div class="line">│       │   ├── index.773fa05a.css</div><div class="line">│       │   └── index.773fa05a.css.map</div><div class="line">│       └── js</div><div class="line">│           ├── index.98348617.js</div><div class="line">│           ├── index.98348617.js.map</div><div class="line">│           ├── popup.7ae02277.js</div><div class="line">│           └── popup.7ae02277.js.map</div><div class="line">├── build.zip</div><div class="line">├── config</div><div class="line">│   ├── env.js</div><div class="line">│   ├── jest</div><div class="line">│   │   ├── cssTransform.js</div><div class="line">│   │   └── fileTransform.js</div><div class="line">│   ├── paths.js</div><div class="line">│   ├── polyfills.js</div><div class="line">│   ├── webpack.config.dev.js</div><div class="line">│   ├── webpack.config.prod.js</div><div class="line">│   └── webpackDevServer.config.js</div><div class="line">├── package-lock.json</div><div class="line">├── package.json</div><div class="line">├── public</div><div class="line">│   ├── background</div><div class="line">│   │   ├── 139.jpg</div><div class="line">│   │   └── 444H.jpg</div><div class="line">│   ├── favicon.ico</div><div class="line">│   ├── houser.jpg</div><div class="line">│   ├── index.html</div><div class="line">│   └── location.png</div><div class="line">├── scripts</div><div class="line">│   ├── build.js</div><div class="line">│   ├── start.js</div><div class="line">│   └── test.js</div><div class="line">└── src</div><div class="line">    ├── index</div><div class="line">    │   ├── App.js</div><div class="line">    │   ├── App.less</div><div class="line">    │   ├── App.test.js</div><div class="line">    │   ├── components</div><div class="line">    │   ├── config.js</div><div class="line">    │   ├── index.js</div><div class="line">    │   ├── index.less</div><div class="line">    │   ├── logo.svg</div><div class="line">    │   ├── page</div><div class="line">    │   ├── registerServiceWorker.js</div><div class="line">    │   ├── service</div><div class="line">    │   ├── stores</div><div class="line">    │   └── utils</div><div class="line">    └── popup</div><div class="line">        ├── App.js</div><div class="line">        ├── App.less</div><div class="line">        ├── components</div><div class="line">        ├── index.js</div><div class="line">        └── registerServiceWorker.js</div></pre></td></tr></table></figure>
+<p><strong>目录说明：</strong> 多个页面在分文件夹单独放置在src下,分别为index和popup，build之后都在一个文件里。为了缩短篇幅，删除一些无用目录。</p>
+<h2 id="流程"><a href="#流程" class="headerlink" title="流程"></a>流程</h2><h4 id="暴露出create-react-app的配置文件"><a href="#暴露出create-react-app的配置文件" class="headerlink" title="暴露出create-react-app的配置文件"></a>暴露出create-react-app的配置文件</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span> create-react-app eject</div></pre></td></tr></table></figure>
+<h4 id="修改path"><a href="#修改path" class="headerlink" title="修改path"></a>修改path</h4><p>找到config目录下的paths.js，添加需要的路径变量，后续引用</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">module</span>.exports = &#123;</div><div class="line">  dotenv: resolveApp(<span class="string">'.env'</span>),</div><div class="line">  appBuild: resolveApp(<span class="string">'build'</span>),</div><div class="line">  appPublic: resolveApp(<span class="string">'public'</span>),</div><div class="line">  appHtml: resolveApp(<span class="string">'public/index.html'</span>),</div><div class="line">  appIndexJs: resolveApp(<span class="string">'src/index/index.js'</span>),   <span class="comment">//此处是默认页面入口js路径</span></div><div class="line">  appPopupJs: resolveApp(<span class="string">'src/popup/index.js'</span>),   <span class="comment">//自行添加的popup.html页面的入口js路径</span></div><div class="line">  appPackageJson: resolveApp(<span class="string">'package.json'</span>),</div><div class="line">  appSrc: resolveApp(<span class="string">'src'</span>),</div><div class="line">  yarnLockFile: resolveApp(<span class="string">'yarn.lock'</span>),</div><div class="line">  testsSetup: resolveApp(<span class="string">'src/setupTests.js'</span>),</div><div class="line">  appNodeModules: resolveApp(<span class="string">'node_modules'</span>),</div><div class="line">  publicUrl: getPublicUrl(resolveApp(<span class="string">'package.json'</span>)),</div><div class="line">  servedPath: getServedPath(resolveApp(<span class="string">'package.json'</span>)),</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<h4 id="修改webpack-config-dev-js"><a href="#修改webpack-config-dev-js" class="headerlink" title="修改webpack.config.dev.js"></a>修改webpack.config.dev.js</h4><p>修改webpack.config.dev.js</p>
+<p>entry增加入口文件</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">entry: &#123;</div><div class="line">    index: [</div><div class="line">      <span class="built_in">require</span>.resolve(<span class="string">'./polyfills'</span>),</div><div class="line">      <span class="built_in">require</span>.resolve(<span class="string">'react-dev-utils/webpackHotDevClient'</span>),</div><div class="line">      paths.appIndexJs,</div><div class="line">    ],</div><div class="line">    popup: [</div><div class="line">      <span class="built_in">require</span>.resolve(<span class="string">'./polyfills'</span>),</div><div class="line">      <span class="built_in">require</span>.resolve(<span class="string">'react-dev-utils/webpackHotDevClient'</span>),</div><div class="line">      paths.appPopupJs,   <span class="comment">// paths.js中配置的路径，也可以写成  paths.appSrc + '/popup/index.js',</span></div><div class="line">    ]</div><div class="line">  &#125;,</div></pre></td></tr></table></figure>
+<p>修改output输出文件名，避免冲突</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">output: &#123;</div><div class="line">  pathinfo: <span class="literal">true</span>,</div><div class="line">  filename: <span class="string">'static/js/[name].bundle.js'</span>,  <span class="comment">// 添加 [name]</span></div><div class="line">  chunkFilename: <span class="string">'static/js/[name].chunk.js'</span>,</div><div class="line">  publicPath: publicPath,</div><div class="line">  devtoolModuleFilenameTemplate: <span class="function"><span class="params">info</span> =&gt;</span></div><div class="line">    path.resolve(info.absoluteResourcePath).replace(<span class="regexp">/\\/g</span>, <span class="string">'/'</span>),</div><div class="line">&#125;,</div></pre></td></tr></table></figure>
+<p>增加并修改 <a href="https://github.com/GoogleChromeLabs/preload-webpack-plugin" target="_blank" rel="external">HtmlWebpackPlugin</a> 插件配置</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">plugins: [</div><div class="line">  <span class="comment">// ...</span></div><div class="line">  <span class="keyword">new</span> HtmlWebpackPlugin(&#123;</div><div class="line">    inject: <span class="literal">true</span>,</div><div class="line">    chunks: [<span class="string">"index"</span>],  <span class="comment">// 指定入口 js 文件</span></div><div class="line">    filename: <span class="string">'index.html'</span>, <span class="comment">//配置输入文件名</span></div><div class="line">    template: paths.appHtml,</div><div class="line">  &#125;),</div><div class="line">  <span class="keyword">new</span> HtmlWebpackPlugin(&#123;</div><div class="line">    inject: <span class="literal">true</span>,</div><div class="line">    chunks: [<span class="string">"popup"</span>],  <span class="comment">// 指定入口 js 文件</span></div><div class="line">    filename: <span class="string">'popup.html'</span>, <span class="comment">//配置输入文件名</span></div><div class="line">    template: paths.appHtml,</div><div class="line">  &#125;),</div><div class="line">  <span class="comment">// ...</span></div><div class="line">],</div></pre></td></tr></table></figure>
+<h4 id="修改webpack-config-prod-js"><a href="#修改webpack-config-prod-js" class="headerlink" title="修改webpack.config.prod.js"></a>修改webpack.config.prod.js</h4><p>webpack.config.prod.js 修改方式跟 webpack.config.dev.js基本一样，只需要配置入口，出口和html插件</p>
+<h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>webpack的基本流程就是入口和出口，中间经过loader和插件进行处理，所以多页面的配置只需要针对入口和出口进行增加配置即可。例如build的时候也可以进行分文件导出，只需要调整一下文件生成路径就行。</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+      
+    
+      
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://houserqu.com/2018/04/20/【分享】现代前端开发路线图：从零开始，一步步成为前端工程师/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1531,194 +1680,6 @@
 
       
     
-      
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://houserqu.com/2018/03/25/SQL常用语句/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Houser">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="http://houser.oss-cn-shanghai.aliyuncs.com/houserpage/houser.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Houser's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2018/03/25/SQL常用语句/" itemprop="url">
-                  SQL常用语句
-                </a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-25T22:31:11+08:00">
-                2018-03-25
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/笔记/" itemprop="url" rel="index">
-                    <span itemprop="name">笔记</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-              <span class="post-meta-divider">|</span>
-              <span class="post-meta-item-icon">
-                <i class="fa fa-comment-o"></i>
-              </span>
-              
-                <a href="/2018/03/25/SQL常用语句/#SOHUCS" itemprop="discussionUrl">
-                  <span id="url::http://houserqu.com/2018/03/25/SQL常用语句/" class="cy_cmt_count" data-xid="2018/03/25/SQL常用语句/" itemprop="commentsCount" ></span>
-                </a>
-              
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p> 创建数据库</p>
- <figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">CREATE</span> <span class="keyword">DATABASE</span> new_database;</div></pre></td></tr></table></figure>
-<p> 显示数据库</p>
-  <figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">SHOW</span> <span class="keyword">DATABASES</span> ;</div></pre></td></tr></table></figure>
-<p> 删除数据库</p>
-  <figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">DROP</span> <span class="keyword">DATABASE</span> example_1;</div></pre></td></tr></table></figure>
-<p> 选择数据库</p>
-  <figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">USE</span> example;</div></pre></td></tr></table></figure>
-<p>建表</p>
-<blockquote>
-<p>CREATE TABLE 表名称(属性名 数据类型[约束条件]，属性名 数据类型[约束条件]);</p>
-</blockquote>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="string">`fund_data`</span> (</div><div class="line">  <span class="string">`id`</span> <span class="built_in">bigint</span>(<span class="number">20</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span> AUTO_INCREMENT,</div><div class="line"> <span class="string">`product_alias`</span> <span class="built_in">varchar</span>(<span class="number">64</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span> <span class="keyword">DEFAULT</span> <span class="string">''</span>,</div><div class="line"> <span class="string">`datetimes`</span> <span class="built_in">varchar</span>(<span class="number">64</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span> <span class="keyword">DEFAULT</span> <span class="string">''</span>,</div><div class="line"> <span class="string">`datas`</span> <span class="built_in">varchar</span>(<span class="number">64</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span> <span class="keyword">DEFAULT</span> <span class="string">''</span>,</div><div class="line">PRIMARY <span class="keyword">KEY</span> (<span class="string">`id`</span>)</div><div class="line">) <span class="keyword">ENGINE</span>=MyISAM AUTO_INCREMENT=<span class="number">691865</span> <span class="keyword">DEFAULT</span> <span class="keyword">CHARSET</span>=utf8;</div></pre></td></tr></table></figure>
-<p> 显示表</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">show</span> <span class="keyword">tables</span>;</div></pre></td></tr></table></figure>
-<p>修改表名</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">alter</span> <span class="keyword">table</span> 旧表名 <span class="keyword">rename</span> <span class="keyword">to</span> 新表名;</div></pre></td></tr></table></figure>
-<p>插入数据</p>
-<blockquote>
-<p>insert [into] 表名 [(列名1, 列名2, 列名3, …)] values (值1, 值2, 值3, …);</p>
-</blockquote>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">insert</span> <span class="keyword">into</span> students <span class="keyword">values</span>(<span class="literal">NULL</span>, <span class="string">"王刚"</span>, <span class="string">"男"</span>, <span class="number">20</span>, <span class="string">"13811371377"</span>);</div></pre></td></tr></table></figure>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">insert</span> <span class="keyword">into</span> students (<span class="keyword">name</span>, sex, age) <span class="keyword">values</span>(<span class="string">"王刚"</span>, <span class="string">"男"</span>, <span class="number">21</span>);</div></pre></td></tr></table></figure>
-<p>更新数据</p>
-<blockquote>
-<p>update 表名称 set 列名1=取值1，列名2=取值2 where …</p>
-</blockquote>
-<p>删除数据</p>
-<blockquote>
-<p>delete from 表名称 where…</p>
-</blockquote>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">delete</span> <span class="keyword">from</span> students <span class="keyword">where</span> <span class="keyword">id</span>=<span class="number">2</span>;</div></pre></td></tr></table></figure>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">delete</span> <span class="keyword">from</span> students <span class="keyword">where</span> age&lt;<span class="number">20</span>;</div></pre></td></tr></table></figure>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">delete</span> <span class="keyword">from</span> students;</div></pre></td></tr></table></figure>
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-      
-    
   </section>
 
   
@@ -1768,7 +1729,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">24</span>
+                <span class="site-state-item-count">25</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>

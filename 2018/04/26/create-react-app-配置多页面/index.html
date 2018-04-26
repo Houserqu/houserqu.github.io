@@ -66,7 +66,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Linux,shell," />
+  <meta name="keywords" content="javascript,react,webpack," />
 
 
 
@@ -82,18 +82,18 @@
 
 
 
-<meta name="description" content="文件和目录cd  进入文件夹1$ cd ~  //进入用户目录 chmod 更改文件或目录权限 chmod [-R] xyz  1$ chmod 770 xyz ls 列出 –l 显示一个文件的属性以及文件所属的用户和组 -a 显示包含隐藏文件  1$ ls -a // 列出包含隐藏的文件 cp 复制 cp [-adfilprsu] 来源档(source) 目标档(destination)  1$">
-<meta name="keywords" content="Linux,shell">
+<meta name="description" content="最近遇到一个需求，开发chrome插件的时候存在多个html页面，create-react-app 脚手架默认是单html开发的，所以需要重新配置一下wepack，实现多个页面输入和输出。 实例说明项目地址 完成后的目录结构1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484">
+<meta name="keywords" content="javascript,react,webpack">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Linux 常用命令">
-<meta property="og:url" content="http://houserqu.com/2018/03/27/Linux-常用命令/index.html">
+<meta property="og:title" content="create-react-app 配置多页面">
+<meta property="og:url" content="http://houserqu.com/2018/04/26/create-react-app-配置多页面/index.html">
 <meta property="og:site_name" content="Houser&#39;s Blog">
-<meta property="og:description" content="文件和目录cd  进入文件夹1$ cd ~  //进入用户目录 chmod 更改文件或目录权限 chmod [-R] xyz  1$ chmod 770 xyz ls 列出 –l 显示一个文件的属性以及文件所属的用户和组 -a 显示包含隐藏文件  1$ ls -a // 列出包含隐藏的文件 cp 复制 cp [-adfilprsu] 来源档(source) 目标档(destination)  1$">
+<meta property="og:description" content="最近遇到一个需求，开发chrome插件的时候存在多个html页面，create-react-app 脚手架默认是单html开发的，所以需要重新配置一下wepack，实现多个页面输入和输出。 实例说明项目地址 完成后的目录结构1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-27T03:06:56.416Z">
+<meta property="og:updated_time" content="2018-04-26T03:07:45.818Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Linux 常用命令">
-<meta name="twitter:description" content="文件和目录cd  进入文件夹1$ cd ~  //进入用户目录 chmod 更改文件或目录权限 chmod [-R] xyz  1$ chmod 770 xyz ls 列出 –l 显示一个文件的属性以及文件所属的用户和组 -a 显示包含隐藏文件  1$ ls -a // 列出包含隐藏的文件 cp 复制 cp [-adfilprsu] 来源档(source) 目标档(destination)  1$">
+<meta name="twitter:title" content="create-react-app 配置多页面">
+<meta name="twitter:description" content="最近遇到一个需求，开发chrome插件的时候存在多个html页面，create-react-app 脚手架默认是单html开发的，所以需要重新配置一下wepack，实现多个页面输入和输出。 实例说明项目地址 完成后的目录结构1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484">
 
 
 
@@ -121,13 +121,13 @@
 
 
 
-  <link rel="canonical" href="http://houserqu.com/2018/03/27/Linux-常用命令/"/>
+  <link rel="canonical" href="http://houserqu.com/2018/04/26/create-react-app-配置多页面/"/>
 
 
 
 
 
-  <title> Linux 常用命令 | Houser's Blog </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title> create-react-app 配置多页面 | Houser's Blog </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -320,7 +320,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://houserqu.com/2018/03/27/Linux-常用命令/">
+    <link itemprop="mainEntityOfPage" href="http://houserqu.com/2018/04/26/create-react-app-配置多页面/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Houser">
@@ -341,7 +341,7 @@
             
             
               
-                Linux 常用命令
+                create-react-app 配置多页面
               
             
           </h2>
@@ -356,8 +356,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-27T09:51:57+08:00">
-                2018-03-27
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-26T10:26:01+08:00">
+                2018-04-26
               </time>
             
 
@@ -366,28 +366,6 @@
             
           </span>
 
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/笔记/" itemprop="url" rel="index">
-                    <span itemprop="name">笔记</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -398,8 +376,8 @@
                 <i class="fa fa-comment-o"></i>
               </span>
               
-                <a href="/2018/03/27/Linux-常用命令/#SOHUCS" itemprop="discussionUrl">
-                  <span id="changyan_count_unit" class="post-comments-count hc-comment-count" data-xid="2018/03/27/Linux-常用命令/" itemprop="commentsCount"></span>
+                <a href="/2018/04/26/create-react-app-配置多页面/#SOHUCS" itemprop="discussionUrl">
+                  <span id="changyan_count_unit" class="post-comments-count hc-comment-count" data-xid="2018/04/26/create-react-app-配置多页面/" itemprop="commentsCount"></span>
                 </a>
               
             
@@ -425,48 +403,22 @@
       
 
       
-        <h2 id="文件和目录"><a href="#文件和目录" class="headerlink" title="文件和目录"></a>文件和目录</h2><h3 id="cd-进入文件夹"><a href="#cd-进入文件夹" class="headerlink" title="cd  进入文件夹"></a>cd  进入文件夹</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ <span class="built_in">cd</span> ~  //进入用户目录</div></pre></td></tr></table></figure>
-<h3 id="chmod-更改文件或目录权限"><a href="#chmod-更改文件或目录权限" class="headerlink" title="chmod 更改文件或目录权限"></a>chmod 更改文件或目录权限</h3><blockquote>
-<p>chmod [-R] xyz</p>
-</blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ chmod 770 xyz</div></pre></td></tr></table></figure>
-<h3 id="ls-列出"><a href="#ls-列出" class="headerlink" title="ls 列出"></a>ls 列出</h3><ul>
-<li>–l 显示一个文件的属性以及文件所属的用户和组</li>
-<li>-a 显示包含隐藏文件</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ls -a // 列出包含隐藏的文件</div></pre></td></tr></table></figure>
-<h3 id="cp-复制"><a href="#cp-复制" class="headerlink" title="cp 复制"></a>cp 复制</h3><blockquote>
-<p>cp [-adfilprsu] 来源档(source) 目标档(destination)</p>
-</blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ cp -r <span class="built_in">source</span> destination // 递归持续复制，用於目录的复制行为；(常用)</div></pre></td></tr></table></figure>
-<h3 id="rm-删除"><a href="#rm-删除" class="headerlink" title="rm 删除"></a>rm 删除</h3><ul>
-<li>-f ：就是 force 的意思，忽略不存在的文件，不会出现警告信息；</li>
-<li>-i ：互动模式，在删除前会询问使用者是否动作</li>
-<li>-r ：递归删除啊！最常用在目录的删除了！这是非常危险的选项！！！</li>
-</ul>
-<h3 id="mv-移动文件与目录，或修改名称"><a href="#mv-移动文件与目录，或修改名称" class="headerlink" title="mv 移动文件与目录，或修改名称"></a>mv 移动文件与目录，或修改名称</h3><blockquote>
-<p>mv [options] source1 source2 source3 …. directory<br>mv [-fiu] source destination</p>
-</blockquote>
-<h2 id="磁盘管理"><a href="#磁盘管理" class="headerlink" title="磁盘管理"></a>磁盘管理</h2><h3 id="df-列出文件系统的整体磁盘使用量"><a href="#df-列出文件系统的整体磁盘使用量" class="headerlink" title="df 列出文件系统的整体磁盘使用量"></a>df 列出文件系统的整体磁盘使用量</h3><ul>
-<li>-a ：列出所有的文件系统，包括系统特有的 /proc 等文件系统；</li>
-<li>-k ：以 KBytes 的容量显示各文件系统；</li>
-<li>-m ：以 MBytes 的容量显示各文件系统；</li>
-<li>-h ：以人们较易阅读的 GBytes, MBytes, KBytes 等格式自行显示；</li>
-<li>-H ：以 M=1000K 取代 M=1024K 的进位方式；</li>
-<li>-T ：显示文件系统类型, 连同该 partition 的 filesystem 名称 (例如 ext3) 也列出；</li>
-<li>-i ：不用硬盘容量，而以 inode 的数量来显示</li>
-</ul>
-<h3 id="du-查看文件和目录磁盘使用的空间"><a href="#du-查看文件和目录磁盘使用的空间" class="headerlink" title="du 查看文件和目录磁盘使用的空间"></a>du 查看文件和目录磁盘使用的空间</h3><blockquote>
-<p>du [-ahskm] 文件或目录名称</p>
-</blockquote>
-<ul>
-<li>-a ：列出所有的文件与目录容量，因为默认仅统计目录底下的文件量而已。</li>
-<li>-h ：以人们较易读的容量格式 (G/M) 显示；</li>
-<li>-s ：列出总量而已，而不列出每个各别的目录占用容量；</li>
-<li>-S ：不包括子目录下的总计，与 -s 有点差别。</li>
-<li>-k ：以 KBytes 列出容量显示；</li>
-<li>-m ：以 MBytes 列出容量显示；</li>
-</ul>
+        <p>最近遇到一个需求，开发chrome插件的时候存在多个html页面，<a href="https://github.com/facebook/create-react-app" target="_blank" rel="external">create-react-app</a> 脚手架默认是单html开发的，所以需要重新配置一下wepack，实现多个页面输入和输出。</p>
+<h2 id="实例说明"><a href="#实例说明" class="headerlink" title="实例说明"></a>实例说明</h2><p><a href="https://github.com/Houserqu/chrome-tab" target="_blank" rel="external">项目地址</a></p>
+<h4 id="完成后的目录结构"><a href="#完成后的目录结构" class="headerlink" title="完成后的目录结构"></a>完成后的目录结构</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div></pre></td><td class="code"><pre><div class="line">.</div><div class="line">├── LICENSE</div><div class="line">├── README.md</div><div class="line">├── build</div><div class="line">│   ├── asset-manifest.json</div><div class="line">│   ├── favicon.ico</div><div class="line">│   ├── houser.jpg</div><div class="line">│   ├── index.html</div><div class="line">│   ├── location.png</div><div class="line">│   ├── popup.html</div><div class="line">│   ├── service-worker.js</div><div class="line">│   └── static</div><div class="line">│       ├── css</div><div class="line">│       │   ├── index.773fa05a.css</div><div class="line">│       │   └── index.773fa05a.css.map</div><div class="line">│       └── js</div><div class="line">│           ├── index.98348617.js</div><div class="line">│           ├── index.98348617.js.map</div><div class="line">│           ├── popup.7ae02277.js</div><div class="line">│           └── popup.7ae02277.js.map</div><div class="line">├── build.zip</div><div class="line">├── config</div><div class="line">│   ├── env.js</div><div class="line">│   ├── jest</div><div class="line">│   │   ├── cssTransform.js</div><div class="line">│   │   └── fileTransform.js</div><div class="line">│   ├── paths.js</div><div class="line">│   ├── polyfills.js</div><div class="line">│   ├── webpack.config.dev.js</div><div class="line">│   ├── webpack.config.prod.js</div><div class="line">│   └── webpackDevServer.config.js</div><div class="line">├── package-lock.json</div><div class="line">├── package.json</div><div class="line">├── public</div><div class="line">│   ├── background</div><div class="line">│   │   ├── 139.jpg</div><div class="line">│   │   └── 444H.jpg</div><div class="line">│   ├── favicon.ico</div><div class="line">│   ├── houser.jpg</div><div class="line">│   ├── index.html</div><div class="line">│   └── location.png</div><div class="line">├── scripts</div><div class="line">│   ├── build.js</div><div class="line">│   ├── start.js</div><div class="line">│   └── test.js</div><div class="line">└── src</div><div class="line">    ├── index</div><div class="line">    │   ├── App.js</div><div class="line">    │   ├── App.less</div><div class="line">    │   ├── App.test.js</div><div class="line">    │   ├── components</div><div class="line">    │   ├── config.js</div><div class="line">    │   ├── index.js</div><div class="line">    │   ├── index.less</div><div class="line">    │   ├── logo.svg</div><div class="line">    │   ├── page</div><div class="line">    │   ├── registerServiceWorker.js</div><div class="line">    │   ├── service</div><div class="line">    │   ├── stores</div><div class="line">    │   └── utils</div><div class="line">    └── popup</div><div class="line">        ├── App.js</div><div class="line">        ├── App.less</div><div class="line">        ├── components</div><div class="line">        ├── index.js</div><div class="line">        └── registerServiceWorker.js</div></pre></td></tr></table></figure>
+<p><strong>目录说明：</strong> 多个页面在分文件夹单独放置在src下,分别为index和popup，build之后都在一个文件里。为了缩短篇幅，删除一些无用目录。</p>
+<h2 id="流程"><a href="#流程" class="headerlink" title="流程"></a>流程</h2><h4 id="暴露出create-react-app的配置文件"><a href="#暴露出create-react-app的配置文件" class="headerlink" title="暴露出create-react-app的配置文件"></a>暴露出create-react-app的配置文件</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span> create-react-app eject</div></pre></td></tr></table></figure>
+<h4 id="修改path"><a href="#修改path" class="headerlink" title="修改path"></a>修改path</h4><p>找到config目录下的paths.js，添加需要的路径变量，后续引用</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">module</span>.exports = &#123;</div><div class="line">  dotenv: resolveApp(<span class="string">'.env'</span>),</div><div class="line">  appBuild: resolveApp(<span class="string">'build'</span>),</div><div class="line">  appPublic: resolveApp(<span class="string">'public'</span>),</div><div class="line">  appHtml: resolveApp(<span class="string">'public/index.html'</span>),</div><div class="line">  appIndexJs: resolveApp(<span class="string">'src/index/index.js'</span>),   <span class="comment">//此处是默认页面入口js路径</span></div><div class="line">  appPopupJs: resolveApp(<span class="string">'src/popup/index.js'</span>),   <span class="comment">//自行添加的popup.html页面的入口js路径</span></div><div class="line">  appPackageJson: resolveApp(<span class="string">'package.json'</span>),</div><div class="line">  appSrc: resolveApp(<span class="string">'src'</span>),</div><div class="line">  yarnLockFile: resolveApp(<span class="string">'yarn.lock'</span>),</div><div class="line">  testsSetup: resolveApp(<span class="string">'src/setupTests.js'</span>),</div><div class="line">  appNodeModules: resolveApp(<span class="string">'node_modules'</span>),</div><div class="line">  publicUrl: getPublicUrl(resolveApp(<span class="string">'package.json'</span>)),</div><div class="line">  servedPath: getServedPath(resolveApp(<span class="string">'package.json'</span>)),</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<h4 id="修改webpack-config-dev-js"><a href="#修改webpack-config-dev-js" class="headerlink" title="修改webpack.config.dev.js"></a>修改webpack.config.dev.js</h4><p>修改webpack.config.dev.js</p>
+<p>entry增加入口文件</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">entry: &#123;</div><div class="line">    index: [</div><div class="line">      <span class="built_in">require</span>.resolve(<span class="string">'./polyfills'</span>),</div><div class="line">      <span class="built_in">require</span>.resolve(<span class="string">'react-dev-utils/webpackHotDevClient'</span>),</div><div class="line">      paths.appIndexJs,</div><div class="line">    ],</div><div class="line">    popup: [</div><div class="line">      <span class="built_in">require</span>.resolve(<span class="string">'./polyfills'</span>),</div><div class="line">      <span class="built_in">require</span>.resolve(<span class="string">'react-dev-utils/webpackHotDevClient'</span>),</div><div class="line">      paths.appPopupJs,   <span class="comment">// paths.js中配置的路径，也可以写成  paths.appSrc + '/popup/index.js',</span></div><div class="line">    ]</div><div class="line">  &#125;,</div></pre></td></tr></table></figure>
+<p>修改output输出文件名，避免冲突</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">output: &#123;</div><div class="line">  pathinfo: <span class="literal">true</span>,</div><div class="line">  filename: <span class="string">'static/js/[name].bundle.js'</span>,  <span class="comment">// 添加 [name]</span></div><div class="line">  chunkFilename: <span class="string">'static/js/[name].chunk.js'</span>,</div><div class="line">  publicPath: publicPath,</div><div class="line">  devtoolModuleFilenameTemplate: <span class="function"><span class="params">info</span> =&gt;</span></div><div class="line">    path.resolve(info.absoluteResourcePath).replace(<span class="regexp">/\\/g</span>, <span class="string">'/'</span>),</div><div class="line">&#125;,</div></pre></td></tr></table></figure>
+<p>增加并修改 <a href="https://github.com/GoogleChromeLabs/preload-webpack-plugin" target="_blank" rel="external">HtmlWebpackPlugin</a> 插件配置</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">plugins: [</div><div class="line">  <span class="comment">// ...</span></div><div class="line">  <span class="keyword">new</span> HtmlWebpackPlugin(&#123;</div><div class="line">    inject: <span class="literal">true</span>,</div><div class="line">    chunks: [<span class="string">"index"</span>],  <span class="comment">// 指定入口 js 文件</span></div><div class="line">    filename: <span class="string">'index.html'</span>, <span class="comment">//配置输入文件名</span></div><div class="line">    template: paths.appHtml,</div><div class="line">  &#125;),</div><div class="line">  <span class="keyword">new</span> HtmlWebpackPlugin(&#123;</div><div class="line">    inject: <span class="literal">true</span>,</div><div class="line">    chunks: [<span class="string">"popup"</span>],  <span class="comment">// 指定入口 js 文件</span></div><div class="line">    filename: <span class="string">'popup.html'</span>, <span class="comment">//配置输入文件名</span></div><div class="line">    template: paths.appHtml,</div><div class="line">  &#125;),</div><div class="line">  <span class="comment">// ...</span></div><div class="line">],</div></pre></td></tr></table></figure>
+<h4 id="修改webpack-config-prod-js"><a href="#修改webpack-config-prod-js" class="headerlink" title="修改webpack.config.prod.js"></a>修改webpack.config.prod.js</h4><p>webpack.config.prod.js 修改方式跟 webpack.config.dev.js基本一样，只需要配置入口，出口和html插件</p>
+<h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>webpack的基本流程就是入口和出口，中间经过loader和插件进行处理，所以多页面的配置只需要针对入口和出口进行增加配置即可。例如build的时候也可以进行分文件导出，只需要调整一下文件生成路径就行。</p>
 
       
     </div>
@@ -496,9 +448,11 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Linux/" rel="tag"># Linux</a>
+            <a href="/tags/javascript/" rel="tag"># javascript</a>
           
-            <a href="/tags/shell/" rel="tag"># shell</a>
+            <a href="/tags/react/" rel="tag"># react</a>
+          
+            <a href="/tags/webpack/" rel="tag"># webpack</a>
           
         </div>
       
@@ -511,8 +465,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/03/26/前端技术栈速查/" rel="next" title="前端技术栈速查（持续完善）">
-                <i class="fa fa-chevron-left"></i> 前端技术栈速查（持续完善）
+              <a href="/2018/04/20/【分享】现代前端开发路线图：从零开始，一步步成为前端工程师/" rel="next" title="【分享】Modern Frontend Developer in 2018">
+                <i class="fa fa-chevron-left"></i> 【分享】Modern Frontend Developer in 2018
               </a>
             
           </div>
@@ -520,10 +474,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/03/29/排序算法对比/" rel="prev" title="排序算法对比">
-                排序算法对比 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -674,7 +624,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#文件和目录"><span class="nav-number">1.</span> <span class="nav-text">文件和目录</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#cd-进入文件夹"><span class="nav-number">1.1.</span> <span class="nav-text">cd  进入文件夹</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#chmod-更改文件或目录权限"><span class="nav-number">1.2.</span> <span class="nav-text">chmod 更改文件或目录权限</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ls-列出"><span class="nav-number">1.3.</span> <span class="nav-text">ls 列出</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#cp-复制"><span class="nav-number">1.4.</span> <span class="nav-text">cp 复制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#rm-删除"><span class="nav-number">1.5.</span> <span class="nav-text">rm 删除</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#mv-移动文件与目录，或修改名称"><span class="nav-number">1.6.</span> <span class="nav-text">mv 移动文件与目录，或修改名称</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#磁盘管理"><span class="nav-number">2.</span> <span class="nav-text">磁盘管理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#df-列出文件系统的整体磁盘使用量"><span class="nav-number">2.1.</span> <span class="nav-text">df 列出文件系统的整体磁盘使用量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#du-查看文件和目录磁盘使用的空间"><span class="nav-number">2.2.</span> <span class="nav-text">du 查看文件和目录磁盘使用的空间</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#实例说明"><span class="nav-number">1.</span> <span class="nav-text">实例说明</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#完成后的目录结构"><span class="nav-number">1.0.1.</span> <span class="nav-text">完成后的目录结构</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#流程"><span class="nav-number">2.</span> <span class="nav-text">流程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#暴露出create-react-app的配置文件"><span class="nav-number">2.0.1.</span> <span class="nav-text">暴露出create-react-app的配置文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#修改path"><span class="nav-number">2.0.2.</span> <span class="nav-text">修改path</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#修改webpack-config-dev-js"><span class="nav-number">2.0.3.</span> <span class="nav-text">修改webpack.config.dev.js</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#修改webpack-config-prod-js"><span class="nav-number">2.0.4.</span> <span class="nav-text">修改webpack.config.prod.js</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#结语"><span class="nav-number">3.</span> <span class="nav-text">结语</span></a></li></ol></div>
             
 
           </div>
