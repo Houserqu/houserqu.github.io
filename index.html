@@ -321,6 +321,145 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://houserqu.com/2018/05/03/covert-dom-node-list-in-IE/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Houser">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://houser.oss-cn-shanghai.aliyuncs.com/houserpage/houser.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Houser's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2018/05/03/covert-dom-node-list-in-IE/" itemprop="url">
+                  covert dom node list in IE
+                </a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-03T15:14:10+08:00">
+                2018-05-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-comment-o"></i>
+              </span>
+              
+                <a href="/2018/05/03/covert-dom-node-list-in-IE/#SOHUCS" itemprop="discussionUrl">
+                  <span id="url::http://houserqu.com/2018/05/03/covert-dom-node-list-in-IE/" class="cy_cmt_count" data-xid="2018/05/03/covert-dom-node-list-in-IE/" itemprop="commentsCount" ></span>
+                </a>
+              
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>如需将 DomCollection 转换成Array, 常用的方法是 Array.prototype.slice.call(list,0)。不过在IE下无法工作，应为DOMCollection对象与标准的Dom对象不同。建议用额外的方法去完成，从而保证兼容性.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">toArray</span>(<span class="params">obj</span>) </span>&#123;</div><div class="line">  <span class="keyword">var</span> array = [];</div><div class="line">  <span class="comment">// iterate backwards ensuring that length is an UInt32</span></div><div class="line">  <span class="keyword">for</span> (<span class="keyword">var</span> i = obj.length &gt;&gt;&gt; <span class="number">0</span>; i--;) &#123; </div><div class="line">    array[i] = obj[i];</div><div class="line">  &#125;</div><div class="line">  <span class="keyword">return</span> array;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>参考</p>
+<blockquote>
+<p><a href="https://stackoverflow.com/questions/2735067/how-to-convert-a-dom-node-list-to-an-array-in-javascript" target="_blank" rel="external">How to convert a DOM node list to an array in Javascript?</a><br><a href="https://blog.csdn.net/i10630226/article/details/49702375" target="_blank" rel="external">Array.prototype.slice.call()方法详解</a></p>
+</blockquote>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+      
+    
+      
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://houserqu.com/2018/04/26/create-react-app-配置多页面/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -413,7 +552,7 @@
 <h2 id="实例说明"><a href="#实例说明" class="headerlink" title="实例说明"></a>实例说明</h2><p><a href="https://github.com/Houserqu/chrome-tab" target="_blank" rel="external">项目地址</a></p>
 <h4 id="完成后的目录结构"><a href="#完成后的目录结构" class="headerlink" title="完成后的目录结构"></a>完成后的目录结构</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div></pre></td><td class="code"><pre><div class="line">.</div><div class="line">├── LICENSE</div><div class="line">├── README.md</div><div class="line">├── build</div><div class="line">│   ├── asset-manifest.json</div><div class="line">│   ├── favicon.ico</div><div class="line">│   ├── houser.jpg</div><div class="line">│   ├── index.html</div><div class="line">│   ├── location.png</div><div class="line">│   ├── popup.html</div><div class="line">│   ├── service-worker.js</div><div class="line">│   └── static</div><div class="line">│       ├── css</div><div class="line">│       │   ├── index.773fa05a.css</div><div class="line">│       │   └── index.773fa05a.css.map</div><div class="line">│       └── js</div><div class="line">│           ├── index.98348617.js</div><div class="line">│           ├── index.98348617.js.map</div><div class="line">│           ├── popup.7ae02277.js</div><div class="line">│           └── popup.7ae02277.js.map</div><div class="line">├── build.zip</div><div class="line">├── config</div><div class="line">│   ├── env.js</div><div class="line">│   ├── jest</div><div class="line">│   │   ├── cssTransform.js</div><div class="line">│   │   └── fileTransform.js</div><div class="line">│   ├── paths.js</div><div class="line">│   ├── polyfills.js</div><div class="line">│   ├── webpack.config.dev.js</div><div class="line">│   ├── webpack.config.prod.js</div><div class="line">│   └── webpackDevServer.config.js</div><div class="line">├── package-lock.json</div><div class="line">├── package.json</div><div class="line">├── public</div><div class="line">│   ├── background</div><div class="line">│   │   ├── 139.jpg</div><div class="line">│   │   └── 444H.jpg</div><div class="line">│   ├── favicon.ico</div><div class="line">│   ├── houser.jpg</div><div class="line">│   ├── index.html</div><div class="line">│   └── location.png</div><div class="line">├── scripts</div><div class="line">│   ├── build.js</div><div class="line">│   ├── start.js</div><div class="line">│   └── test.js</div><div class="line">└── src</div><div class="line">    ├── index</div><div class="line">    │   ├── App.js</div><div class="line">    │   ├── App.less</div><div class="line">    │   ├── App.test.js</div><div class="line">    │   ├── components</div><div class="line">    │   ├── config.js</div><div class="line">    │   ├── index.js</div><div class="line">    │   ├── index.less</div><div class="line">    │   ├── logo.svg</div><div class="line">    │   ├── page</div><div class="line">    │   ├── registerServiceWorker.js</div><div class="line">    │   ├── service</div><div class="line">    │   ├── stores</div><div class="line">    │   └── utils</div><div class="line">    └── popup</div><div class="line">        ├── App.js</div><div class="line">        ├── App.less</div><div class="line">        ├── components</div><div class="line">        ├── index.js</div><div class="line">        └── registerServiceWorker.js</div></pre></td></tr></table></figure>
 <p><strong>目录说明：</strong> 多个页面在分文件夹单独放置在src下,分别为index和popup，build之后都在一个文件里。为了缩短篇幅，删除一些无用目录。</p>
-<h2 id="流程"><a href="#流程" class="headerlink" title="流程"></a>流程</h2><h4 id="暴露出create-react-app的配置文件"><a href="#暴露出create-react-app的配置文件" class="headerlink" title="暴露出create-react-app的配置文件"></a>暴露出create-react-app的配置文件</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span> create-react-app eject</div></pre></td></tr></table></figure>
+<h2 id="流程"><a href="#流程" class="headerlink" title="流程"></a>流程</h2><h4 id="暴露出create-react-app的配置文件"><a href="#暴露出create-react-app的配置文件" class="headerlink" title="暴露出create-react-app的配置文件"></a>暴露出create-react-app的配置文件</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> create-react-app eject</span></div></pre></td></tr></table></figure>
 <h4 id="修改path"><a href="#修改path" class="headerlink" title="修改path"></a>修改path</h4><p>找到config目录下的paths.js，添加需要的路径变量，后续引用</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">module</span>.exports = &#123;</div><div class="line">  dotenv: resolveApp(<span class="string">'.env'</span>),</div><div class="line">  appBuild: resolveApp(<span class="string">'build'</span>),</div><div class="line">  appPublic: resolveApp(<span class="string">'public'</span>),</div><div class="line">  appHtml: resolveApp(<span class="string">'public/index.html'</span>),</div><div class="line">  appIndexJs: resolveApp(<span class="string">'src/index/index.js'</span>),   <span class="comment">//此处是默认页面入口js路径</span></div><div class="line">  appPopupJs: resolveApp(<span class="string">'src/popup/index.js'</span>),   <span class="comment">//自行添加的popup.html页面的入口js路径</span></div><div class="line">  appPackageJson: resolveApp(<span class="string">'package.json'</span>),</div><div class="line">  appSrc: resolveApp(<span class="string">'src'</span>),</div><div class="line">  yarnLockFile: resolveApp(<span class="string">'yarn.lock'</span>),</div><div class="line">  testsSetup: resolveApp(<span class="string">'src/setupTests.js'</span>),</div><div class="line">  appNodeModules: resolveApp(<span class="string">'node_modules'</span>),</div><div class="line">  publicUrl: getPublicUrl(resolveApp(<span class="string">'package.json'</span>)),</div><div class="line">  servedPath: getServedPath(resolveApp(<span class="string">'package.json'</span>)),</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
 <h4 id="修改webpack-config-dev-js"><a href="#修改webpack-config-dev-js" class="headerlink" title="修改webpack.config.dev.js"></a>修改webpack.config.dev.js</h4><p>修改webpack.config.dev.js</p>
@@ -1522,164 +1661,6 @@
 
       
     
-      
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://houserqu.com/2018/03/26/前端技术栈速查/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Houser">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="http://houser.oss-cn-shanghai.aliyuncs.com/houserpage/houser.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Houser's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2018/03/26/前端技术栈速查/" itemprop="url">
-                  前端技术栈速查（持续完善）
-                </a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-26T10:22:42+08:00">
-                2018-03-26
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/笔记/" itemprop="url" rel="index">
-                    <span itemprop="name">笔记</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-              <span class="post-meta-divider">|</span>
-              <span class="post-meta-item-icon">
-                <i class="fa fa-comment-o"></i>
-              </span>
-              
-                <a href="/2018/03/26/前端技术栈速查/#SOHUCS" itemprop="discussionUrl">
-                  <span id="url::http://houserqu.com/2018/03/26/前端技术栈速查/" class="cy_cmt_count" data-xid="2018/03/26/前端技术栈速查/" itemprop="commentsCount" ></span>
-                </a>
-              
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>个人使用或收藏的前端开发工具，便于快速查找需要的工具，完善项目技术栈</p>
-<h2 id="react-UI库"><a href="#react-UI库" class="headerlink" title="react UI库"></a>react UI库</h2><p><a href="https://ant.design/" target="_blank" rel="external">antd</a>  <a href="">element</a> </p>
-<h2 id="浏览器实现页面生成pdf"><a href="#浏览器实现页面生成pdf" class="headerlink" title="浏览器实现页面生成pdf"></a>浏览器实现页面生成pdf</h2><p>用html2canvas生成图片，再用jsPDF包装成pdf保存到本地<br><a href="https://github.com/niklasvh/html2canvas" target="_blank" rel="external">html2canvas</a> <a href="https://github.com/MrRio/jsPDF" target="_blank" rel="external">jsPDF</a></p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-      
-    
   </section>
 
   
@@ -1729,7 +1710,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">25</span>
+                <span class="site-state-item-count">26</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -1751,7 +1732,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">26</span>
+                <span class="site-state-item-count">28</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
