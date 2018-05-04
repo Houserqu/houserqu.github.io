@@ -257,6 +257,16 @@
           </a>
         </li>
       
+        
+        <li class="menu-item menu-item-wiki">
+          <a href="http://wiki.houserqu.com" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-wikipedia-w"></i> <br />
+            
+            Wiki
+          </a>
+        </li>
+      
 
       
         <li class="menu-item menu-item-search">
@@ -310,6 +320,203 @@
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
+    
+      
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://houserqu.com/2018/03/27/Linux-常用命令/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Houser">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://houser.oss-cn-shanghai.aliyuncs.com/houserpage/houser.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Houser's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2018/03/27/Linux-常用命令/" itemprop="url">
+                  Linux 常用命令
+                </a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-27T09:51:57+08:00">
+                2018-03-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-comment-o"></i>
+              </span>
+              
+                <a href="/2018/03/27/Linux-常用命令/#SOHUCS" itemprop="discussionUrl">
+                  <span id="url::http://houserqu.com/2018/03/27/Linux-常用命令/" class="cy_cmt_count" data-xid="2018/03/27/Linux-常用命令/" itemprop="commentsCount" ></span>
+                </a>
+              
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="文件和目录"><a href="#文件和目录" class="headerlink" title="文件和目录"></a>文件和目录</h2><h3 id="cd-进入文件夹"><a href="#cd-进入文件夹" class="headerlink" title="cd  进入文件夹"></a>cd  进入文件夹</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ <span class="built_in">cd</span> ~  //进入用户目录</div></pre></td></tr></table></figure>
+<h3 id="chmod-更改文件或目录权限"><a href="#chmod-更改文件或目录权限" class="headerlink" title="chmod 更改文件或目录权限"></a>chmod 更改文件或目录权限</h3><blockquote>
+<p>chmod [-R] xyz</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ chmod 770 xyz</div></pre></td></tr></table></figure>
+<h3 id="ls-列出"><a href="#ls-列出" class="headerlink" title="ls 列出"></a>ls 列出</h3><ul>
+<li>–l 显示一个文件的属性以及文件所属的用户和组</li>
+<li>-a 显示包含隐藏文件</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ls -a // 列出包含隐藏的文件</div></pre></td></tr></table></figure>
+<h3 id="cp-复制"><a href="#cp-复制" class="headerlink" title="cp 复制"></a>cp 复制</h3><blockquote>
+<p>cp [-adfilprsu] 来源档(source) 目标档(destination)</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ cp -r <span class="built_in">source</span> destination // 递归持续复制，用於目录的复制行为；(常用)</div></pre></td></tr></table></figure>
+<h3 id="rm-删除"><a href="#rm-删除" class="headerlink" title="rm 删除"></a>rm 删除</h3><ul>
+<li>-f ：就是 force 的意思，忽略不存在的文件，不会出现警告信息；</li>
+<li>-i ：互动模式，在删除前会询问使用者是否动作</li>
+<li>-r ：递归删除啊！最常用在目录的删除了！这是非常危险的选项！！！</li>
+</ul>
+<h3 id="mv-移动文件与目录，或修改名称"><a href="#mv-移动文件与目录，或修改名称" class="headerlink" title="mv 移动文件与目录，或修改名称"></a>mv 移动文件与目录，或修改名称</h3><blockquote>
+<p>mv [options] source1 source2 source3 …. directory<br>mv [-fiu] source destination</p>
+</blockquote>
+<h2 id="磁盘管理"><a href="#磁盘管理" class="headerlink" title="磁盘管理"></a>磁盘管理</h2><h3 id="df-列出文件系统的整体磁盘使用量"><a href="#df-列出文件系统的整体磁盘使用量" class="headerlink" title="df 列出文件系统的整体磁盘使用量"></a>df 列出文件系统的整体磁盘使用量</h3><ul>
+<li>-a ：列出所有的文件系统，包括系统特有的 /proc 等文件系统；</li>
+<li>-k ：以 KBytes 的容量显示各文件系统；</li>
+<li>-m ：以 MBytes 的容量显示各文件系统；</li>
+<li>-h ：以人们较易阅读的 GBytes, MBytes, KBytes 等格式自行显示；</li>
+<li>-H ：以 M=1000K 取代 M=1024K 的进位方式；</li>
+<li>-T ：显示文件系统类型, 连同该 partition 的 filesystem 名称 (例如 ext3) 也列出；</li>
+<li>-i ：不用硬盘容量，而以 inode 的数量来显示</li>
+</ul>
+<h3 id="du-查看文件和目录磁盘使用的空间"><a href="#du-查看文件和目录磁盘使用的空间" class="headerlink" title="du 查看文件和目录磁盘使用的空间"></a>du 查看文件和目录磁盘使用的空间</h3><blockquote>
+<p>du [-ahskm] 文件或目录名称</p>
+</blockquote>
+<ul>
+<li>-a ：列出所有的文件与目录容量，因为默认仅统计目录底下的文件量而已。</li>
+<li>-h ：以人们较易读的容量格式 (G/M) 显示；</li>
+<li>-s ：列出总量而已，而不列出每个各别的目录占用容量；</li>
+<li>-S ：不包括子目录下的总计，与 -s 有点差别。</li>
+<li>-k ：以 KBytes 列出容量显示；</li>
+<li>-m ：以 MBytes 列出容量显示；</li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+      
     
       
       
@@ -1770,140 +1977,6 @@
 
       
     
-      
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://houserqu.com/2017/12/20/阿里云视频点播在React中的实现/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Houser">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="http://houser.oss-cn-shanghai.aliyuncs.com/houserpage/houser.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Houser's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/12/20/阿里云视频点播在React中的实现/" itemprop="url">
-                  阿里云视频点播在React中的实现
-                </a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-20T20:16:25+08:00">
-                2017-12-20
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-              <span class="post-meta-divider">|</span>
-              <span class="post-meta-item-icon">
-                <i class="fa fa-comment-o"></i>
-              </span>
-              
-                <a href="/2017/12/20/阿里云视频点播在React中的实现/#SOHUCS" itemprop="discussionUrl">
-                  <span id="url::http://houserqu.com/2017/12/20/阿里云视频点播在React中的实现/" class="cy_cmt_count" data-xid="2017/12/20/阿里云视频点播在React中的实现/" itemprop="commentsCount" ></span>
-                </a>
-              
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>在原项目组件上进行了删减，保留核心代码，不一定能直接运行，需要根据情况调整代码</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> React, &#123; Component &#125; <span class="keyword">from</span> <span class="string">'react'</span>;</div><div class="line"><span class="keyword">import</span> &#123; hashHistory &#125; <span class="keyword">from</span> <span class="string">'react-router'</span>;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">CourseDetail</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</div><div class="line">  <span class="keyword">constructor</span>(props) &#123;</div><div class="line">    <span class="keyword">super</span>(props);</div><div class="line">    <span class="keyword">this</span>.state = &#123;&#125;;</div><div class="line"></div><div class="line">    <span class="keyword">this</span>.player = <span class="literal">null</span>; <span class="comment">// 创建播放器实例变量</span></div><div class="line">  &#125;</div><div class="line"></div><div class="line"></div><div class="line">  componentDidMount() &#123;</div><div class="line">    <span class="comment">// 初始化播放器, </span></div><div class="line">    <span class="keyword">this</span>.player = <span class="keyword">new</span> Aliplayer(&#123;</div><div class="line">      id: <span class="string">'Ali_Player'</span>, <span class="comment">// 容器id</span></div><div class="line">      vid: <span class="string">''</span>,</div><div class="line">      width: <span class="string">"100%"</span>,       <span class="comment">// 播放器宽度</span></div><div class="line">      playauth: <span class="string">''</span>,</div><div class="line">      cover: <span class="string">`<span class="subst">$&#123;IMG_DOMAIN&#125;</span><span class="subst">$&#123;data.data.serviceCourseDto.serviceCourse.coverUrl&#125;</span>`</span>,</div><div class="line">      autoplay: <span class="literal">false</span>,</div><div class="line">      rePlay: <span class="literal">false</span>,</div><div class="line">      skinLayout:[&#123;<span class="string">"name"</span>:<span class="string">"H5Loading"</span>,<span class="string">"align"</span>:<span class="string">"cc"</span>&#125;,</div><div class="line">        &#123;<span class="string">"name"</span>:<span class="string">"errorDisplay"</span>,<span class="string">"align"</span>:<span class="string">"tlabs"</span>,<span class="string">"x"</span>:<span class="number">0</span>,<span class="string">"y"</span>:<span class="number">0</span>&#125;,</div><div class="line">        &#123;<span class="string">"name"</span>:<span class="string">"infoDisplay"</span>,<span class="string">"align"</span>:<span class="string">"cc"</span>&#125;,</div><div class="line">        &#123;<span class="string">"name"</span>:<span class="string">"controlBar"</span>,<span class="string">"align"</span>:<span class="string">"blabs"</span>,<span class="string">"x"</span>:<span class="number">0</span>,<span class="string">"y"</span>:<span class="number">0</span>,<span class="string">"children"</span>:[&#123;<span class="string">"name"</span>:<span class="string">"progress"</span>,<span class="string">"align"</span>:<span class="string">"tlabs"</span>,<span class="string">"x"</span>:<span class="number">0</span>,<span class="string">"y"</span>:<span class="number">0</span>&#125;,</div><div class="line">          &#123;<span class="string">"name"</span>:<span class="string">"timeDisplay"</span>,<span class="string">"align"</span>:<span class="string">"tl"</span>,<span class="string">"x"</span>:<span class="number">10</span>,<span class="string">"y"</span>:<span class="number">24</span>&#125;]&#125;]</div><div class="line">    &#125;);</div><div class="line"></div><div class="line">    <span class="keyword">this</span>.player.on(<span class="string">'play'</span>,()=&gt;&#123;</div><div class="line">      <span class="keyword">if</span>(<span class="keyword">this</span>.state.cur_courseitem.courseItemId)&#123;</div><div class="line">        <span class="keyword">this</span>.player.play();</div><div class="line">      &#125; <span class="keyword">else</span> &#123;</div><div class="line">        <span class="keyword">this</span>.player.pause();</div><div class="line">        Toast.info(<span class="string">'请选择章节'</span>);</div><div class="line">      &#125;</div><div class="line">    &#125;)</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  handlePlay = <span class="function">(<span class="params">courseItemId</span>) =&gt;</span> &#123;</div><div class="line">    <span class="comment">// 播放事件，此时获取播放凭证，也可以在挂载的时候获取播放凭证</span></div><div class="line">    loadVideoPalyAuth(&#123;courseItemId&#125;).then(<span class="function"><span class="params">data</span> =&gt;</span> &#123;</div><div class="line">      <span class="keyword">this</span>.setState(&#123;</div><div class="line">        cur_courseitem: &#123;</div><div class="line">          ...this.state.cur_courseitem,</div><div class="line">          videoId: data.data.aliVideoPlayAuthDto.videoId,</div><div class="line">          playauth: data.data.aliVideoPlayAuthDto.playAuth,</div><div class="line">          courseItemId: courseItemId</div><div class="line">        &#125;</div><div class="line">      &#125;,()=&gt;&#123;</div><div class="line">        <span class="keyword">if</span> (<span class="keyword">this</span>.player)&#123;</div><div class="line">          <span class="keyword">this</span>.player.dispose();</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">this</span>.player = <span class="keyword">new</span> Aliplayer(&#123;</div><div class="line">          id: <span class="string">'Ali_Player'</span>, <span class="comment">// 容器id</span></div><div class="line">          vid: data.data.aliVideoPlayAuthDto.videoId,</div><div class="line">          width: <span class="string">"100%"</span>,       <span class="comment">// 播放器宽度</span></div><div class="line">          playauth: data.data.aliVideoPlayAuthDto.playAuth,</div><div class="line">          autoplay: <span class="literal">false</span>,</div><div class="line">          rePlay: <span class="literal">false</span>,</div><div class="line">        &#125;);</div><div class="line">      &#125;);</div><div class="line">    &#125;)</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  render() &#123;</div><div class="line">    <span class="keyword">return</span> (</div><div class="line">      &lt;div&gt;</div><div class="line">        &lt;button onClick=&#123;<span class="keyword">this</span>.handlePlay&#125;&gt;播放&lt;<span class="regexp">/button&gt;</span></div><div class="line"><span class="regexp">        &lt;div  className="prism-player" id='Ali_Player' /</span>&gt;</div><div class="line">      &lt;<span class="regexp">/div&gt;</span></div><div class="line"><span class="regexp">    );</span></div><div class="line"><span class="regexp">  &#125;</span></div><div class="line"><span class="regexp">&#125;</span></div><div class="line"><span class="regexp"></span></div><div class="line"><span class="regexp">export default CourseDetail;</span></div></pre></td></tr></table></figure>
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-      
-    
   </section>
 
   
@@ -1953,7 +2026,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">26</span>
+                <span class="site-state-item-count">27</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>

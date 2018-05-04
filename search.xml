@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[搭建个人Wiki]]></title>
+    <url>%2F2018%2F05%2F04%2F%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BAWiki%2F</url>
+    <content type="text"><![CDATA[日常开发中会遇到值得记录的东西，发在博客中意义不大，对读者来说降低了博客质量，而且太零散，不成体系，所以有必要搭建个人知识管理系统。 需求 通过git进行版本控制 markdown编写 能够以web发布供别人访问 首先考虑的是 GitBook ，然后国内访问效果不太理想，即使翻墙也很慢，只好放弃。 hexo这种模式也不错，但是其针对还是blog，无法层级式的管理内容。 最适合替代 GitBook 的目前来看只有 看云 了。功能基本完善，最终选择了看云。 可以通过左边导航进入我的 Wiki。 欢迎指教。]]></content>
+  </entry>
+  <entry>
     <title><![CDATA[covert dom node list in IE]]></title>
     <url>%2F2018%2F05%2F03%2Fcovert-dom-node-list-in-IE%2F</url>
     <content type="text"><![CDATA[如需将 DomCollection 转换成Array, 常用的方法是 Array.prototype.slice.call(list,0)。不过在IE下无法工作，应为DOMCollection对象与标准的Dom对象不同。建议用额外的方法去完成，从而保证兼容性. 12345678function toArray(obj) &#123; var array = []; // iterate backwards ensuring that length is an UInt32 for (var i = obj.length &gt;&gt;&gt; 0; i--;) &#123; array[i] = obj[i]; &#125; return array;&#125; 参考 How to convert a DOM node list to an array in Javascript?Array.prototype.slice.call()方法详解]]></content>
