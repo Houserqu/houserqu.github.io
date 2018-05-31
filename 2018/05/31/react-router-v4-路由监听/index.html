@@ -66,7 +66,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Houser, Houserqu, 前端， JavaScript, Html, React" />
+  <meta name="keywords" content="react,react-router," />
 
 
 
@@ -82,16 +82,18 @@
 
 
 
-<meta name="description" content="前端/javascript/react">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Houser&#39;s Blog">
-<meta property="og:url" content="http://houserqu.com/tags/html/index.html">
+<meta name="description" content="在使用react的时候，会有需要监听react-router路由变化的需求，针对特殊路由进行处理等。  一种方案是将所有的路由组件都放在一个父组件里面，然后通过父组件的 this.props.location.pathname 进行手动获取。 如果结合redux存储的话可以使用 react-redux-router这个库。  最直接的方案是 使用 history 对象，react-router 也">
+<meta name="keywords" content="react,react-router">
+<meta property="og:type" content="article">
+<meta property="og:title" content="react-router-v4 路由监听">
+<meta property="og:url" content="http://houserqu.com/2018/05/31/react-router-v4-路由监听/index.html">
 <meta property="og:site_name" content="Houser&#39;s Blog">
-<meta property="og:description" content="前端/javascript/react">
+<meta property="og:description" content="在使用react的时候，会有需要监听react-router路由变化的需求，针对特殊路由进行处理等。  一种方案是将所有的路由组件都放在一个父组件里面，然后通过父组件的 this.props.location.pathname 进行手动获取。 如果结合redux存储的话可以使用 react-redux-router这个库。  最直接的方案是 使用 history 对象，react-router 也">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-05-31T09:26:08.325Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Houser&#39;s Blog">
-<meta name="twitter:description" content="前端/javascript/react">
+<meta name="twitter:title" content="react-router-v4 路由监听">
+<meta name="twitter:description" content="在使用react的时候，会有需要监听react-router路由变化的需求，针对特殊路由进行处理等。  一种方案是将所有的路由组件都放在一个父组件里面，然后通过父组件的 this.props.location.pathname 进行手动获取。 如果结合redux存储的话可以使用 react-redux-router这个库。  最直接的方案是 使用 history 对象，react-router 也">
 
 
 
@@ -119,13 +121,13 @@
 
 
 
-  <link rel="canonical" href="http://houserqu.com/tags/html/"/>
+  <link rel="canonical" href="http://houserqu.com/2018/05/31/react-router-v4-路由监听/"/>
 
 
 
 
 
-  <title> 标签: html | Houser's Blog </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title> react-router-v4 路由监听 | Houser's Blog </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -160,7 +162,7 @@
     
   
 
-  <div class="container sidebar-position-left  ">
+  <div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -318,102 +320,198 @@
           <div id="content" class="content">
             
 
-  <div id="posts" class="posts-collapse">
-    <div class="collection-title">
-      <h2 >
-        html
-        <small>标签</small>
-      </h2>
-    </div>
-
+  <div id="posts" class="posts-expand">
     
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/04/20/【分享】现代前端开发路线图：从零开始，一步步成为前端工程师/" itemprop="url">
-              
-                <span itemprop="name">【分享】Modern Frontend Developer in 2018</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-04-20T09:58:53+08:00"
-              content="2018-04-20" >
-          04-20
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/04/19/对table进行排序/" itemprop="url">
-              
-                <span itemprop="name">对table进行排序</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-04-19T15:43:10+08:00"
-              content="2018-04-19" >
-          04-19
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/03/26/前端技术栈速查/" itemprop="url">
-              
-                <span itemprop="name">前端技术栈速查（持续完善）</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-03-26T10:22:42+08:00"
-              content="2018-03-26" >
-          03-26
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-    
-  </div>
 
   
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://houserqu.com/2018/05/31/react-router-v4-路由监听/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Houser">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://houser.oss-cn-shanghai.aliyuncs.com/houserpage/houser.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Houser's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+            
+            
+              
+                react-router-v4 路由监听
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-31T17:07:16+08:00">
+                2018-05-31
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/原创/" itemprop="url" rel="index">
+                    <span itemprop="name">原创</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-comment-o"></i>
+              </span>
+              
+                <a href="/2018/05/31/react-router-v4-路由监听/#SOHUCS" itemprop="discussionUrl">
+                  <span id="changyan_count_unit" class="post-comments-count hc-comment-count" data-xid="2018/05/31/react-router-v4-路由监听/" itemprop="commentsCount"></span>
+                </a>
+              
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>在使用react的时候，会有需要监听react-router路由变化的需求，针对特殊路由进行处理等。</p>
+<ul>
+<li>一种方案是将所有的路由组件都放在一个父组件里面，然后通过父组件的 <em>this.props.location.pathname</em> 进行手动获取。</li>
+<li>如果结合redux存储的话可以使用 <a href="https://github.com/reactjs/react-router-redux" target="_blank" rel="external">react-redux-router</a>这个库。</li>
+</ul>
+<p>最直接的方案是 使用 <a href="https://github.com/ReactTraining/history" target="_blank" rel="external">history</a> 对象，react-router 也是基于这个 <a href="https://github.com/ReactTraining/history" target="_blank" rel="external">history</a> 库实现的。</p>
+<p>引入history库并实例化history对象，添加监听方法，然后传入到 <router> 的history属性中。</router></p>
+<p>示例代码：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">'react'</span>;</div><div class="line"><span class="keyword">import</span> ReactDOM <span class="keyword">from</span> <span class="string">'react-dom'</span>;</div><div class="line"><span class="keyword">import</span> createHashHistory <span class="keyword">from</span> <span class="string">"history/createHashHistory"</span></div><div class="line"><span class="keyword">import</span> &#123;</div><div class="line">  Router,</div><div class="line">  Route,</div><div class="line">  Link,</div><div class="line">  Switch</div><div class="line">&#125; <span class="keyword">from</span> <span class="string">'react-router-dom'</span>;</div><div class="line"></div><div class="line"><span class="keyword">const</span> history = createHashHistory()</div><div class="line"></div><div class="line">history.listen(<span class="function">(<span class="params">location, action</span>) =&gt;</span> &#123;</div><div class="line">  <span class="built_in">console</span>.log(</div><div class="line">    <span class="string">`The current URL is <span class="subst">$&#123;location.pathname&#125;</span><span class="subst">$&#123;location.search&#125;</span><span class="subst">$&#123;location.hash&#125;</span>`</span></div><div class="line">  )</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">`The last navigation action was <span class="subst">$&#123;action&#125;</span>`</span>)</div><div class="line">&#125;)</div><div class="line"></div><div class="line">ReactDOM.render(</div><div class="line">  &lt;Router history=&#123;history&#125;&gt;</div><div class="line">    &lt;div&gt;</div><div class="line">      &lt;App /&gt;</div><div class="line">      &lt;Switch&gt;</div><div class="line">        &lt;Route exact path=<span class="string">"/"</span> component=&#123;Home&#125;/&gt;</div><div class="line">        &lt;Route component=&#123;NoMatch&#125;/&gt;</div><div class="line">      &lt;<span class="regexp">/Switch&gt;</span></div><div class="line"><span class="regexp">    &lt;/</span>div&gt;</div><div class="line">  &lt;<span class="regexp">/Router&gt;, document.getElementById('root'));</span></div><div class="line"><span class="regexp">registerServiceWorker();</span></div></pre></td></tr></table></figure>
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/react/" rel="tag"># react</a>
+          
+            <a href="/tags/react-router/" rel="tag"># react-router</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/05/25/我的阿里云幸运券/" rel="next" title="我的阿里云幸运券">
+                <i class="fa fa-chevron-left"></i> 我的阿里云幸运券
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -421,6 +519,12 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div id="SOHUCS"></div>
+    
+  </div>
+
 
         </div>
         
@@ -637,6 +741,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
 
   
 

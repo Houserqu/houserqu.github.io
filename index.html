@@ -331,6 +331,169 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://houserqu.com/2018/05/31/react-router-v4-路由监听/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Houser">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://houser.oss-cn-shanghai.aliyuncs.com/houserpage/houser.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Houser's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2018/05/31/react-router-v4-路由监听/" itemprop="url">
+                  react-router-v4 路由监听
+                </a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-31T17:07:16+08:00">
+                2018-05-31
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/原创/" itemprop="url" rel="index">
+                    <span itemprop="name">原创</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-comment-o"></i>
+              </span>
+              
+                <a href="/2018/05/31/react-router-v4-路由监听/#SOHUCS" itemprop="discussionUrl">
+                  <span id="url::http://houserqu.com/2018/05/31/react-router-v4-路由监听/" class="cy_cmt_count" data-xid="2018/05/31/react-router-v4-路由监听/" itemprop="commentsCount" ></span>
+                </a>
+              
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>在使用react的时候，会有需要监听react-router路由变化的需求，针对特殊路由进行处理等。</p>
+<ul>
+<li>一种方案是将所有的路由组件都放在一个父组件里面，然后通过父组件的 <em>this.props.location.pathname</em> 进行手动获取。</li>
+<li>如果结合redux存储的话可以使用 <a href="https://github.com/reactjs/react-router-redux" target="_blank" rel="external">react-redux-router</a>这个库。</li>
+</ul>
+<p>最直接的方案是 使用 <a href="https://github.com/ReactTraining/history" target="_blank" rel="external">history</a> 对象，react-router 也是基于这个 <a href="https://github.com/ReactTraining/history" target="_blank" rel="external">history</a> 库实现的。</p>
+<p>引入history库并实例化history对象，添加监听方法，然后传入到 <router> 的history属性中。</router></p>
+<p>示例代码：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">'react'</span>;</div><div class="line"><span class="keyword">import</span> ReactDOM <span class="keyword">from</span> <span class="string">'react-dom'</span>;</div><div class="line"><span class="keyword">import</span> createHashHistory <span class="keyword">from</span> <span class="string">"history/createHashHistory"</span></div><div class="line"><span class="keyword">import</span> &#123;</div><div class="line">  Router,</div><div class="line">  Route,</div><div class="line">  Link,</div><div class="line">  Switch</div><div class="line">&#125; <span class="keyword">from</span> <span class="string">'react-router-dom'</span>;</div><div class="line"></div><div class="line"><span class="keyword">const</span> history = createHashHistory()</div><div class="line"></div><div class="line">history.listen(<span class="function">(<span class="params">location, action</span>) =&gt;</span> &#123;</div><div class="line">  <span class="built_in">console</span>.log(</div><div class="line">    <span class="string">`The current URL is <span class="subst">$&#123;location.pathname&#125;</span><span class="subst">$&#123;location.search&#125;</span><span class="subst">$&#123;location.hash&#125;</span>`</span></div><div class="line">  )</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">`The last navigation action was <span class="subst">$&#123;action&#125;</span>`</span>)</div><div class="line">&#125;)</div><div class="line"></div><div class="line">ReactDOM.render(</div><div class="line">  &lt;Router history=&#123;history&#125;&gt;</div><div class="line">    &lt;div&gt;</div><div class="line">      &lt;App /&gt;</div><div class="line">      &lt;Switch&gt;</div><div class="line">        &lt;Route exact path=<span class="string">"/"</span> component=&#123;Home&#125;/&gt;</div><div class="line">        &lt;Route component=&#123;NoMatch&#125;/&gt;</div><div class="line">      &lt;<span class="regexp">/Switch&gt;</span></div><div class="line"><span class="regexp">    &lt;/</span>div&gt;</div><div class="line">  &lt;<span class="regexp">/Router&gt;, document.getElementById('root'));</span></div><div class="line"><span class="regexp">registerServiceWorker();</span></div></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+      
+    
+      
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://houserqu.com/2018/05/25/我的阿里云幸运券/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1647,8 +1810,6 @@
 
       
     
-      
-    
   </section>
 
   
@@ -1698,7 +1859,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">29</span>
+                <span class="site-state-item-count">30</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>

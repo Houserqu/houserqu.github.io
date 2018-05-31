@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[react-router-v4 路由监听]]></title>
+    <url>%2F2018%2F05%2F31%2Freact-router-v4-%E8%B7%AF%E7%94%B1%E7%9B%91%E5%90%AC%2F</url>
+    <content type="text"><![CDATA[在使用react的时候，会有需要监听react-router路由变化的需求，针对特殊路由进行处理等。 一种方案是将所有的路由组件都放在一个父组件里面，然后通过父组件的 this.props.location.pathname 进行手动获取。 如果结合redux存储的话可以使用 react-redux-router这个库。 最直接的方案是 使用 history 对象，react-router 也是基于这个 history 库实现的。 引入history库并实例化history对象，添加监听方法，然后传入到 的history属性中。 示例代码： 123456789101112131415161718192021222324252627282930import React from 'react';import ReactDOM from 'react-dom';import createHashHistory from "history/createHashHistory"import &#123; Router, Route, Link, Switch&#125; from 'react-router-dom';const history = createHashHistory()history.listen((location, action) =&gt; &#123; console.log( `The current URL is $&#123;location.pathname&#125;$&#123;location.search&#125;$&#123;location.hash&#125;` ) console.log(`The last navigation action was $&#123;action&#125;`)&#125;)ReactDOM.render( &lt;Router history=&#123;history&#125;&gt; &lt;div&gt; &lt;App /&gt; &lt;Switch&gt; &lt;Route exact path="/" component=&#123;Home&#125;/&gt; &lt;Route component=&#123;NoMatch&#125;/&gt; &lt;/Switch&gt; &lt;/div&gt; &lt;/Router&gt;, document.getElementById('root'));registerServiceWorker();]]></content>
+      <categories>
+        <category>原创</category>
+      </categories>
+      <tags>
+        <tag>react</tag>
+        <tag>react-router</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[我的阿里云幸运券]]></title>
     <url>%2F2018%2F05%2F25%2F%E6%88%91%E7%9A%84%E9%98%BF%E9%87%8C%E4%BA%91%E5%B9%B8%E8%BF%90%E5%88%B8%2F</url>
     <content type="text"><![CDATA[最近经常购买阿里云的产品，发现阿里云有幸运券这个东西，于是自己也申请了个阿里云大大使，在此提供我的阿里云幸运券。注意我的名称：houserqu@qq.com 立即领券 使用说明 进入领取页面领取需要的产品幸运券，建议一键领取 只能在新购和升级产品的时候抵用！！！ 有效期：幸运券自领取之日（含）三十天内有效。 在幸运券有效期内会默认优先使用第1个领取的幸运券（但有权选择使用谁的幸运券） 幸运券可以和其他优惠（包含但不限于官网折扣、代金券、储值卡等）同时使用。 了解更多关于云大使问题]]></content>
