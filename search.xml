@@ -1,6 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[个人开源项目 - Jayce:用WebSocket构建实时单页应用]]></title>
+    <url>%2F2018%2F06%2F07%2F%E4%B8%AA%E4%BA%BA%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE-Jayce-%E7%94%A8WebSocket%E6%9E%84%E5%BB%BA%E5%AE%9E%E6%97%B6%E5%8D%95%E9%A1%B5%E5%BA%94%E7%94%A8%2F</url>
+    <content type="text"><![CDATA[Aboutbirth个人比较对实时性的应用比较感兴趣，而自己是个前端爱好者，非常喜欢基于react的单页应用开发，于是想能否结合react高点事情呢？于是诞生了开发Jayce这个框架的想法，一句话描述就是: 基于websocket的实时单页应用开发框架 Jayce可以让开发者用node.js + websocket + redux + react 开发出能够灵活的、健壮的、复杂的实时web应用，让程序员有更多时间喝咖啡。:coffee: :coffee: progress经过了大半个月的设计和开发，目前开发出了非常基础的版本，完成了核心架构的开发，基本上能够完成需要的功能。但是目前只是个婴儿，还不能用于正式项目中。 目前相当于踏出了第一步，后续还有很长的路要走。:muscle: :muscle: :muscle: InstallationJayce由三个子框架组成：jayce、jayce-dom、jayce-server，与其对应的npm包为 jayce-fe、jayce-dom、jayce-server jayce-fe与jayce-dom用于前端部分，jayce-server用于服务端 前端项目安装: 1npm i jayce-fe jayce-dom --save 服务端安装 1npm i jayce-server --save Documention由于框架还有很多部分需要完善，暂时还没有编写开发文档，关于框架的详细介绍，可以看这一篇文章 LicenseJayce is MIT licensed.]]></content>
+      <categories>
+        <category>项目</category>
+      </categories>
+      <tags>
+        <tag>javascript</tag>
+        <tag>react</tag>
+        <tag>websocket</tag>
+        <tag>spa</tag>
+        <tag>nodejs</tag>
+        <tag>前端</tag>
+        <tag>后端</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[react-router-v4 路由监听]]></title>
     <url>%2F2018%2F05%2F31%2Freact-router-v4-%E8%B7%AF%E7%94%B1%E7%9B%91%E5%90%AC%2F</url>
     <content type="text"><![CDATA[在使用react的时候，会有需要监听react-router路由变化的需求，针对特殊路由进行处理等。 一种方案是将所有的路由组件都放在一个父组件里面，然后通过父组件的 this.props.location.pathname 进行手动获取。 如果结合redux存储的话可以使用 react-redux-router这个库。 最直接的方案是 使用 history 对象，react-router 也是基于这个 history 库实现的。 引入history库并实例化history对象，添加监听方法，然后传入到 的history属性中。 示例代码： 123456789101112131415161718192021222324252627282930import React from 'react';import ReactDOM from 'react-dom';import createHashHistory from "history/createHashHistory"import &#123; Router, Route, Link, Switch&#125; from 'react-router-dom';const history = createHashHistory()history.listen((location, action) =&gt; &#123; console.log( `The current URL is $&#123;location.pathname&#125;$&#123;location.search&#125;$&#123;location.hash&#125;` ) console.log(`The last navigation action was $&#123;action&#125;`)&#125;)ReactDOM.render( &lt;Router history=&#123;history&#125;&gt; &lt;div&gt; &lt;App /&gt; &lt;Switch&gt; &lt;Route exact path="/" component=&#123;Home&#125;/&gt; &lt;Route component=&#123;NoMatch&#125;/&gt; &lt;/Switch&gt; &lt;/div&gt; &lt;/Router&gt;, document.getElementById('root'));registerServiceWorker();]]></content>
@@ -243,8 +260,8 @@
       <tags>
         <tag>react</tag>
         <tag>webpack</tag>
-        <tag>redux</tag>
         <tag>react-router</tag>
+        <tag>redux</tag>
       </tags>
   </entry>
   <entry>
