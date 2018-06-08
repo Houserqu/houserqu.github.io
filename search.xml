@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[【笔记】本地引用开发中的npm包]]></title>
+    <url>%2F2018%2F06%2F08%2F%E6%9C%AC%E5%9C%B0%E5%BC%95%E7%94%A8%E5%BC%80%E5%8F%91%E4%B8%AD%E7%9A%84npm%E5%8C%85%2F</url>
+    <content type="text"><![CDATA[问题最近遇到一个情况，正在开发一个npm包，但是这个包是配合react使用的，而这个包是单独作为项目开发的，也需要发布到npm上去，但是在开发过程中需要结合react项目进行调试等，通过修改再发布到npm，react项目中再install的方式肯定不方便，所以问题来了，如何在一个项目中引入本地正在开发的package呢？ 解决方法其实npm自带了这个功能：npm link，npm link会将一个package添加到npm全局环境中，然后再需要使用的地方链接到node_modules目录中去。 还有其他解决方法，不过最方便的还是这个方式。 用法假设开发的package name 为 example-package，即package.json里的name字段值。 在正在开发的package目录中执行npm link 在需要引入这个package项目中执行 npm link example-package 然后就通过软连接的方式引入这个包了，你在原目录修改这个包都会同步到项目中去。 参考 你所不知道的模块调试技巧]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>node</tag>
+        <tag>npm</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[个人开源项目 - Jayce:用WebSocket构建实时单页应用]]></title>
     <url>%2F2018%2F06%2F07%2F%E4%B8%AA%E4%BA%BA%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE-Jayce-%E7%94%A8WebSocket%E6%9E%84%E5%BB%BA%E5%AE%9E%E6%97%B6%E5%8D%95%E9%A1%B5%E5%BA%94%E7%94%A8%2F</url>
     <content type="text"><![CDATA[Aboutbirth个人比较对实时性的应用比较感兴趣，而自己是个前端爱好者，非常喜欢基于react的单页应用开发，于是想能否结合react高点事情呢？于是诞生了开发Jayce这个框架的想法，一句话描述就是: 基于websocket的实时单页应用开发框架 Jayce可以让开发者用node.js + websocket + redux + react 开发出能够灵活的、健壮的、复杂的实时web应用，让程序员有更多时间喝咖啡。:coffee: :coffee: progress经过了大半个月的设计和开发，目前开发出了非常基础的版本，完成了核心架构的开发，基本上能够完成需要的功能。但是目前只是个婴儿，还不能用于正式项目中。 目前相当于踏出了第一步，后续还有很长的路要走。:muscle: :muscle: :muscle: InstallationJayce由三个子框架组成：jayce、jayce-dom、jayce-server，与其对应的npm包为 jayce-fe、jayce-dom、jayce-server jayce-fe与jayce-dom用于前端部分，jayce-server用于服务端 前端项目安装: 1npm i jayce-fe jayce-dom --save 服务端安装 1npm i jayce-server --save Documention由于框架还有很多部分需要完善，暂时还没有编写开发文档，关于框架的详细介绍，可以看这一篇文章 LicenseJayce is MIT licensed.]]></content>

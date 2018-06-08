@@ -66,7 +66,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="react,webpack,react-router,redux," />
+  <meta name="keywords" content="node,npm," />
 
 
 
@@ -82,18 +82,18 @@
 
 
 
-<meta name="description" content="react-clireact应用的起步工程和总结 Github传送门 特点采用时下流行的技术栈，视图：react，状态管理：redux，路由：react-router 作为基础，配合webpack等开发工具而搭建的项目架构，适用于中小型项目，也可以在此基础上进行调整适合更多类型的项目。 同时还会提供react开发相关的资料、疑问、解决方案等，希望对开发者有所帮助，也对自己的技术有所提升。欢迎大家提">
-<meta name="keywords" content="react,webpack,react-router,redux">
+<meta name="description" content="问题最近遇到一个情况，正在开发一个npm包，但是这个包是配合react使用的，而这个包是单独作为项目开发的，也需要发布到npm上去，但是在开发过程中需要结合react项目进行调试等，通过修改再发布到npm，react项目中再install的方式肯定不方便，所以问题来了，如何在一个项目中引入本地正在开发的package呢？ 解决方法其实npm自带了这个功能：npm link，npm link会将一个">
+<meta name="keywords" content="node,npm">
 <meta property="og:type" content="article">
-<meta property="og:title" content="个人总结的react脚手架">
-<meta property="og:url" content="http://houserqu.com/2017/09/07/个人总结的react脚手架/index.html">
+<meta property="og:title" content="【笔记】本地引用开发中的npm包">
+<meta property="og:url" content="http://houserqu.com/2018/06/08/本地引用开发中的npm包/index.html">
 <meta property="og:site_name" content="Houser&#39;s Blog">
-<meta property="og:description" content="react-clireact应用的起步工程和总结 Github传送门 特点采用时下流行的技术栈，视图：react，状态管理：redux，路由：react-router 作为基础，配合webpack等开发工具而搭建的项目架构，适用于中小型项目，也可以在此基础上进行调整适合更多类型的项目。 同时还会提供react开发相关的资料、疑问、解决方案等，希望对开发者有所帮助，也对自己的技术有所提升。欢迎大家提">
+<meta property="og:description" content="问题最近遇到一个情况，正在开发一个npm包，但是这个包是配合react使用的，而这个包是单独作为项目开发的，也需要发布到npm上去，但是在开发过程中需要结合react项目进行调试等，通过修改再发布到npm，react项目中再install的方式肯定不方便，所以问题来了，如何在一个项目中引入本地正在开发的package呢？ 解决方法其实npm自带了这个功能：npm link，npm link会将一个">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-09-06T20:48:16.000Z">
+<meta property="og:updated_time" content="2018-06-08T02:16:41.768Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="个人总结的react脚手架">
-<meta name="twitter:description" content="react-clireact应用的起步工程和总结 Github传送门 特点采用时下流行的技术栈，视图：react，状态管理：redux，路由：react-router 作为基础，配合webpack等开发工具而搭建的项目架构，适用于中小型项目，也可以在此基础上进行调整适合更多类型的项目。 同时还会提供react开发相关的资料、疑问、解决方案等，希望对开发者有所帮助，也对自己的技术有所提升。欢迎大家提">
+<meta name="twitter:title" content="【笔记】本地引用开发中的npm包">
+<meta name="twitter:description" content="问题最近遇到一个情况，正在开发一个npm包，但是这个包是配合react使用的，而这个包是单独作为项目开发的，也需要发布到npm上去，但是在开发过程中需要结合react项目进行调试等，通过修改再发布到npm，react项目中再install的方式肯定不方便，所以问题来了，如何在一个项目中引入本地正在开发的package呢？ 解决方法其实npm自带了这个功能：npm link，npm link会将一个">
 
 
 
@@ -121,13 +121,13 @@
 
 
 
-  <link rel="canonical" href="http://houserqu.com/2017/09/07/个人总结的react脚手架/"/>
+  <link rel="canonical" href="http://houserqu.com/2018/06/08/本地引用开发中的npm包/"/>
 
 
 
 
 
-  <title> 个人总结的react脚手架 | Houser's Blog </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title> 【笔记】本地引用开发中的npm包 | Houser's Blog </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -330,7 +330,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://houserqu.com/2017/09/07/个人总结的react脚手架/">
+    <link itemprop="mainEntityOfPage" href="http://houserqu.com/2018/06/08/本地引用开发中的npm包/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Houser">
@@ -351,7 +351,7 @@
             
             
               
-                个人总结的react脚手架
+                【笔记】本地引用开发中的npm包
               
             
           </h2>
@@ -366,8 +366,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-07T17:39:00+08:00">
-                2017-09-07
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-08T09:57:01+08:00">
+                2018-06-08
               </time>
             
 
@@ -389,8 +389,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/原创/" itemprop="url" rel="index">
-                    <span itemprop="name">原创</span>
+                  <a href="/categories/笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">笔记</span>
                   </a>
                 </span>
 
@@ -408,8 +408,8 @@
                 <i class="fa fa-comment-o"></i>
               </span>
               
-                <a href="/2017/09/07/个人总结的react脚手架/#SOHUCS" itemprop="discussionUrl">
-                  <span id="changyan_count_unit" class="post-comments-count hc-comment-count" data-xid="2017/09/07/个人总结的react脚手架/" itemprop="commentsCount"></span>
+                <a href="/2018/06/08/本地引用开发中的npm包/#SOHUCS" itemprop="discussionUrl">
+                  <span id="changyan_count_unit" class="post-comments-count hc-comment-count" data-xid="2018/06/08/本地引用开发中的npm包/" itemprop="commentsCount"></span>
                 </a>
               
             
@@ -435,35 +435,18 @@
       
 
       
-        <h1 id="react-cli"><a href="#react-cli" class="headerlink" title="react-cli"></a><a href="https://github.com/Houserqu/react-cli" target="_blank" rel="external">react-cli</a></h1><p>react应用的起步工程和总结 <a href="https://github.com/Houserqu/react-cli" target="_blank" rel="external">Github传送门</a></p>
-<h2 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h2><p>采用时下流行的技术栈，视图：react，状态管理：redux，路由：react-router 作为基础，配合webpack等开发工具而搭建的项目架构，适用于中小型项目，也可以在此基础上进行调整适合更多类型的项目。</p>
-<p>同时还会提供react开发相关的资料、疑问、解决方案等，希望对开发者有所帮助，也对自己的技术有所提升。欢迎大家提供建议</p>
-<h2 id="技术栈"><a href="#技术栈" class="headerlink" title="技术栈"></a>技术栈</h2><ul>
-<li><a href="https://facebook.github.io/react/" target="_blank" rel="external">react</a></li>
-<li><a href="https://github.com/reactjs/redux" target="_blank" rel="external">redux</a></li>
-<li><a href="https://github.com/ReactTraining/react-router" target="_blank" rel="external">react-router</a></li>
-<li><a href="https://github.com/nuysoft/Mock" target="_blank" rel="external">mock</a></li>
-<li><a href="https://github.com/HubSpot/pace" target="_blank" rel="external">pace</a></li>
-<li><a href="https://github.com/github/fetch" target="_blank" rel="external">whatwg-fetch</a></li>
+        <h3 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h3><p>最近遇到一个情况，正在开发一个npm包，但是这个包是配合react使用的，而这个包是单独作为项目开发的，也需要发布到npm上去，但是在开发过程中需要结合react项目进行调试等，通过修改再发布到npm，react项目中再install的方式肯定不方便，所以问题来了，<strong>如何在一个项目中引入本地正在开发的package呢？</strong></p>
+<h3 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h3><p>其实npm自带了这个功能：<a href="https://docs.npmjs.com/cli/link" target="_blank" rel="external">npm link</a>，npm link会将一个package添加到npm全局环境中，然后再需要使用的地方链接到node_modules目录中去。</p>
+<p>还有其他解决方法，不过最方便的还是这个方式。</p>
+<h3 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h3><p>假设开发的package name 为 example-package，即package.json里的name字段值。</p>
+<ul>
+<li>在正在开发的package目录中执行<code>npm link</code></li>
+<li>在需要引入这个package项目中执行 <code>npm link example-package</code></li>
 </ul>
-<h2 id="项目构建"><a href="#项目构建" class="headerlink" title="项目构建"></a>项目构建</h2><h3 id="目录结构"><a href="#目录结构" class="headerlink" title="目录结构"></a>目录结构</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line">.</div><div class="line">├── README.md</div><div class="line">├── build                             #构建生成目录</div><div class="line">│   ├── bundle                        </div><div class="line">│   └── index.html</div><div class="line">├── package-lock.json</div><div class="line">├── package.json</div><div class="line">├── src                             #源代码文件</div><div class="line">│   ├── action.js                   #action创建函数文件</div><div class="line">│   ├── components                  #组件目录 *1</div><div class="line">│   │   ├── layout</div><div class="line">│   │   └── notify</div><div class="line">│   ├── http.js                     #所有fetch请求  *2</div><div class="line">│   ├── index.html                  #webpack生成html的模板 *3</div><div class="line">│   ├── index.js                    #入口文件</div><div class="line">│   ├── reducer.js                  #reducer  *4</div><div class="line">│   ├── router.js                   #路由定义</div><div class="line">│   ├── routes                      #路由对应的page目录</div><div class="line">│   │   ├── App.js                  #入口文件 *5</div><div class="line">│   │   ├── index                   #一个页面对应一个文件夹  *6</div><div class="line">│   │   │   ├── Index.js</div><div class="line">│   │   │   └── index.scss</div><div class="line">│   │   └── login</div><div class="line">│   │       ├── Login.js</div><div class="line">│   │       └── login.scss</div><div class="line">│   ├── static                      #静态文件夹</div><div class="line">│   │   └── logo.jpg</div><div class="line">│   ├── store.js                    #store创建文件  *7</div><div class="line">│   └── utils                       #工具集</div><div class="line">│       ├── config.js               #项目配置</div><div class="line">│       ├── mock.js                 #本地mock数据</div><div class="line">│       ├── pace.css                #首屏加载动画css</div><div class="line">│       ├── pace.js                 #首屏加载动画js</div><div class="line">│       └── theme.scss              #主题sass变量</div><div class="line">├── webpack.config.js               #webpack开发配置文件</div><div class="line">└── webpack.production.config.js    #webpack构建配置文件</div></pre></td></tr></table></figure>
-<h3 id="目录结构说明"><a href="#目录结构说明" class="headerlink" title="目录结构说明"></a>目录结构说明</h3><ol>
-<li>components 每一个组件对应一个文件夹，包含该组件js以及css，更小的组件也放在该文件夹下</li>
-<li>将所有的请求独立出来放在一个文件里，每个fetch请求封装成一个回调函数并export</li>
-<li>采用自定义html模板进行打包便于引用cdn等文件，或者其他自定义操作</li>
-<li>项目复杂的时候可以创建reducer文件夹，进一步拆分</li>
-<li>每个页面都是该组件的字组件，便于引入例如通知等全局组件</li>
-<li>每个页面对应一个文件夹，因为一个页面包含的组件较多，利于拆分</li>
-<li>独立出来store是便于在非组件的文件中操作reducer的store</li>
-</ol>
-<h3 id="开发说明"><a href="#开发说明" class="headerlink" title="开发说明"></a>开发说明</h3><p>克隆项目:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git <span class="built_in">clone</span> https://github.com/Houserqu/react-cli.git</div></pre></td></tr></table></figure>
-<p>进入项目目录安装依赖:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm i</div></pre></td></tr></table></figure>
-<p>开发:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm run dev</div></pre></td></tr></table></figure>
-<p>构建:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm run build</div></pre></td></tr></table></figure>
+<p>然后就通过软连接的方式引入这个包了，你在原目录修改这个包都会同步到项目中去。</p>
+<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><blockquote>
+<p><a href="https://github.com/atian25/blog/issues/17" target="_blank" rel="external">你所不知道的模块调试技巧</a></p>
+</blockquote>
 
       
     </div>
@@ -493,13 +476,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/react/" rel="tag"># react</a>
+            <a href="/tags/node/" rel="tag"># node</a>
           
-            <a href="/tags/webpack/" rel="tag"># webpack</a>
-          
-            <a href="/tags/react-router/" rel="tag"># react-router</a>
-          
-            <a href="/tags/redux/" rel="tag"># redux</a>
+            <a href="/tags/npm/" rel="tag"># npm</a>
           
         </div>
       
@@ -512,8 +491,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/09/05/曲折回学路/" rel="next" title="曲折回学路">
-                <i class="fa fa-chevron-left"></i> 曲折回学路
+              <a href="/2018/06/07/个人开源项目-Jayce-用WebSocket构建实时单页应用/" rel="next" title="个人开源项目 - Jayce:用WebSocket构建实时单页应用">
+                <i class="fa fa-chevron-left"></i> 个人开源项目 - Jayce:用WebSocket构建实时单页应用
               </a>
             
           </div>
@@ -521,10 +500,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/12/20/阿里云视频点播在React中的实现/" rel="prev" title="阿里云视频点播在React中的实现">
-                阿里云视频点播在React中的实现 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -675,7 +650,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#react-cli"><span class="nav-number">1.</span> <span class="nav-text">react-cli</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#特点"><span class="nav-number">1.1.</span> <span class="nav-text">特点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#技术栈"><span class="nav-number">1.2.</span> <span class="nav-text">技术栈</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#项目构建"><span class="nav-number">1.3.</span> <span class="nav-text">项目构建</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#目录结构"><span class="nav-number">1.3.1.</span> <span class="nav-text">目录结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#目录结构说明"><span class="nav-number">1.3.2.</span> <span class="nav-text">目录结构说明</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#开发说明"><span class="nav-number">1.3.3.</span> <span class="nav-text">开发说明</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#问题"><span class="nav-number">1.</span> <span class="nav-text">问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解决方法"><span class="nav-number">2.</span> <span class="nav-text">解决方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#用法"><span class="nav-number">3.</span> <span class="nav-text">用法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参考"><span class="nav-number">4.</span> <span class="nav-text">参考</span></a></li></ol></div>
             
 
           </div>
