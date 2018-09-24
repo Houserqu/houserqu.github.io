@@ -1,6 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[【读书笔记】React 设计模式与最佳实践]]></title>
+    <url>%2F2018%2F09%2F21%2F%E3%80%90%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E3%80%91React-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B8%8E%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5%2F</url>
+    <content type="text"><![CDATA[关于发现一本还不错的 react 相关的书，《React 设计模式与最佳实践》，第一版是18年8月份的，比较新，目测适合入门和巩固 React 开发的人，更加全面的了解 React 的开发，应该不涉及到源码解读等。 笔记jsx 中插入空格12(&lt;div&gt;a b c&lt;/div&gt;) // 输出： a b c(&lt;div&gt;a&#123;' '&#125;b&#123;' '&#125;c&lt;/div&gt;) // 输出： a b c 条件渲染很多时候需要根据条件判断是否需要渲染某个组件，常常我们会这样写： 12345&lt;div&gt; &#123;dataIsReady &amp;&amp; (isAdmin || userHasPermissions) &amp;&amp; &lt;SecretData /&gt; &#125;&lt;/div&gt; 如果条件比较复杂，可以抽离出判断规则为一个方法： this.isRender &amp;&amp; &lt;SecretData /&gt;。为了保证组件的纯净，可以使用 react-only-if 这个库，能够快速的创建出根据条件渲染的高阶组件。 函数式编程先了解几个概念： 一等对象：一个函数可以作为一个变量的值，也可以作为参数 高阶函数：一个函数可以接受函数作为参数，然后返回一个新的函数 纯函数：不产生副作用，也就是说它不会改变自身作用域以外的任何东西，相同的输入一定会得到相同的输出]]></content>
+      <categories>
+        <category>读书笔记</category>
+      </categories>
+      <tags>
+        <tag>react</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[周记-不负如来不负卿]]></title>
+    <url>%2F2018%2F09%2F18%2F%E5%91%A8%E8%AE%B0%2F</url>
+    <content type="text"><![CDATA[循环异步处理12345678910const promises = data.map(async item =&gt; &#123; const res = await fetchLogisticsI(&#123; expressNo: item.expressNo, &#125;); if (res.success) &#123; expressList.push(res.results); &#125;&#125;);await Promise.all(promises); https://zhuanlan.zhihu.com/p/31000936 英语学习总结react router 切换路由不刷新最近遇到一问题，从一个列表页进入详情页，希望再从详情页返回列表页的时候列表页不要刷新，即不再走Mount阶段，组件不要被销毁，因为进入详情页面再返回的操作并不会导致列表数据的更新，而且该列表数据比较复杂，状态较多，渲染成本和数据回显成本较大。查询后发现，路由的切换一定会导致该路由下的组件 unmount。最后处理方式是将数据都放在 redux 里保存，返回后重新渲染。希望有更好的方式。 html 中的层叠关系html 会遇到需要控制元素显示层级的时候，例如悬浮的按钮，下拉弹窗等。如果需要判断两个元素的层级高低，先判断这些元素是否在同一个 层叠上下文 ，如果在，则判断 层叠顺序 ，如果不在，则判断各自所处的层叠上下文的 层叠顺序。 产生层叠上下文（部分）： position: absolute | relative; z-index: 非 auto; position: fixed | sticky; display: flex | inline-flex; z-index: 非 auto; 层叠顺序：正 z-index &gt; z-index: 0 &gt; inline-block &gt; float &gt; block &gt; 负 z-index &gt; background 和 border 详细讲解见参考链接 https://juejin.im/post/5ba4efe36fb9a05cf52ac192 react 设计模式与最佳实践发现一本还不错的 react 相关的书，《React 设计模式与最佳实践》，第一版是18年8月份的，比较新，目测适合入门和巩固 React 开发的人，更加全面的了解 React 的开发，应该不涉及到源码解读等。后续打算整理成一篇博文，记录一下重点。 用 Vultr 搭建 shadowsocks最近看到 vultr 服务器提供商有新注册送25美元的活动，打算在此mark一下。 对于程序员来说怎么能不翻墙呢。个人翻墙最方便的方式是用 shadowsocks，不过需要专门的海外服务器搭建shadowsocks服务端。目前流行两种方案： 购买别人搭建好了的服务，与别人共享一台服务器和带宽，这种方式省事，便宜。 自己购买 vps，搭建 shadowsocks服务。 对于开发者来说，建议后者，搭建服务并不难，有教程，在此提供一个不错的教程，自己搭建的服务器比较放心，安全，而且可以做些其他的用途，放些网站等。Vultr 我用了很久，比较稳定，最近有新用户充 $10 送 $25 的活动，值得下手，最便宜的 $2.5 / 月]]></content>
+  </entry>
+  <entry>
     <title><![CDATA[周记-习惯]]></title>
     <url>%2F2018%2F09%2F09%2F%E5%91%A8%E8%AE%B0-%E4%B9%A0%E6%83%AF%2F</url>
     <content type="text"><![CDATA[Disqus 代理配置准备将我的博客的评论功能从畅言换成 disqus，因为前者太难看了，但是 disqus 不翻墙的情况下无法访问，所以需要做点处理，可以使用如下方式。 https://github.com/ciqulover/disqus-proxyhttps://github.com/ciqulover/disqus-proxy-server 本地 nginx 代理我们公司的前后端分离方式是将前端部分的请求转发到开发者电脑的服务上，开发前访问携带本机 ip 访问指定请求，后端将 ip 写入 cookie，本机进行单页应用开发的时候会启动本地服务，后续本机访问 web 页面时，服务端会将页面 js 等相关的请求转发到本地上，而 ajax 请求不转发，从而实现前端本地开发和调试。 然而，存在部分 api 也被转发到了前端开发者本地电脑上，导致接口无法正常访问，因为前端本机只有前端相关资源，该 api 无法整处理。与同事讨论后有两种解决方案： 用 Charles (Mac) 进行拦截，不过没有尝试。 本地开启 nginx 进行代理，符合条件的路径转发到指定域名上去。 如上两种方式，本质上都是做一个请求拦截，符合条件的请求转发到正确的路径上去。 英语学习指导逛 Github 的时候无意间发现了一个 repository, 叫 English-level-up-tips-for-Chinese，让我意外的是居然也有 1 万多 start，大概浏览了一遍，感觉蛮受用，刚好现在一直有打算学号英语的心愿。在此 mark 一下。]]></content>
