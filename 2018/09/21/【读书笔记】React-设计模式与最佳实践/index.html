@@ -436,7 +436,7 @@
 
       
         <h2 id="关于"><a href="#关于" class="headerlink" title="关于"></a>关于</h2><p>发现一本还不错的 react 相关的书，《React 设计模式与最佳实践》，第一版是18年8月份的，比较新，目测适合入门和巩固 React 开发的人，更加全面的了解 React 的开发，应该不涉及到源码解读等。</p>
-<h2 id="笔记"><a href="#笔记" class="headerlink" title="笔记"></a>笔记</h2><h3 id="jsx-中插入空格"><a href="#jsx-中插入空格" class="headerlink" title="jsx 中插入空格"></a>jsx 中插入空格</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">(&lt;div&gt;a  b    c&lt;/div&gt;) <span class="comment">// 输出： a b c</span></div><div class="line">(&lt;div&gt;a&#123;'  '&#125;b&#123;'    '&#125;c&lt;/div&gt;) <span class="comment">// 输出： a  b    c</span></div></pre></td></tr></table></figure>
+<h2 id="笔记"><a href="#笔记" class="headerlink" title="笔记"></a>笔记</h2><h3 id="jsx-中插入空格"><a href="#jsx-中插入空格" class="headerlink" title="jsx 中插入空格"></a>jsx 中插入空格</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">(<span class="xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span>a  b    c<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span>) <span class="comment">// 输出： a b c</span></div><div class="line">(<span class="xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span>a&#123;'  '&#125;b&#123;'    '&#125;c<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span>) <span class="comment">// 输出： a  b    c</span></div></pre></td></tr></table></figure>
 <h3 id="条件渲染"><a href="#条件渲染" class="headerlink" title="条件渲染"></a>条件渲染</h3><p>很多时候需要根据条件判断是否需要渲染某个组件，常常我们会这样写：</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;div&gt;</div><div class="line">    &#123;dataIsReady &amp;&amp; (isAdmin || userHasPermissions) &amp;&amp;</div><div class="line">      &lt;SecretData /&gt;</div><div class="line">    &#125;</div><div class="line">&lt;<span class="regexp">/div&gt;</span></div></pre></td></tr></table></figure>
 <p>如果条件比较复杂，可以抽离出判断规则为一个方法： <code>this.isRender &amp;&amp; &lt;SecretData /&gt;</code>。<br>为了保证组件的纯净，可以使用 <strong>react-only-if</strong> 这个库，能够快速的创建出根据条件渲染的高阶组件。</p>
@@ -488,8 +488,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/09/18/周记/" rel="next" title="周记-不负如来不负卿">
-                <i class="fa fa-chevron-left"></i> 周记-不负如来不负卿
+              <a href="/2018/09/18/笔记-3/" rel="next" title="笔记-3">
+                <i class="fa fa-chevron-left"></i> 笔记-3
               </a>
             
           </div>
@@ -497,6 +497,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/09/26/笔记-4/" rel="prev" title="笔记-4">
+                笔记-4 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -575,7 +579,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">36</span>
+                <span class="site-state-item-count">38</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -586,7 +590,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-count">6</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -597,7 +601,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">36</span>
+                <span class="site-state-item-count">38</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

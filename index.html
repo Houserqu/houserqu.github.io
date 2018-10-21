@@ -322,8 +322,6 @@
   <section id="posts" class="posts-expand">
     
       
-    
-      
       
 
   
@@ -333,7 +331,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://houserqu.com/2018/09/18/周记/">
+    <link itemprop="mainEntityOfPage" href="http://houserqu.com/2018/10/21/33-Concepts-Every-JavaScript-Developer-Should-Know/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Houser">
@@ -355,8 +353,378 @@
             
               
                 
-                <a class="post-title-link" href="/2018/09/18/周记/" itemprop="url">
-                  周记-不负如来不负卿
+                <a class="post-title-link" href="/2018/10/21/33-Concepts-Every-JavaScript-Developer-Should-Know/" itemprop="url">
+                  【分享】33 Concepts Every JavaScript Developer Should Know
+                </a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-21T21:50:18+08:00">
+                2018-10-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/分享/" itemprop="url" rel="index">
+                    <span itemprop="name">分享</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/10/21/33-Concepts-Every-JavaScript-Developer-Should-Know/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/10/21/33-Concepts-Every-JavaScript-Developer-Should-Know/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>这周 <a href="https://javascriptweekly.com/" target="_blank" rel="external">Javascript Weekly</a> 给我推送了一个很不错的文章，也可以说是个项目：<a href="https://github.com/leonardomso/33-js-concepts#readme" target="_blank" rel="external">33 Concepts Every JavaScript Developer Should Know </a>，即《每个 JavaScript开发者都应该知道的 33 个概念》。该项目的是根据 Stephen Curtis 发表的一篇文章<a href="https://medium.com/@stephenthecurt/33-fundamentals-every-javascript-developer-should-know-13dd720a90d1" target="_blank" rel="external">《33 Fundamentals Every JavaScript Developer Should Know》</a>提到的概念对应的收集了相关的文章和视频，便于开发者了解和学习。</p>
+<p>本文列出提到的 33 个概念，详细内容去<a href="https://github.com/leonardomso/33-js-concepts#readme" target="_blank" rel="external">项目github查看</a></p>
+<ol>
+<li><strong><a href="#1-call-stack">Call Stack</a></strong> 调用栈</li>
+<li><strong><a href="#2-primitive-types">Primitive Types</a></strong> 原始类型</li>
+<li><strong><a href="#3-value-types-and-reference-types">Value Types and Reference Types</a></strong> 值类型和引用类型</li>
+<li><strong><a href="#4-implicit-explicit-nominal-structuring-and-duck-typing">Implicit, Explicit, Nominal, Structuring and Duck Typing</a></strong> 隐式，显式，名义，结构和鸭子类型</li>
+<li><strong><a href="#5--vs--vs-typeof">== vs === vs typeof</a></strong></li>
+<li><strong><a href="#6-function-scope-block-scope-and-lexical-scope">Function Scope, Block Scope and Lexical Scope</a></strong> 方法作用域，块作用域，词法作用域</li>
+<li><strong><a href="#7-expression-vs-statement">Expression vs Statement</a></strong> 表达式 vs 语句</li>
+<li><strong><a href="#8-iife-modules-and-namespaces">IIFE, Modules and Namespaces</a></strong> 立即执行函数，模块，命名空间</li>
+<li><strong><a href="#9-message-queue-and-event-loop">Message Queue and Event Loop</a></strong> 消息队列和事件轮询</li>
+<li><strong><a href="#10-settimeout-setinterval-and-requestanimationframe">setTimeout, setInterval and requestAnimationFrame</a></strong> 定时器，循环执行，动画帧方法</li>
+<li><strong><a href="#11-javascript-engines">JavaScript Engines</a></strong> JavaScript 引擎</li>
+<li><strong><a href="#12-bitwise-operators-type-arrays-and-array-buffers">Bitwise Operators, Type Arrays and Array Buffers</a></strong> 位运算符，类型数组</li>
+<li><strong><a href="#13-dom-and-layout-trees">DOM and Layout Trees</a></strong> DOM树和结构树</li>
+<li><strong><a href="#14-factories-and-classes">Factories and Classes</a></strong> 工厂方法和类</li>
+<li><strong><a href="#15-this-call-apply-and-bind">this, call, apply and bind</a></strong></li>
+<li><strong><a href="#16-new-constructor-instanceof-and-instances">new, Constructor, instanceof and Instances</a></strong></li>
+<li><strong><a href="#17-prototype-inheritance-and-prototype-chain">Prototype Inheritance and Prototype Chain</a></strong> 原型继承和原型链</li>
+<li><strong><a href="#18-objectcreate-and-objectassign">Object.create and Object.assign</a></strong></li>
+<li><strong><a href="#19-map-reduce-filter">map, reduce, filter</a></strong></li>
+<li><strong><a href="#20-pure-functions-side-effects-and-state-mutation">Pure Functions, Side Effects and State Mutation</a></strong> 纯函数，副作用，状态突变</li>
+<li><strong><a href="#21-closures">Closures</a></strong> 闭包</li>
+<li><strong><a href="#22-high-order-functions">High Order Functions</a></strong>  高阶函数</li>
+<li><strong><a href="#23-recursion">Recursion</a></strong> 递归</li>
+<li><strong><a href="#24-collections">Collections</a></strong> 集合</li>
+<li><strong><a href="#25-promises">Promises</a></strong></li>
+<li><strong><a href="#26-asyncawait">async/await</a></strong></li>
+<li><strong><a href="#27-data-structures">Data Structures</a></strong> 数据结构</li>
+<li><strong><a href="#28-expensive-operation-and-big-o-notation">Expensive Operation and Big O Notation</a></strong> 高开销操作和复杂度</li>
+<li><strong><a href="#29-algorithms">Algorithms</a></strong>  算法</li>
+<li><strong><a href="#30-inheritance-polymorphism-and-code-reuse">Inheritance, Polymorphism and Code Reuse</a></strong> 继承，多态和复用</li>
+<li><strong><a href="#31-design-patterns">Design Patterns</a></strong> 设计模式</li>
+<li><strong><a href="#32-partial-applications-currying-compose-and-pipe">Partial Applications, Currying, Compose and Pipe</a></strong> 部分函数应用，柯里化，组合和链式调用</li>
+<li><strong><a href="#33-clean-code">Clean Code</a></strong> 代码整洁</li>
+</ol>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+      
+    
+      
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://houserqu.com/2018/09/26/笔记-4/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Houser">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://houser.oss-cn-shanghai.aliyuncs.com/houserpage/houser.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Houser's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2018/09/26/笔记-4/" itemprop="url">
+                  笔记-4
+                </a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-26T18:57:08+08:00">
+                2018-09-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/09/26/笔记-4/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/09/26/笔记-4/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="getBoundingClientRect"><a href="#getBoundingClientRect" class="headerlink" title="getBoundingClientRect()"></a>getBoundingClientRect()</h2><p>需求：判断页面是否已经阅读完；<br>思路：判断某个元素是否在视口中，dom 对象有 getBoundingClientRect()，能够得到该元素相对视口的距离，从而判断元素是否被看到。</p>
+<blockquote>
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Element/getBoundingClientRect" target="_blank" rel="external">https://developer.mozilla.org/zh-CN/docs/Web/API/Element/getBoundingClientRect</a></p>
+</blockquote>
+<h2 id="微信浏览器内-唤起-App"><a href="#微信浏览器内-唤起-App" class="headerlink" title="微信浏览器内 唤起 App"></a>微信浏览器内 唤起 App</h2><p>`<br>基本上无法实现，微信限制了该功能。</p>
+<p>微信 JSSDK未公开的一篇文档，提到过一个 Birdge <a href="https://github.com/Tencent/weui/wiki/%E5%BE%AE%E4%BF%A1JSAPI" target="_blank" rel="external">getInstallState 获取某app是否已安装</a> 不过这是一个未公开的方法，不建议使用。</p>
+<blockquote>
+<p><a href="https://segmentfault.com/a/1190000012940046" target="_blank" rel="external">https://segmentfault.com/a/1190000012940046</a></p>
+</blockquote>
+<h2 id="文字渐变"><a href="#文字渐变" class="headerlink" title="文字渐变"></a>文字渐变</h2><p>可以参考这个 demo，需要注意兼容性</p>
+<blockquote>
+<p><a href="http://demo.doyoe.com/css3/text-fill-color/gradient-text.htm" target="_blank" rel="external">http://demo.doyoe.com/css3/text-fill-color/gradient-text.htm</a></p>
+</blockquote>
+<h2 id="img-之间有缝隙"><a href="#img-之间有缝隙" class="headerlink" title="img 之间有缝隙"></a>img 之间有缝隙</h2><p>多个 img 自动换行显示的时候，上下相邻的图片会出现间隙，即使 margin:0，比较简单的方式是让 img 的 display: block；其他解决方法和导致原因参考链接</p>
+<blockquote>
+<p><a href="https://www.cnblogs.com/JoannaQ/archive/2013/03/16/2962443.html" target="_blank" rel="external">https://www.cnblogs.com/JoannaQ/archive/2013/03/16/2962443.html</a></p>
+</blockquote>
+<h2 id="iphone-网页安全区"><a href="#iphone-网页安全区" class="headerlink" title="iphone 网页安全区"></a>iphone 网页安全区</h2><p>iPhone X 的出现导致页面显示区没那没规则，为了保证在 这种机器上显示正常，可以借助 webkit 内核浏览器提供的特殊方法获取到 ‘不安全的区域的尺寸’，从而做兼容性处理。</p>
+<blockquote>
+<p><a href="https://aotu.io/notes/2017/11/27/iphonex/index.html" target="_blank" rel="external">https://aotu.io/notes/2017/11/27/iphonex/index.html</a></p>
+</blockquote>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+      
+    
+      
+    
+      
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://houserqu.com/2018/09/18/笔记-3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Houser">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://houser.oss-cn-shanghai.aliyuncs.com/houserpage/houser.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Houser's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2018/09/18/笔记-3/" itemprop="url">
+                  笔记-3
                 </a>
               
             
@@ -383,6 +751,28 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -391,9 +781,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/09/18/周记/#comments" itemprop="discussionUrl">
+                <a href="/2018/09/18/笔记-3/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/09/18/周记/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2018/09/18/笔记-3/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -490,7 +880,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://houserqu.com/2018/09/09/周记-习惯/">
+    <link itemprop="mainEntityOfPage" href="http://houserqu.com/2018/09/09/笔记-2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Houser">
@@ -512,8 +902,8 @@
             
               
                 
-                <a class="post-title-link" href="/2018/09/09/周记-习惯/" itemprop="url">
-                  周记-习惯
+                <a class="post-title-link" href="/2018/09/09/笔记-2/" itemprop="url">
+                  笔记-2
                 </a>
               
             
@@ -552,8 +942,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/周记/" itemprop="url" rel="index">
-                    <span itemprop="name">周记</span>
+                  <a href="/categories/笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">笔记</span>
                   </a>
                 </span>
 
@@ -570,9 +960,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/09/09/周记-习惯/#comments" itemprop="discussionUrl">
+                <a href="/2018/09/09/笔记-2/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/09/09/周记-习惯/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2018/09/09/笔记-2/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -657,7 +1047,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://houserqu.com/2018/09/09/周记-业精于勤/">
+    <link itemprop="mainEntityOfPage" href="http://houserqu.com/2018/09/09/笔记-1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Houser">
@@ -679,7 +1069,7 @@
             
               
                 
-                <a class="post-title-link" href="/2018/09/09/周记-业精于勤/" itemprop="url">
+                <a class="post-title-link" href="/2018/09/09/笔记-1/" itemprop="url">
                   周记-业精于勤
                 </a>
               
@@ -719,8 +1109,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/周记/" itemprop="url" rel="index">
-                    <span itemprop="name">周记</span>
+                  <a href="/categories/笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">笔记</span>
                   </a>
                 </span>
 
@@ -737,9 +1127,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/09/09/周记-业精于勤/#comments" itemprop="discussionUrl">
+                <a href="/2018/09/09/笔记-1/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/09/09/周记-业精于勤/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2018/09/09/笔记-1/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -1478,296 +1868,6 @@
 
       
     
-      
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://houserqu.com/2018/05/14/给自己的项目取个与国际接轨的名字吧！/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Houser">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="http://houser.oss-cn-shanghai.aliyuncs.com/houserpage/houser.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Houser's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2018/05/14/给自己的项目取个与国际接轨的名字吧！/" itemprop="url">
-                  给自己的项目取个与国际接轨的名字吧！
-                </a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-14T13:32:40+08:00">
-                2018-05-14
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2018/05/14/给自己的项目取个与国际接轨的名字吧！/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/05/14/给自己的项目取个与国际接轨的名字吧！/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>最近需要开启一个新的项目，本开始就是用各种核心技术连接在一起。回头一看真是感觉毫无特色啊，而且还老长老长，依然无法描述出这个项目到底是干啥的，既然如此，还不如还不如取个简短个性的名称，说不定某一天这个项目就火了呢！</p>
-<p>网上搜了一波，可以从这些角度入手。除非预知项目一定会火，不建议创建新的单词。选好名字后去github搜索一下，没有重名就可以考虑使用了。</p>
-<h3 id="动物名称"><a href="#动物名称" class="headerlink" title="动物名称"></a>动物名称</h3><p>推荐一个<a href="https://lib2.colostate.edu/wildlife/atoz.php?sortby=Common_Name&amp;letter=ALL" target="_blank" rel="external">动物检索网站</a></p>
-<p>成功示例</p>
-<ul>
-<li><a href="https://www.python.org/" target="_blank" rel="external">python</a> :大蟒蛇</li>
-</ul>
-<h3 id="游戏角色名称"><a href="#游戏角色名称" class="headerlink" title="游戏角色名称"></a>游戏角色名称</h3><p><a href="https://zh.wikipedia.org/wiki/%E9%AD%94%E5%85%BD%E7%B3%BB%E5%88%97%E8%A7%92%E8%89%B2%E5%88%97%E8%A1%A8" target="_blank" rel="external">魔兽角色名称检索</a></p>
-<p>成功示例</p>
-<ul>
-<li><a href="https://github.com/alibaba/druid" target="_blank" rel="external">Druid</a> : 德鲁伊</li>
-</ul>
-<h3 id="中国风"><a href="#中国风" class="headerlink" title="中国风"></a>中国风</h3><p>麒麟 盘古 女娲…</p>
-<h3 id="各种电影-小说的角色名"><a href="#各种电影-小说的角色名" class="headerlink" title="各种电影,小说的角色名"></a>各种电影,小说的角色名</h3>
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-      
-    
-      
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://houserqu.com/2018/05/04/搭建个人Wiki/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Houser">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="http://houser.oss-cn-shanghai.aliyuncs.com/houserpage/houser.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Houser's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2018/05/04/搭建个人Wiki/" itemprop="url">
-                  搭建个人Wiki
-                </a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-04T10:07:51+08:00">
-                2018-05-04
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2018/05/04/搭建个人Wiki/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/05/04/搭建个人Wiki/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>日常开发中会遇到值得记录的东西，发在博客中意义不大，对读者来说降低了博客质量，而且太零散，不成体系，所以有必要搭建个人知识管理系统。</p>
-<h3 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h3><ul>
-<li>通过git进行版本控制</li>
-<li>markdown编写</li>
-<li>能够以web发布供别人访问</li>
-</ul>
-<p>首先考虑的是 <a href="https://www.gitbook.com/" target="_blank" rel="external">GitBook</a> ，然后国内访问效果不太理想，即使翻墙也很慢，只好放弃。</p>
-<p><a href="https://hexo.io/" target="_blank" rel="external">hexo</a>这种模式也不错，但是其针对还是blog，无法层级式的管理内容。</p>
-<p>最适合替代 <a href="https://www.gitbook.com/" target="_blank" rel="external">GitBook</a> 的目前来看只有 <a href="https://www.kancloud.cn/" target="_blank" rel="external">看云</a> 了。功能基本完善，最终选择了看云。</p>
-<p>可以通过左边导航进入我的 <a href="http://wiki.houserqu.com" target="_blank" rel="external">Wiki</a>。</p>
-<p>欢迎指教。</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-      
-    
   </section>
 
   
@@ -1817,7 +1917,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">36</span>
+                <span class="site-state-item-count">38</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -1828,7 +1928,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-count">6</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -1839,7 +1939,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">36</span>
+                <span class="site-state-item-count">38</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
