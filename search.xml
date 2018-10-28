@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[【读书笔记】React 设计模式与最佳实践]]></title>
+    <url>%2F2018%2F10%2F28%2F%E3%80%90%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E3%80%91React-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B8%8E%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5%2F</url>
+    <content type="text"><![CDATA[发现一本还不错的 react 相关的书，《React 设计模式与最佳实践》，第一版是 18 年 8 月份的，比较新，目测适合入门和巩固 React 开发的人，更加全面的了解 React 的开发，不涉及到源码解读等。这里记录一下阅读后我不熟悉的或值得记录的点。 JSXjsx 中插入多空格&lt;div&gt;a{&quot; &quot;}b{&quot; &quot;}c&lt;/div&gt; 条件渲染很多时候需要根据条件判断是否需要渲染某个组件，常常我们会这样写： 1&lt;div&gt;&#123;dataIsReady &amp;&amp; (isAdmin || userHasPermissions) &amp;&amp; &lt;SecretData /&gt;&#125;&lt;/div&gt; 如果条件比较复杂，可以抽离出判断规则为一个方法： this.isRender &amp;&amp; &lt;SecretData /&gt;。为了保证组件的纯净，可以使用 react-only-if 这个库，能够快速的创建出根据条件渲染的高阶组件。 展开属性属性可以直接传入一个展开的对象，不用一个一个对应再写一遍 &lt;button {...props} /&gt; getterage(){} =&gt; get age()，使用的时候可以省略括号，相当于一个值，可以类比为 vue 中的计算属性。 动画推荐一个库react-transition-group，能够更方便的控制多个状态。 性能优化环境用 webpack 打包的时候区分好生产环境和开发环境。 函数式组件该类型组件没有实例化过程，所以没有自己的生命周期和状态，适合用来构建大型的组件，因为耦合度更低。多使用函数式组件能够让思路更清晰。 手动控制组件更新合理使用 shouldComponentUpdate() 方法和 PureComponent 组件，减少没必要的组件更新。 props 常量对象将一个常量对象作为 props 时最好在外部创建，通过引用传入，而不是在属性上创建，同理绑定 props 方法时也是这样。这样能够避免每次 update 都重复创建，以及在循环中重复创建。 bad: 12&lt;Com status=&#123;[1: 'a', 2: 'b']&#125; /&gt;&lt;Com status=&#123;() =&gt; &#123;&#125;&#125; /&gt; good: 12&lt;Com status=&#123;this.status&#125; /&gt;&lt;Com status=&#123;this.fun&#125; /&gt; 代码风格强烈建议项目中加入 eslint 等代码风格检查工具，配合 ide 插件能够实时提醒，保证多人开发的时候看到的代码是一致的。另外推荐 prettier，一个代码自动格式化工具，eslint 虽然提示了，但是自己手动修改也是麻烦，该库能够根据 eslint 配置或者个人配置自动格式化代码，完美搭档。 函数式编程我个人的理解是运用柯里化、组合、链式调用等技巧写出没有副作用、简单明了、易于维护的代码。而 es6 可以很方便的实现这几个技巧。 CSSCSS 是前端开发无法避免的话题，文中提到几个 css 写法：Css in JavaScript、 style、 Radium，其实这三个都是都是行内样式的写法，实际开发时并不推荐，样式不好复用，相当于阉割版 css，无法使用 less/scss 等优秀的预处理器。个人觉得最合适的还是 CSS Module，灵活，纯正。 服务端渲染一直没有去尝试做这个，服务端渲染技术能够改善 SEO 和首屏加载速度，因为首屏页面是在服务端进行的，而不是浏览器端，这样页面能够更快速的呈现。实现需要后端配合。 测试与调试目前我都没有在项目中写个测试，对于 react 组件，测试写起来比较繁琐，而且变化也很频繁，的确让人容易怯步，后续可以考虑一下，或许需要重新审视一下测试。 react 调试比较有用的是 react-devtools 和 redux-devtools，前者调试组件，后者调试 redux]]></content>
+      <categories>
+        <category>读书笔记</category>
+      </categories>
+      <tags>
+        <tag>react</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[【分享】33 Concepts Every JavaScript Developer Should Know]]></title>
     <url>%2F2018%2F10%2F21%2F33-Concepts-Every-JavaScript-Developer-Should-Know%2F</url>
     <content type="text"><![CDATA[这周 Javascript Weekly 给我推送了一个很不错的文章，也可以说是个项目：33 Concepts Every JavaScript Developer Should Know ，即《每个 JavaScript开发者都应该知道的 33 个概念》。该项目的是根据 Stephen Curtis 发表的一篇文章《33 Fundamentals Every JavaScript Developer Should Know》提到的概念对应的收集了相关的文章和视频，便于开发者了解和学习。 本文列出提到的 33 个概念，详细内容去项目github查看 Call Stack 调用栈 Primitive Types 原始类型 Value Types and Reference Types 值类型和引用类型 Implicit, Explicit, Nominal, Structuring and Duck Typing 隐式，显式，名义，结构和鸭子类型 == vs === vs typeof Function Scope, Block Scope and Lexical Scope 方法作用域，块作用域，词法作用域 Expression vs Statement 表达式 vs 语句 IIFE, Modules and Namespaces 立即执行函数，模块，命名空间 Message Queue and Event Loop 消息队列和事件轮询 setTimeout, setInterval and requestAnimationFrame 定时器，循环执行，动画帧方法 JavaScript Engines JavaScript 引擎 Bitwise Operators, Type Arrays and Array Buffers 位运算符，类型数组 DOM and Layout Trees DOM树和结构树 Factories and Classes 工厂方法和类 this, call, apply and bind new, Constructor, instanceof and Instances Prototype Inheritance and Prototype Chain 原型继承和原型链 Object.create and Object.assign map, reduce, filter Pure Functions, Side Effects and State Mutation 纯函数，副作用，状态突变 Closures 闭包 High Order Functions 高阶函数 Recursion 递归 Collections 集合 Promises async/await Data Structures 数据结构 Expensive Operation and Big O Notation 高开销操作和复杂度 Algorithms 算法 Inheritance, Polymorphism and Code Reuse 继承，多态和复用 Design Patterns 设计模式 Partial Applications, Currying, Compose and Pipe 部分函数应用，柯里化，组合和链式调用 Clean Code 代码整洁]]></content>
@@ -23,17 +34,6 @@
         <tag>html</tag>
         <tag>css</tag>
         <tag>微信</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[【读书笔记】React 设计模式与最佳实践]]></title>
-    <url>%2F2018%2F09%2F21%2F%E3%80%90%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E3%80%91React-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B8%8E%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5%2F</url>
-    <content type="text"><![CDATA[关于发现一本还不错的 react 相关的书，《React 设计模式与最佳实践》，第一版是18年8月份的，比较新，目测适合入门和巩固 React 开发的人，更加全面的了解 React 的开发，应该不涉及到源码解读等。 笔记jsx 中插入空格12(&lt;div&gt;a b c&lt;/div&gt;) // 输出： a b c(&lt;div&gt;a&#123;' '&#125;b&#123;' '&#125;c&lt;/div&gt;) // 输出： a b c 条件渲染很多时候需要根据条件判断是否需要渲染某个组件，常常我们会这样写： 12345&lt;div&gt; &#123;dataIsReady &amp;&amp; (isAdmin || userHasPermissions) &amp;&amp; &lt;SecretData /&gt; &#125;&lt;/div&gt; 如果条件比较复杂，可以抽离出判断规则为一个方法： this.isRender &amp;&amp; &lt;SecretData /&gt;。为了保证组件的纯净，可以使用 react-only-if 这个库，能够快速的创建出根据条件渲染的高阶组件。 函数式编程先了解几个概念： 一等对象：一个函数可以作为一个变量的值，也可以作为参数 高阶函数：一个函数可以接受函数作为参数，然后返回一个新的函数 纯函数：不产生副作用，也就是说它不会改变自身作用域以外的任何东西，相同的输入一定会得到相同的输出]]></content>
-      <categories>
-        <category>读书笔记</category>
-      </categories>
-      <tags>
-        <tag>react</tag>
       </tags>
   </entry>
   <entry>
@@ -82,10 +82,10 @@
       <tags>
         <tag>javascript</tag>
         <tag>react</tag>
+        <tag>前端</tag>
         <tag>websocket</tag>
         <tag>spa</tag>
         <tag>nodejs</tag>
-        <tag>前端</tag>
         <tag>后端</tag>
       </tags>
   </entry>
@@ -224,8 +224,8 @@
       <tags>
         <tag>javascript</tag>
         <tag>前端</tag>
-        <tag>web</tag>
         <tag>html</tag>
+        <tag>web</tag>
         <tag>css</tag>
       </tags>
   </entry>
