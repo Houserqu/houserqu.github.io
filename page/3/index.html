@@ -739,6 +739,10 @@
 <h3 id="mv-移动文件与目录，或修改名称"><a href="#mv-移动文件与目录，或修改名称" class="headerlink" title="mv 移动文件与目录，或修改名称"></a>mv 移动文件与目录，或修改名称</h3><blockquote>
 <p>mv [options] source1 source2 source3 …. directory<br>mv [-fiu] source destination</p>
 </blockquote>
+<h2 id="进程"><a href="#进程" class="headerlink" title="进程"></a>进程</h2><ul>
+<li>所有进程：ps -A</li>
+<li></li>
+</ul>
 <h2 id="磁盘管理"><a href="#磁盘管理" class="headerlink" title="磁盘管理"></a>磁盘管理</h2><h3 id="df-列出文件系统的整体磁盘使用量"><a href="#df-列出文件系统的整体磁盘使用量" class="headerlink" title="df 列出文件系统的整体磁盘使用量"></a>df 列出文件系统的整体磁盘使用量</h3><ul>
 <li>-a ：列出所有的文件系统，包括系统特有的 /proc 等文件系统；</li>
 <li>-k ：以 KBytes 的容量显示各文件系统；</li>
@@ -747,6 +751,12 @@
 <li>-H ：以 M=1000K 取代 M=1024K 的进位方式；</li>
 <li>-T ：显示文件系统类型, 连同该 partition 的 filesystem 名称 (例如 ext3) 也列出；</li>
 <li>-i ：不用硬盘容量，而以 inode 的数量来显示</li>
+</ul>
+<h2 id="网络相关"><a href="#网络相关" class="headerlink" title="网络相关"></a>网络相关</h2><h3 id="端口"><a href="#端口" class="headerlink" title="端口"></a>端口</h3><ul>
+<li>扫描：nc -z -v {host-name-here} {port-range-here}</li>
+</ul>
+<h2 id="防火墙"><a href="#防火墙" class="headerlink" title="防火墙"></a>防火墙</h2><ul>
+<li>关闭防火墙：service iptables stop</li>
 </ul>
 <h3 id="du-查看文件和目录磁盘使用的空间"><a href="#du-查看文件和目录磁盘使用的空间" class="headerlink" title="du 查看文件和目录磁盘使用的空间"></a>du 查看文件和目录磁盘使用的空间</h3><blockquote>
 <p>du [-ahskm] 文件或目录名称</p>
@@ -758,6 +768,13 @@
 <li>-S ：不包括子目录下的总计，与 -s 有点差别。</li>
 <li>-k ：以 KBytes 列出容量显示；</li>
 <li>-m ：以 MBytes 列出容量显示；</li>
+</ul>
+<h2 id="其他应用"><a href="#其他应用" class="headerlink" title="其他应用"></a>其他应用</h2><h3 id="Shadowsocks"><a href="#Shadowsocks" class="headerlink" title="Shadowsocks"></a>Shadowsocks</h3><ul>
+<li>修改配置文件：vim /etc/shadowsocks.json</li>
+<li>停止ss服务：ssserver -c /etc/shadowsocks.json -d stop</li>
+<li>启动ss服务：ssserver -c /etc/shadowsocks.json -d start</li>
+<li>重启ss服务：ssserver -c /etc/shadowsocks.json -d restart</li>
+<li>卸载 ss-fly/ss-fly.sh -uninstall</li>
 </ul>
 
       <script>

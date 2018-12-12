@@ -90,7 +90,7 @@
 <meta property="og:site_name" content="Houser&#39;s Blog">
 <meta property="og:description" content="文件和目录cd  进入文件夹1$ cd ~  //进入用户目录 chmod 更改文件或目录权限 chmod [-R] xyz  1$ chmod 770 xyz ls 列出 –l 显示一个文件的属性以及文件所属的用户和组 -a 显示包含隐藏文件  1$ ls -a // 列出包含隐藏的文件 查看文件大小 查看指定目录大小 du -sh folder  cp 复制 cp [-adfilprsu] 来">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-11-18T04:07:31.367Z">
+<meta property="og:updated_time" content="2018-12-12T11:01:48.178Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux 常用命令">
 <meta name="twitter:description" content="文件和目录cd  进入文件夹1$ cd ~  //进入用户目录 chmod 更改文件或目录权限 chmod [-R] xyz  1$ chmod 770 xyz ls 列出 –l 显示一个文件的属性以及文件所属的用户和组 -a 显示包含隐藏文件  1$ ls -a // 列出包含隐藏的文件 查看文件大小 查看指定目录大小 du -sh folder  cp 复制 cp [-adfilprsu] 来">
@@ -461,6 +461,10 @@
 <h3 id="mv-移动文件与目录，或修改名称"><a href="#mv-移动文件与目录，或修改名称" class="headerlink" title="mv 移动文件与目录，或修改名称"></a>mv 移动文件与目录，或修改名称</h3><blockquote>
 <p>mv [options] source1 source2 source3 …. directory<br>mv [-fiu] source destination</p>
 </blockquote>
+<h2 id="进程"><a href="#进程" class="headerlink" title="进程"></a>进程</h2><ul>
+<li>所有进程：ps -A</li>
+<li></li>
+</ul>
 <h2 id="磁盘管理"><a href="#磁盘管理" class="headerlink" title="磁盘管理"></a>磁盘管理</h2><h3 id="df-列出文件系统的整体磁盘使用量"><a href="#df-列出文件系统的整体磁盘使用量" class="headerlink" title="df 列出文件系统的整体磁盘使用量"></a>df 列出文件系统的整体磁盘使用量</h3><ul>
 <li>-a ：列出所有的文件系统，包括系统特有的 /proc 等文件系统；</li>
 <li>-k ：以 KBytes 的容量显示各文件系统；</li>
@@ -469,6 +473,12 @@
 <li>-H ：以 M=1000K 取代 M=1024K 的进位方式；</li>
 <li>-T ：显示文件系统类型, 连同该 partition 的 filesystem 名称 (例如 ext3) 也列出；</li>
 <li>-i ：不用硬盘容量，而以 inode 的数量来显示</li>
+</ul>
+<h2 id="网络相关"><a href="#网络相关" class="headerlink" title="网络相关"></a>网络相关</h2><h3 id="端口"><a href="#端口" class="headerlink" title="端口"></a>端口</h3><ul>
+<li>扫描：nc -z -v {host-name-here} {port-range-here}</li>
+</ul>
+<h2 id="防火墙"><a href="#防火墙" class="headerlink" title="防火墙"></a>防火墙</h2><ul>
+<li>关闭防火墙：service iptables stop</li>
 </ul>
 <h3 id="du-查看文件和目录磁盘使用的空间"><a href="#du-查看文件和目录磁盘使用的空间" class="headerlink" title="du 查看文件和目录磁盘使用的空间"></a>du 查看文件和目录磁盘使用的空间</h3><blockquote>
 <p>du [-ahskm] 文件或目录名称</p>
@@ -480,6 +490,13 @@
 <li>-S ：不包括子目录下的总计，与 -s 有点差别。</li>
 <li>-k ：以 KBytes 列出容量显示；</li>
 <li>-m ：以 MBytes 列出容量显示；</li>
+</ul>
+<h2 id="其他应用"><a href="#其他应用" class="headerlink" title="其他应用"></a>其他应用</h2><h3 id="Shadowsocks"><a href="#Shadowsocks" class="headerlink" title="Shadowsocks"></a>Shadowsocks</h3><ul>
+<li>修改配置文件：vim /etc/shadowsocks.json</li>
+<li>停止ss服务：ssserver -c /etc/shadowsocks.json -d stop</li>
+<li>启动ss服务：ssserver -c /etc/shadowsocks.json -d start</li>
+<li>重启ss服务：ssserver -c /etc/shadowsocks.json -d restart</li>
+<li>卸载 ss-fly/ss-fly.sh -uninstall</li>
 </ul>
 
       <script>
@@ -711,7 +728,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#文件和目录"><span class="nav-number">1.</span> <span class="nav-text">文件和目录</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#cd-进入文件夹"><span class="nav-number">1.1.</span> <span class="nav-text">cd  进入文件夹</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#chmod-更改文件或目录权限"><span class="nav-number">1.2.</span> <span class="nav-text">chmod 更改文件或目录权限</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ls-列出"><span class="nav-number">1.3.</span> <span class="nav-text">ls 列出</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查看文件大小"><span class="nav-number">1.4.</span> <span class="nav-text">查看文件大小</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#cp-复制"><span class="nav-number">1.5.</span> <span class="nav-text">cp 复制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#scp-文件传输"><span class="nav-number">1.6.</span> <span class="nav-text">scp 文件传输</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#rm-删除"><span class="nav-number">1.7.</span> <span class="nav-text">rm 删除</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#mv-移动文件与目录，或修改名称"><span class="nav-number">1.8.</span> <span class="nav-text">mv 移动文件与目录，或修改名称</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#磁盘管理"><span class="nav-number">2.</span> <span class="nav-text">磁盘管理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#df-列出文件系统的整体磁盘使用量"><span class="nav-number">2.1.</span> <span class="nav-text">df 列出文件系统的整体磁盘使用量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#du-查看文件和目录磁盘使用的空间"><span class="nav-number">2.2.</span> <span class="nav-text">du 查看文件和目录磁盘使用的空间</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#文件和目录"><span class="nav-number">1.</span> <span class="nav-text">文件和目录</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#cd-进入文件夹"><span class="nav-number">1.1.</span> <span class="nav-text">cd  进入文件夹</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#chmod-更改文件或目录权限"><span class="nav-number">1.2.</span> <span class="nav-text">chmod 更改文件或目录权限</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ls-列出"><span class="nav-number">1.3.</span> <span class="nav-text">ls 列出</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查看文件大小"><span class="nav-number">1.4.</span> <span class="nav-text">查看文件大小</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#cp-复制"><span class="nav-number">1.5.</span> <span class="nav-text">cp 复制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#scp-文件传输"><span class="nav-number">1.6.</span> <span class="nav-text">scp 文件传输</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#rm-删除"><span class="nav-number">1.7.</span> <span class="nav-text">rm 删除</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#mv-移动文件与目录，或修改名称"><span class="nav-number">1.8.</span> <span class="nav-text">mv 移动文件与目录，或修改名称</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#进程"><span class="nav-number">2.</span> <span class="nav-text">进程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#磁盘管理"><span class="nav-number">3.</span> <span class="nav-text">磁盘管理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#df-列出文件系统的整体磁盘使用量"><span class="nav-number">3.1.</span> <span class="nav-text">df 列出文件系统的整体磁盘使用量</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#网络相关"><span class="nav-number">4.</span> <span class="nav-text">网络相关</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#端口"><span class="nav-number">4.1.</span> <span class="nav-text">端口</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#防火墙"><span class="nav-number">5.</span> <span class="nav-text">防火墙</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#du-查看文件和目录磁盘使用的空间"><span class="nav-number">5.1.</span> <span class="nav-text">du 查看文件和目录磁盘使用的空间</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他应用"><span class="nav-number">6.</span> <span class="nav-text">其他应用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Shadowsocks"><span class="nav-number">6.1.</span> <span class="nav-text">Shadowsocks</span></a></li></ol></li></ol></div>
             
 
           </div>
