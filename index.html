@@ -329,6 +329,335 @@
   
 
   <article class="post post-type-normal " itemscope="" itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://houserqu.com/2019/04/09/前端多页面应用开发脚手架/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Houser">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://houser.oss-cn-shanghai.aliyuncs.com/houserpage/houser.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Houser's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2019/04/09/前端多页面应用开发脚手架/" itemprop="url">
+                  前端多页面应用开发脚手架
+                </a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-09T13:46:39+08:00">
+                2019-04-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/04/09/前端多页面应用开发脚手架/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/04/09/前端多页面应用开发脚手架/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="create-mutiple-page-webapp"><a href="#create-mutiple-page-webapp" class="headerlink" title="create-mutiple-page-webapp"></a>create-mutiple-page-webapp</h1><p>愉快的开发多 html 页面应用</p>
+<h2 id="About"><a href="#About" class="headerlink" title="About"></a>About</h2><p>有些时候，前端开发不一定都是单页应用，而是传统多 html 页面，然后将这些页面交给后端进行部署，也可以理解为多页应用的前后端分离开发。这种类型的项目是以多个 html 文件为入口的，所以类似于 React 等项目构建方式不太适用，因为 webpack 是以 js 文件为入口的。</p>
+<p>所以为了能够用 typescript、less 等高级语法编写这种类型的项目，又能很好兼容浏览器，我搭建了一个基于 gulp 的多页面项目脚手架.</p>
+<h2 id="Install"><a href="#Install" class="headerlink" title="Install"></a>Install</h2><h3 id="get-code"><a href="#get-code" class="headerlink" title="get code"></a>get code</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> --depth 1 https://github.com/Houserqu/create-mutiple-page-webapp</span><br></pre></td></tr></table></figure>
+<h3 id="install-dependence"><a href="#install-dependence" class="headerlink" title="install dependence"></a>install dependence</h3><p><code>yarnpkg</code> or <code>npm i</code></p>
+<h2 id="Deployment"><a href="#Deployment" class="headerlink" title="Deployment"></a>Deployment</h2><h3 id="开发模式"><a href="#开发模式" class="headerlink" title="开发模式"></a>开发模式</h3><p>使用 <code>npm run dev</code> 命令会在本地启动开发服务器，当代码文件变动时会自动刷新页面。</p>
+<h3 id="构建"><a href="#构建" class="headerlink" title="构建"></a>构建</h3><p>使用 <code>npm run build</code> 命令构建代码到 dist 目录</p>
+<h3 id="目录结构"><a href="#目录结构" class="headerlink" title="目录结构"></a>目录结构</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">├── LICENSE</span><br><span class="line">├── README.md</span><br><span class="line">├── gulpfile.js                // gulp 配置文件，可以根据需要更改</span><br><span class="line">├── package.json</span><br><span class="line">├── src                       // 源代码目录</span><br><span class="line">│   ├── 404.ejs</span><br><span class="line">│   ├── LICENSE.txt</span><br><span class="line">│   ├── browserconfig.xml</span><br><span class="line">│   ├── doc                   // h5-Boilerplate 说明</span><br><span class="line">│   │   ├── ...</span><br><span class="line">│   ├── favicon.ico</span><br><span class="line">│   ├── humans.txt</span><br><span class="line">│   ├── icon.png</span><br><span class="line">│   ├── index.ejs             // 默认首页</span><br><span class="line">│   ├── js                    // js 文件</span><br><span class="line">│   │   ├── main.ts           // ts 文件都会通过 browserify 打包</span><br><span class="line">│   │   ├── utils.ts</span><br><span class="line">│   │   └── vendor            // 类库文件，不会被打包</span><br><span class="line">│   │       └── modernizr-3.7.1.min.js</span><br><span class="line">│   ├── robots.txt</span><br><span class="line">│   ├── site.webmanifest</span><br><span class="line">│   ├── style                 // less 样式文件目录</span><br><span class="line">│   │   ├── main.less</span><br><span class="line">│   │   └── normalize.less</span><br><span class="line">│   ├── template-public       // 公共 ejs 模板文件木</span><br><span class="line">│   │   └── header.ejs</span><br><span class="line">│   ├── tile-wide.png</span><br><span class="line">│   └── tile.png</span><br><span class="line">├── tsconfig.json              // typescript 配置文件</span><br><span class="line">└── yarn.lock</span><br></pre></td></tr></table></figure>
+<h2 id="Built-With"><a href="#Built-With" class="headerlink" title="Built With"></a>Built With</h2><ul>
+<li><a href="https://gulpjs.com/" target="_blank" rel="noopener">gulp</a> 构建工具</li>
+<li><a href="https://github.com/Microsoft/TypeScript" target="_blank" rel="noopener">Typescript</a> js 语言版本</li>
+<li><a href="https://github.com/less/less.js" target="_blank" rel="noopener">Less</a> css 预处理器</li>
+<li><a href="https://github.com/mde/ejs" target="_blank" rel="noopener">ejs</a> html 模板引擎</li>
+<li><a href="https://github.com/h5bp/html5-boilerplate" target="_blank" rel="noopener">html5-boilerplate</a> 前端文件模板</li>
+</ul>
+<h2 id="Contributing"><a href="#Contributing" class="headerlink" title="Contributing"></a>Contributing</h2><p>欢迎 PR</p>
+<h2 id="Authors"><a href="#Authors" class="headerlink" title="Authors"></a>Authors</h2><ul>
+<li><a href="http://houserqu.com/">瞿浩 Houser Qu</a> - <em>Initial work</em></li>
+</ul>
+<h2 id="License"><a href="#License" class="headerlink" title="License"></a>License</h2><p><a href="https://github.com/Houserqu/create-mutiple-page-webapp/blob/master/LICENSE" target="_blank" rel="noopener">MIT licensed</a></p>
+
+      <script>
+        window.disqusProxy={
+          shortname: 'housers-blog',
+          username: 'Houser Qu',
+          server: '207.148.19.236',
+          port: 5509,
+          adminAvatar: '/avatars/admin-avatar.jpg',
+          identifier: '2019/04/09/前端多页面应用开发脚手架/',
+        };
+        window.disqus_config = function () {
+          this.page.url = window.location.href;
+          this.page.identifier = window.disqusProxy.identifier;
+        };
+      </script>
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+      
+    
+      
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope="" itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://houserqu.com/2018/12/18/笔记-5/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Houser">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://houser.oss-cn-shanghai.aliyuncs.com/houserpage/houser.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Houser's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2018/12/18/笔记-5/" itemprop="url">
+                  笔记-5
+                </a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-18T09:45:32+08:00">
+                2018-12-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/12/18/笔记-5/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/12/18/笔记-5/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="函数记忆"><a href="#函数记忆" class="headerlink" title="函数记忆"></a>函数记忆</h2><p>函数记忆是指将上次的计算结果缓存起来，当下次调用时，如果遇到相同的参数，就直接返回缓存中的数据。</p>
+<h4 id="实现原理"><a href="#实现原理" class="headerlink" title="实现原理"></a>实现原理</h4><p>构造一个记忆封装函数 memoize()，接受功能函数作 func() 为参数，返回一个包装后的新函数 memoizedFunc(), memoizedFunc 函数会缓存每次结算结果，并检查前后两次调用时接受的参数是否一致，如果是直接返回结果，跳过 func() 方法的执行。还得考虑到多参数问题。</p>
+<p><a href="https://github.com/alexreardon/memoize-one" target="_blank" rel="noopener">实际使用时可以用这个库</a></p>
+<p>underscore 代码实现</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> memoize = <span class="function"><span class="keyword">function</span>(<span class="params">func, hasher</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> memoize = <span class="function"><span class="keyword">function</span>(<span class="params">key</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> cache = memoize.cache;</span><br><span class="line">        <span class="keyword">var</span> address = <span class="string">''</span> + (hasher ? hasher.apply(<span class="keyword">this</span>, <span class="built_in">arguments</span>) : key);</span><br><span class="line">        <span class="keyword">if</span> (!cache[address]) &#123;</span><br><span class="line">            cache[address] = func.apply(<span class="keyword">this</span>, <span class="built_in">arguments</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> cache[address];</span><br><span class="line">    &#125;;</span><br><span class="line">    memoize.cache = &#123;&#125;;</span><br><span class="line">    <span class="keyword">return</span> memoize;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>参考链接 <a href="https://github.com/mqyqingfeng/Blog/issues/46" target="_blank" rel="noopener">https://github.com/mqyqingfeng/Blog/issues/46</a></p>
+</blockquote>
+<h2 id="深浅拷贝梳理"><a href="#深浅拷贝梳理" class="headerlink" title="深浅拷贝梳理"></a>深浅拷贝梳理</h2><p>循环引用</p>
+<p>null 值</p>
+<h2 id="create-react-app-build-后的文件引用采用相对路径"><a href="#create-react-app-build-后的文件引用采用相对路径" class="headerlink" title="create-react-app build 后的文件引用采用相对路径"></a>create-react-app build 后的文件引用采用相对路径</h2><p>在 package.json 文件中 增加 一级 <code>&quot;homepage&quot;: &quot;./&quot;,</code>配置。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"name"</span>: <span class="string">"my-create-react-app"</span>,</span><br><span class="line">  <span class="attr">"version"</span>: <span class="string">"0.1.0"</span>,</span><br><span class="line">  <span class="attr">"homepage"</span>: <span class="string">"./"</span>,</span><br><span class="line">  <span class="attr">"private"</span>: <span class="literal">true</span>,</span><br><span class="line">  ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="重新构建后生成的-html-文件就会用相对路径的形式引入其他文件。"><a href="#重新构建后生成的-html-文件就会用相对路径的形式引入其他文件。" class="headerlink" title="重新构建后生成的 html 文件就会用相对路径的形式引入其他文件。"></a>重新构建后生成的 html 文件就会用相对路径的形式引入其他文件。</h2><h2 id="导出-mysql-表的结构和注释到-Excel"><a href="#导出-mysql-表的结构和注释到-Excel" class="headerlink" title="导出 mysql 表的结构和注释到 Excel"></a>导出 mysql 表的结构和注释到 Excel</h2><p>发现大部分数据库管理软件都不支持直接将表结构导出成 Excel 格式，但是这些软件基本上都支持 sql 查询并已表格形式展示结构，查询结果是支持导出 csv 的。</p>
+<p>所以可以通过如下 sql 语句将所有表的结构信息输出，然后手动导出或者复制结果。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span>  </span><br><span class="line">    TABLE_NAME 表名,</span><br><span class="line">    COLUMN_NAME 列名,  </span><br><span class="line">    COLUMN_TYPE 数据类型,  </span><br><span class="line">    DATA_TYPE 字段类型,  </span><br><span class="line">    CHARACTER_MAXIMUM_LENGTH 长度,  </span><br><span class="line">    IS_NULLABLE 是否为空,  </span><br><span class="line">    COLUMN_DEFAULT 默认值,  </span><br><span class="line">    COLUMN_COMMENT 备注   </span><br><span class="line"><span class="keyword">FROM</span>  </span><br><span class="line">    INFORMATION_SCHEMA.COLUMNS  </span><br><span class="line"><span class="keyword">WHERE</span>  </span><br><span class="line"><span class="comment">-- test_database为数据库名称，到时候只需要修改成你要导出表结构的数据库即可  </span></span><br><span class="line">table_schema =<span class="string">'test_database'</span>  </span><br><span class="line"><span class="comment">-- AND  </span></span><br><span class="line"><span class="comment">-- test_table为表名，到时候换成你要导出的表的名称  </span></span><br><span class="line"><span class="comment">-- 如果不写的话，默认会查询出所有表中的数据  </span></span><br><span class="line"><span class="comment">-- table_name  = 'test_table'</span></span><br></pre></td></tr></table></figure>
+<p><a href="https://www.cnblogs.com/freelancy/p/7991509.html" target="_blank" rel="noopener">具体操作参考这里</a></p>
+<p>导出后可能出现乱码的请求，这是可以<a href="https://www.jianshu.com/p/0a3f587f630e" target="_blank" rel="noopener">参考这篇文章</a></p>
+
+      <script>
+        window.disqusProxy={
+          shortname: 'housers-blog',
+          username: 'Houser Qu',
+          server: '207.148.19.236',
+          port: 5509,
+          adminAvatar: '/avatars/admin-avatar.jpg',
+          identifier: '2018/12/18/笔记-5/',
+        };
+        window.disqus_config = function () {
+          this.page.url = window.location.href;
+          this.page.identifier = window.disqusProxy.identifier;
+        };
+      </script>
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+      
+    
+      
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope="" itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://houserqu.com/2018/11/17/去amh云主机平台记录/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -1849,370 +2178,11 @@
 
       
     
-      
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope="" itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://houserqu.com/2018/06/07/个人开源项目-Jayce-用WebSocket构建实时单页应用/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Houser">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="http://houser.oss-cn-shanghai.aliyuncs.com/houserpage/houser.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Houser's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2018/06/07/个人开源项目-Jayce-用WebSocket构建实时单页应用/" itemprop="url">
-                  个人开源项目 - Jayce:用WebSocket构建实时单页应用
-                </a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-07T19:38:49+08:00">
-                2018-06-07
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/项目/" itemprop="url" rel="index">
-                    <span itemprop="name">项目</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2018/06/07/个人开源项目-Jayce-用WebSocket构建实时单页应用/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/06/07/个人开源项目-Jayce-用WebSocket构建实时单页应用/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="About"><a href="#About" class="headerlink" title="About"></a>About</h2><h3 id="birth"><a href="#birth" class="headerlink" title="birth"></a>birth</h3><p>个人比较对实时性的应用比较感兴趣，而自己是个前端爱好者，非常喜欢基于react的单页应用开发，于是想能否结合react高点事情呢？于是诞生了开发Jayce这个框架的想法，一句话描述就是:</p>
-<blockquote>
-<p>基于websocket的实时单页应用开发框架</p>
-</blockquote>
-<p><strong>Jayce</strong>可以让开发者用node.js + websocket + redux + react 开发出能够灵活的、健壮的、复杂的实时web应用，让程序员有更多时间喝咖啡。:coffee: :coffee:</p>
-<h3 id="progress"><a href="#progress" class="headerlink" title="progress"></a>progress</h3><p>经过了大半个月的设计和开发，目前开发出了非常基础的版本，完成了核心架构的开发，基本上能够完成需要的功能。但是目前只是个婴儿，还不能用于正式项目中。</p>
-<p>目前相当于踏出了第一步，后续还有很长的路要走。:muscle: :muscle: :muscle:</p>
-<h2 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h2><p>Jayce由三个子框架组成：<a href="https://github.com/Houserqu/jayce" target="_blank" rel="noopener">jayce</a>、<a href="https://github.com/Houserqu/jayce-dom" target="_blank" rel="noopener">jayce-dom</a>、<a href="https://github.com/Houserqu/jayce-server" target="_blank" rel="noopener">jayce-server</a>，与其对应的npm包为 <a href="https://www.npmjs.com/package/jayce-fe" target="_blank" rel="noopener">jayce-fe</a>、<a href="https://www.npmjs.com/package/jayce-dom" target="_blank" rel="noopener">jayce-dom</a>、<a href="https://www.npmjs.com/package/jayce-server" target="_blank" rel="noopener">jayce-server</a></p>
-<p>jayce-fe与jayce-dom用于前端部分，jayce-server用于服务端</p>
-<p>前端项目安装:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i jayce-fe jayce-dom --save</span><br></pre></td></tr></table></figure>
-<p>服务端安装</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i jayce-server --save</span><br></pre></td></tr></table></figure>
-<h2 id="Documention"><a href="#Documention" class="headerlink" title="Documention"></a>Documention</h2><p>由于框架还有很多部分需要完善，暂时还没有编写开发文档，<a href="https://github.com/Houserqu/jayce-example/blob/master/doc/paper/%E5%9F%BA%E4%BA%8Ewebsocket%E7%9A%84%E5%AE%9E%E6%97%B6%E5%8D%95%E9%A1%B5%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91%E6%A1%86%E6%9E%B6.md" target="_blank" rel="noopener">关于框架的详细介绍，可以看这一篇文章</a></p>
-<h2 id="License"><a href="#License" class="headerlink" title="License"></a>License</h2><p>Jayce is <a href="https://github.com/facebook/react/blob/master/LICENSE" target="_blank" rel="noopener">MIT licensed</a>.</p>
-
-      <script>
-        window.disqusProxy={
-          shortname: 'housers-blog',
-          username: 'Houser Qu',
-          server: '207.148.19.236',
-          port: 5509,
-          adminAvatar: '/avatars/admin-avatar.jpg',
-          identifier: '2018/06/07/个人开源项目-Jayce-用WebSocket构建实时单页应用/',
-        };
-        window.disqus_config = function () {
-          this.page.url = window.location.href;
-          this.page.identifier = window.disqusProxy.identifier;
-        };
-      </script>
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-      
-    
-      
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope="" itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://houserqu.com/2018/05/31/react-router-v4-路由监听/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Houser">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="http://houser.oss-cn-shanghai.aliyuncs.com/houserpage/houser.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Houser's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2018/05/31/react-router-v4-路由监听/" itemprop="url">
-                  react-router-v4 路由监听
-                </a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-31T17:07:16+08:00">
-                2018-05-31
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/原创/" itemprop="url" rel="index">
-                    <span itemprop="name">原创</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2018/05/31/react-router-v4-路由监听/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/05/31/react-router-v4-路由监听/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>在使用react的时候，会有需要监听react-router路由变化的需求，针对特殊路由进行处理等。</p>
-<ul>
-<li>一种方案是将所有的路由组件都放在一个父组件里面，然后通过父组件的 <em>this.props.location.pathname</em> 进行手动获取。</li>
-<li>如果结合redux存储的话可以使用 <a href="https://github.com/reactjs/react-router-redux" target="_blank" rel="noopener">react-redux-router</a>这个库。</li>
-</ul>
-<p>最直接的方案是 使用 <a href="https://github.com/ReactTraining/history" target="_blank" rel="noopener">history</a> 对象，react-router 也是基于这个 <a href="https://github.com/ReactTraining/history" target="_blank" rel="noopener">history</a> 库实现的。</p>
-<p>引入history库并实例化history对象，添加监听方法，然后传入到 <router> 的history属性中。</router></p>
-<p>示例代码：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">'react'</span>;</span><br><span class="line"><span class="keyword">import</span> ReactDOM <span class="keyword">from</span> <span class="string">'react-dom'</span>;</span><br><span class="line"><span class="keyword">import</span> createHashHistory <span class="keyword">from</span> <span class="string">"history/createHashHistory"</span></span><br><span class="line"><span class="keyword">import</span> &#123;</span><br><span class="line">  Router,</span><br><span class="line">  Route,</span><br><span class="line">  Link,</span><br><span class="line">  Switch</span><br><span class="line">&#125; <span class="keyword">from</span> <span class="string">'react-router-dom'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> history = createHashHistory()</span><br><span class="line"></span><br><span class="line">history.listen(<span class="function">(<span class="params">location, action</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(</span><br><span class="line">    <span class="string">`The current URL is <span class="subst">$&#123;location.pathname&#125;</span><span class="subst">$&#123;location.search&#125;</span><span class="subst">$&#123;location.hash&#125;</span>`</span></span><br><span class="line">  )</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">`The last navigation action was <span class="subst">$&#123;action&#125;</span>`</span>)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">ReactDOM.render(</span><br><span class="line">  &lt;Router history=&#123;history&#125;&gt;</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">      &lt;App /&gt;</span><br><span class="line">      &lt;Switch&gt;</span><br><span class="line">        &lt;Route exact path=<span class="string">"/"</span> component=&#123;Home&#125;/&gt;</span><br><span class="line">        &lt;Route component=&#123;NoMatch&#125;/&gt;</span><br><span class="line">      &lt;<span class="regexp">/Switch&gt;</span></span><br><span class="line"><span class="regexp">    &lt;/</span>div&gt;</span><br><span class="line">  &lt;<span class="regexp">/Router&gt;, document.getElementById('root'));</span></span><br><span class="line"><span class="regexp">registerServiceWorker();</span></span><br></pre></td></tr></table></figure>
-      <script>
-        window.disqusProxy={
-          shortname: 'housers-blog',
-          username: 'Houser Qu',
-          server: '207.148.19.236',
-          port: 5509,
-          adminAvatar: '/avatars/admin-avatar.jpg',
-          identifier: '2018/05/31/react-router-v4-路由监听/',
-        };
-        window.disqus_config = function () {
-          this.page.url = window.location.href;
-          this.page.identifier = window.disqusProxy.identifier;
-        };
-      </script>
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-      
-    
   </section>
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -2255,7 +2225,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">39</span>
+                <span class="site-state-item-count">41</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -2277,7 +2247,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">41</span>
+                <span class="site-state-item-count">43</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -2339,7 +2309,7 @@
         <div class="copyright">
   
   &copy;  2015 - 
-  <span itemprop="copyrightYear">2018</span>
+  <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

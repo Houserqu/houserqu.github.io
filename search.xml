@@ -1,6 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[前端多页面应用开发脚手架]]></title>
+    <url>%2F2019%2F04%2F09%2F%E5%89%8D%E7%AB%AF%E5%A4%9A%E9%A1%B5%E9%9D%A2%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91%E8%84%9A%E6%89%8B%E6%9E%B6%2F</url>
+    <content type="text"><![CDATA[create-mutiple-page-webapp愉快的开发多 html 页面应用 About有些时候，前端开发不一定都是单页应用，而是传统多 html 页面，然后将这些页面交给后端进行部署，也可以理解为多页应用的前后端分离开发。这种类型的项目是以多个 html 文件为入口的，所以类似于 React 等项目构建方式不太适用，因为 webpack 是以 js 文件为入口的。 所以为了能够用 typescript、less 等高级语法编写这种类型的项目，又能很好兼容浏览器，我搭建了一个基于 gulp 的多页面项目脚手架. Installget code1git clone --depth 1 https://github.com/Houserqu/create-mutiple-page-webapp install dependenceyarnpkg or npm i Deployment开发模式使用 npm run dev 命令会在本地启动开发服务器，当代码文件变动时会自动刷新页面。 构建使用 npm run build 命令构建代码到 dist 目录 目录结构123456789101112131415161718192021222324252627282930├── LICENSE├── README.md├── gulpfile.js // gulp 配置文件，可以根据需要更改├── package.json├── src // 源代码目录│ ├── 404.ejs│ ├── LICENSE.txt│ ├── browserconfig.xml│ ├── doc // h5-Boilerplate 说明│ │ ├── ...│ ├── favicon.ico│ ├── humans.txt│ ├── icon.png│ ├── index.ejs // 默认首页│ ├── js // js 文件│ │ ├── main.ts // ts 文件都会通过 browserify 打包│ │ ├── utils.ts│ │ └── vendor // 类库文件，不会被打包│ │ └── modernizr-3.7.1.min.js│ ├── robots.txt│ ├── site.webmanifest│ ├── style // less 样式文件目录│ │ ├── main.less│ │ └── normalize.less│ ├── template-public // 公共 ejs 模板文件木│ │ └── header.ejs│ ├── tile-wide.png│ └── tile.png├── tsconfig.json // typescript 配置文件└── yarn.lock Built With gulp 构建工具 Typescript js 语言版本 Less css 预处理器 ejs html 模板引擎 html5-boilerplate 前端文件模板 Contributing欢迎 PR Authors 瞿浩 Houser Qu - Initial work LicenseMIT licensed]]></content>
+      <tags>
+        <tag>前端</tag>
+        <tag>脚手架</tag>
+        <tag>typescript</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[笔记-5]]></title>
+    <url>%2F2018%2F12%2F18%2F%E7%AC%94%E8%AE%B0-5%2F</url>
+    <content type="text"><![CDATA[函数记忆函数记忆是指将上次的计算结果缓存起来，当下次调用时，如果遇到相同的参数，就直接返回缓存中的数据。 实现原理构造一个记忆封装函数 memoize()，接受功能函数作 func() 为参数，返回一个包装后的新函数 memoizedFunc(), memoizedFunc 函数会缓存每次结算结果，并检查前后两次调用时接受的参数是否一致，如果是直接返回结果，跳过 func() 方法的执行。还得考虑到多参数问题。 实际使用时可以用这个库 underscore 代码实现 123456789101112var memoize = function(func, hasher) &#123; var memoize = function(key) &#123; var cache = memoize.cache; var address = '' + (hasher ? hasher.apply(this, arguments) : key); if (!cache[address]) &#123; cache[address] = func.apply(this, arguments); &#125; return cache[address]; &#125;; memoize.cache = &#123;&#125;; return memoize;&#125;; 参考链接 https://github.com/mqyqingfeng/Blog/issues/46 深浅拷贝梳理循环引用 null 值 create-react-app build 后的文件引用采用相对路径在 package.json 文件中 增加 一级 &quot;homepage&quot;: &quot;./&quot;,配置。 1234567&#123; "name": "my-create-react-app", "version": "0.1.0", "homepage": "./", "private": true, ...&#125; 重新构建后生成的 html 文件就会用相对路径的形式引入其他文件。导出 mysql 表的结构和注释到 Excel发现大部分数据库管理软件都不支持直接将表结构导出成 Excel 格式，但是这些软件基本上都支持 sql 查询并已表格形式展示结构，查询结果是支持导出 csv 的。 所以可以通过如下 sql 语句将所有表的结构信息输出，然后手动导出或者复制结果。 123456789101112131415161718SELECT TABLE_NAME 表名, COLUMN_NAME 列名, COLUMN_TYPE 数据类型, DATA_TYPE 字段类型, CHARACTER_MAXIMUM_LENGTH 长度, IS_NULLABLE 是否为空, COLUMN_DEFAULT 默认值, COLUMN_COMMENT 备注 FROM INFORMATION_SCHEMA.COLUMNS WHERE -- test_database为数据库名称，到时候只需要修改成你要导出表结构的数据库即可 table_schema ='test_database' -- AND -- test_table为表名，到时候换成你要导出的表的名称 -- 如果不写的话，默认会查询出所有表中的数据 -- table_name = 'test_table' 具体操作参考这里 导出后可能出现乱码的请求，这是可以参考这篇文章]]></content>
+  </entry>
+  <entry>
     <title><![CDATA[去amh云主机平台记录]]></title>
     <url>%2F2018%2F11%2F17%2F%E5%8E%BBamh%E4%BA%91%E4%B8%BB%E6%9C%BA%E5%B9%B3%E5%8F%B0%E8%AE%B0%E5%BD%95%2F</url>
     <content type="text"><![CDATA[背景之前一直都是用 php 做网站开发，自己弄了个学生版云服务器，把网站都放在上面，当时不擅长 linux，一键搭建了一个 amh，可以非常方便的搭建常用的网站运行环境，但是需要收费 6元/月，但是把所有网站数据交给他处理，还是有点不放心，而且我这个 cenos 系统运行有差不多 3年了，最新一直被提醒有漏洞，内存运行异常，所以打算彻底重装一次，不再用第三方服务，当然之前的网站也需要再搭建起来。 感觉有点没事找事，程序员就喜欢瞎折腾吧。 流程备份数据库和网站代码源文件amh 提供自动备份工具，利用该工具进行立即备份，会同时备份到服务器和第三方云存储，我配置的是七牛云。如果没有配置第三方云存储，则需要下载到自己电脑上，然后上传到重装后的系统上去。 下载备份文件操作在自己电脑上运行 scp work@xxx.xxx.xxx.xxx:/home/wwwroot/xxxx /desktop/xxxxx 重装服务器重装系统在阿里云上叫更换系统盘，然后我选择 Ubuntu 16 版本镜像，重装后设置密码 上传备份的文件依然使用 scp 命令 解压后台解压，避免终端关闭后中断：( tar -zxvf file.tar.gz.amh &amp;) 安装 apache、php、mysqlapache123// 以 root 身份登录，可以省去 sudoapt-get updateapt-get install apache2 apache 常用操作 sudo service apache2 restart | stop | start· phpubuntu 16 apt-get 工具默认支持 php 7版本以上的安装，如果需要安装 php 5，需要配置镜像源 12345sudo add-apt-repository ppa:ondrej/phpapt-get install php5// 可以顺便安装常用模块apt-get install php5-mysql php5-curl php5-gd php5-intl php-pear php5-imagick php5-imap php5-mcrypt php5-memcache php5-ming php5-ps php5-pspell php5-recode php5-snmp php5-sqlite php5-tidy php5-xmlrpc php5-xsl mysql1sudo apt-get install mysql-server 创建 apache 虚拟主机 copy /etc/apache2/sites-avaliable/default , 命名为 mysite 修改配置文件：mysite，改成需要的域名和 web 源文件位置 建立链接文件sudo ln -s /etc/apache2/sites-available/mysite /etc/apache2/sites-enabled/mysite 重启 apache 服务器 service apache2 restart 配置 php 拓展大部分 php 系统都会依赖第三方拓展，基本上都可以用 apt-get 安装，如下拓展是 thinkcmf 系统必须要的 curl GD 图像库 apt-get install php5-gd MBString apt-get install php5-mbstring 在安装拓展的时候，基于 php 5 的拓展会遇到知不道包的问题，需要更换镜像源，包名的 php不携带版本号，则默认装最新版本，例如 php-gd。拓展模块安装后需要重启 apache 页面才生效 数据库恢复数据库 登录数据库：mysql -u root -p 执行sql：mysql&gt; source sql-file 创建用户 添加用户：CREATE USER &#39;user-name&#39;@&#39;localhost&#39; IDENTIFIED BY &#39;user-password&#39; 配置用户数据库权限：GRANT all privileges ON database-name.* TO user-name@localhost identified by &#39;user-password&#39;; 刷新权限配置：flush privileges; 参考链接 Ubuntu 配置Apache虚拟目录 Linux后台执行的方法 - 关闭、退出不影响 Ubuntu 16.04 安装mysql并设置远程访问]]></content>
@@ -342,8 +357,8 @@
       <tags>
         <tag>react</tag>
         <tag>react-router</tag>
-        <tag>webpack</tag>
         <tag>redux</tag>
+        <tag>webpack</tag>
       </tags>
   </entry>
   <entry>
