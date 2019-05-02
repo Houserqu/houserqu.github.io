@@ -66,7 +66,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css">
 
 
-  <meta name="keywords" content="react,react-router,redux,webpack,">
+  <meta name="keywords" content="react,webpack,react-router,redux,">
 
 
 
@@ -83,7 +83,7 @@
 
 
 <meta name="description" content="react-clireact应用的起步工程和总结 Github传送门 特点采用时下流行的技术栈，视图：react，状态管理：redux，路由：react-router 作为基础，配合webpack等开发工具而搭建的项目架构，适用于中小型项目，也可以在此基础上进行调整适合更多类型的项目。 同时还会提供react开发相关的资料、疑问、解决方案等，希望对开发者有所帮助，也对自己的技术有所提升。欢迎大家提">
-<meta name="keywords" content="react,react-router,redux,webpack">
+<meta name="keywords" content="react,webpack,react-router,redux">
 <meta property="og:type" content="article">
 <meta property="og:title" content="个人总结的react脚手架">
 <meta property="og:url" content="http://houserqu.com/2017/09/07/个人总结的react脚手架/index.html">
@@ -400,16 +400,6 @@
 
           
             
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/09/07/个人总结的react脚手架/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/09/07/个人总结的react脚手架/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
           
 
           
@@ -506,11 +496,11 @@
           
             <a href="/tags/react/" rel="tag"># react</a>
           
+            <a href="/tags/webpack/" rel="tag"># webpack</a>
+          
             <a href="/tags/react-router/" rel="tag"># react-router</a>
           
             <a href="/tags/redux/" rel="tag"># redux</a>
-          
-            <a href="/tags/webpack/" rel="tag"># webpack</a>
           
         </div>
       
@@ -561,18 +551,7 @@
           
   <div class="comments" id="comments">
     
-      
-      <script src="//cdn.bootcss.com/react/16.0.0/umd/react.production.min.js"></script>
-      <script src="//cdn.bootcss.com/react-dom/16.0.0/umd/react-dom.production.min.js"></script>
-      <script src="//cdn.bootcss.com/fetch/2.0.3/fetch.min.js"></script>
-      <script src="//cdn.jsdelivr.net/npm/blockies-identicon@0.1.0/blockies.min.js"></script>
-      <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
-      <div id="disqus_proxy_thread"><script src="/scripts/hexo-disqus-proxy-primary.js" async></script>
-        <noscript>
-          Please enable JavaScript to view the
-          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
-        </noscript>
-      </div>
+      <div id="gitalk-container"></div>
     
   </div>
 
@@ -832,26 +811,6 @@
 
   
 
-    
-      <script id="dsq-count-scr" src="https://housers-blog.disqus.com/count.js" async></script>
-    
-
-    
-      <script type="text/javascript">
-        var disqus_config = function () {
-          this.page.url = 'http://houserqu.com/2017/09/07/个人总结的react脚手架/';
-          this.page.identifier = '2017/09/07/个人总结的react脚手架/';
-          this.page.title = '个人总结的react脚手架';
-        };
-        var d = document, s = d.createElement('script');
-        
-        s.setAttribute('data-timestamp', '' + +new Date());
-        
-      </script>
-    
-
-  
-
 
 
 
@@ -878,6 +837,22 @@
 
 
 
+
+
+  <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+  <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+   <script type="text/javascript">
+        var gitalk = new Gitalk({
+          clientID: '13786e0f67e6fcbe6913',
+          clientSecret: 'e33e736a41ae3c8a244b6194c305a52e541ff298',
+          repo: 'houserqu.github.io',
+          owner: 'Houserqu',
+          admin: ['Houserqu'],
+          id: location.pathname,
+          distractionFreeMode: 'true'
+        })
+        gitalk.render('gitalk-container')           
+       </script>
 
 
   

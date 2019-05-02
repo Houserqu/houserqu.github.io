@@ -356,9 +356,9 @@
       </categories>
       <tags>
         <tag>react</tag>
+        <tag>webpack</tag>
         <tag>react-router</tag>
         <tag>redux</tag>
-        <tag>webpack</tag>
       </tags>
   </entry>
   <entry>
