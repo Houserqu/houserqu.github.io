@@ -795,7 +795,7 @@
           repo: 'houserqu.github.io',
           owner: 'Houserqu',
           admin: ['Houserqu'],
-          id: location.pathname,
+          id: md5(location.pathname),
           distractionFreeMode: 'true'
         })
         gitalk.render('gitalk-container')           
