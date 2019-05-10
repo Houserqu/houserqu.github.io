@@ -329,6 +329,212 @@
   
 
   <article class="post post-type-normal " itemscope="" itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://houserqu.com/2019/05/10/阿里云日志服务配合Apache使用/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Houser">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://houser.oss-cn-shanghai.aliyuncs.com/houserpage/houser.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Houser's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2019/05/10/阿里云日志服务配合Apache使用/" itemprop="url">
+                  阿里云日志服务配合Apache使用
+                </a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-10T14:23:36+08:00">
+                2019-05-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>我个人有在维护一些网站，有时候会出现 CPU 突然占用过高的情况，或者想分析一下有没有恶意爬虫等，现有的方式就是分析 Apache 访问日志，发现非常不直观，无意间了解到阿里云到日志服务这个产品，可以实现日志的复杂条件查询和数据可视化，于是尝试了一下，发现的确方便很多，在此记录一下我在该服务与 Apache 结合使用的配置过程。</p>
+<h2 id="阿里云日志服务官方介绍"><a href="#阿里云日志服务官方介绍" class="headerlink" title="阿里云日志服务官方介绍"></a>阿里云日志服务官方介绍</h2><blockquote>
+<p><a href="https://www.aliyun.com/product/sls" target="_blank" rel="noopener">日志服务（Log Service，简称 LOG/原 SLS）</a>是针对实时数据一站式服务，在阿里集团经历大量大数据场景锤炼而成。<br>提供日志类数据采集、消费、投递及查询分析功能，全面提升海量日志处理/分析能力，服务智能研发/运维/运营/安全等场景。</p>
+</blockquote>
+<h2 id="本示例环境"><a href="#本示例环境" class="headerlink" title="本示例环境"></a>本示例环境</h2><ul>
+<li>Ubuntu：16</li>
+<li>Apache：2.4.18</li>
+</ul>
+<p>我只在当前环境下进行过配置，其他环境请酌情参考。</p>
+<h2 id="流程"><a href="#流程" class="headerlink" title="流程"></a>流程</h2><h3 id="一：开通日志服务"><a href="#一：开通日志服务" class="headerlink" title="一：开通日志服务"></a>一：开通日志服务</h3><p><a href="https://www.aliyun.com/product/sls?spm=5176.10695662.1119587.1.43e9536ecwScM8" target="_blank" rel="noopener">官方网站</a><br><a href="https://help.aliyun.com/document_detail/48869.html?spm=a2c4g.11186623.6.546.4ddb8bdcXBmYSF" target="_blank" rel="noopener">官方文档</a></p>
+<h4 id="目前计费标准"><a href="#目前计费标准" class="headerlink" title="目前计费标准"></a>目前计费标准</h4><table>
+<thead>
+<tr>
+<th>计费项</th>
+<th>公有云价格</th>
+<th>金融云价格</th>
+<th>免费额度</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>读写流量</td>
+<td>0.18 元/GB</td>
+<td>0.342 元/GB</td>
+<td>500 MB / 月</td>
+</tr>
+<tr>
+<td>索引流量</td>
+<td>0.35 元/GB</td>
+<td>0.665 元/GB</td>
+<td>500 MB / 月</td>
+</tr>
+<tr>
+<td>存储空间</td>
+<td>0.0115 元/GB*天</td>
+<td>0.01725 元/GB*天</td>
+<td>500 MB / 月</td>
+</tr>
+</tbody>
+</table>
+<h3 id="二：创建-Project-和-日志库"><a href="#二：创建-Project-和-日志库" class="headerlink" title="二：创建 Project 和 日志库"></a>二：创建 Project 和 日志库</h3><p>此部分配置建议参考官方的 <strong><a href="https://help.aliyun.com/document_detail/54604.html" target="_blank" rel="noopener">五分钟快速入门</a></strong> 的 <strong>步骤一</strong>，需要注意到是 Project 与服务器最好在同一个区域，这样会通过内网获取日志，速度更快，也能避免产生公网流量。</p>
+<h3 id="三：服务器配置"><a href="#三：服务器配置" class="headerlink" title="三：服务器配置"></a>三：服务器配置</h3><h4 id="添加自定义-Apache-日志格式"><a href="#添加自定义-Apache-日志格式" class="headerlink" title="添加自定义 Apache 日志格式"></a>添加自定义 Apache 日志格式</h4><blockquote>
+<p>本示例中 apache 安装目录是 <code>/etc/apache2</code>，日志存储目录是 <code>/var/log/apache2</code>，读者请根据自己安装情况进行更改</p>
+</blockquote>
+<p>Apache 日志配置参数在 <code>/etc/apache2/apache2.conf</code> 文件中，默认提供 combined、common 甚至更多配置格式，不建议使用，因为包含的信息不是很全面，编辑此文件新增日志格式。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">LogFormat &quot;%h %l %u %t \&quot;%r\&quot; %&gt;s %b \&quot;%&#123;Referer&#125;i\&quot; \&quot;%&#123;User-Agent&#125;i\&quot; %D %f %k %p %q %R %T %I %O&quot; customized</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>customized 为该日志格式的名称</p>
+</blockquote>
+<p>编辑网站配置文件 <code>/etc/apache2/sites-available/{自己定义的网站名}.conf</code></p>
+<p>本示例网站配置文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;VirtualHost *:80&gt;</span><br><span class="line">  ServerName &#123;你的域名&#125;</span><br><span class="line">  ServerAdmin &#123;邮箱&#125;</span><br><span class="line">  DocumentRoot &#123;网站源代码目录&#125;</span><br><span class="line">  ErrorLog &quot;/var/log/apache2/edunuke_errors.log&quot;</span><br><span class="line">  CustomLog &quot;/var/log/apache2/edunuke_accesses.log&quot; customized</span><br><span class="line">&lt;/VirtualHost&gt;</span><br></pre></td></tr></table></figure>
+<p>其中 CustomLog 项配置的是网站访问日志保存的路径和文件名，可以自定义，路径后面的 customized 是<code>/etc/apache2/apache2.conf</code>中配置的日志格式名，这里使用刚刚新建的日志格式 customized。<strong>保存此处配置的日志存储路径用于后续操作</strong></p>
+<p>配置完后重启 Apache:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># /usr/sbin/apachectl restart</span></span><br></pre></td></tr></table></figure>
+<h3 id="四：安装阿里云-Logtail-工具"><a href="#四：安装阿里云-Logtail-工具" class="headerlink" title="四：安装阿里云 Logtail 工具"></a>四：安装阿里云 Logtail 工具</h3><blockquote>
+<p>官方详细文档 <a href="https://help.aliyun.com/document_detail/28982.html" target="_blank" rel="noopener">Linux 安装教程</a></p>
+</blockquote>
+<p>建议通过<strong>自动选择安装参数</strong>方式安装，安装完毕后在<code>app_info.json</code>文件中查看当前服务器 ip 地址。<strong>保存该 ip 地址用于后续的机器组配置</strong>。</p>
+<p><code>app_info.json</code>文件路径：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Linux：/usr/local/ilogtail/app_info.json</span><br><span class="line">Windows x64：C:\Program Files (x86)\Alibaba\Logtail\app_info.json</span><br><span class="line">Windows x32：C:\Program Files\Alibaba\Logtail\app_info.json</span><br></pre></td></tr></table></figure>
+<h3 id="五：阿里云控制台配置-Apache-日志服务"><a href="#五：阿里云控制台配置-Apache-日志服务" class="headerlink" title="五：阿里云控制台配置 Apache 日志服务"></a>五：阿里云控制台配置 Apache 日志服务</h3><p>此部分配置建议参考官方文档的 <strong><a href="https://help.aliyun.com/document_detail/87740.html" target="_blank" rel="noopener">分析 Apache 日志</a></strong> 部分</p>
+<p>在该教程中的操作步骤部分的第 4 步中，日志格式选择自定义，Apache 配置字段填写前文新增的自定义日志格式参数。<br>在该教程中的操作步骤部分的第 5 步中创建机器组的时候，需要填写的 服务器 ip 为前文中 Logtail 工具获取的 ip 地址。</p>
+<p>创建完毕后进入日志库的 <strong>Logtail 机器组</strong> 选项检查状态，操作如图：</p>
+<p><img src="http://houser.oss-cn-shanghai.aliyuncs.com/others/QQ20190510-155522.png" alt="查看状态"></p>
+<p>如果心跳 OK 说明连接成功。</p>
+<h3 id="六：查询日志"><a href="#六：查询日志" class="headerlink" title="六：查询日志"></a>六：查询日志</h3><p>进入日志库，找到刚刚创建 Logstore，点击查询进入查询界面就可以看到已经获取到的日志信息，查询界面可以进行复杂条件的语句查询和可视化配置。</p>
+<h4 id="示例：查询用户-ip-所在省份并生成可视化图表"><a href="#示例：查询用户-ip-所在省份并生成可视化图表" class="headerlink" title="示例：查询用户 ip 所在省份并生成可视化图表"></a>示例：查询用户 ip 所在省份并生成可视化图表</h4><p>查询语句 <code>* | select ip_to_province(remote_addr) as address, count(1) as count group by address order by count desc limit 10</code></p>
+<p>然后选择统计图表，切换到中国地图部分，就能查看到所生成的图表。也可以将该图表添加到仪表盘，后续可以直接浏览。</p>
+<p>具体操作请看官方文档用户指南目录下的 <strong>查询与分析</strong> 和 <strong>数据可视化</strong> 两部分。</p>
+
+      <script>
+        window.disqusProxy={
+          shortname: 'housers-blog',
+          username: 'Houser Qu',
+          server: '207.148.19.236',
+          port: 5509,
+          adminAvatar: '/avatars/admin-avatar.jpg',
+          identifier: '2019/05/10/阿里云日志服务配合Apache使用/',
+        };
+        window.disqus_config = function () {
+          this.page.url = window.location.href;
+          this.page.identifier = window.disqusProxy.identifier;
+        };
+      </script>
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+      
+    
+      
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope="" itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://houserqu.com/2019/04/09/前端多页面应用开发脚手架/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -1908,176 +2114,6 @@
 
       
     
-      
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope="" itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://houserqu.com/2018/06/08/本地引用开发中的npm包/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Houser">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="https://houser.oss-cn-shanghai.aliyuncs.com/houserpage/houser.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Houser's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2018/06/08/本地引用开发中的npm包/" itemprop="url">
-                  【笔记】本地引用开发中的npm包
-                </a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-08T09:57:01+08:00">
-                2018-06-08
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/笔记/" itemprop="url" rel="index">
-                    <span itemprop="name">笔记</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h3><p>最近遇到一个情况，正在开发一个npm包，但是这个包是配合react使用的，而这个包是单独作为项目开发的，也需要发布到npm上去，但是在开发过程中需要结合react项目进行调试等，通过修改再发布到npm，react项目中再install的方式肯定不方便，所以问题来了，<strong>如何在一个项目中引入本地正在开发的package呢？</strong></p>
-<h3 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h3><p>其实npm自带了这个功能：<a href="https://docs.npmjs.com/cli/link" target="_blank" rel="noopener">npm link</a>，npm link会将一个package添加到npm全局环境中，然后再需要使用的地方链接到node_modules目录中去。</p>
-<p>还有其他解决方法，不过最方便的还是这个方式。</p>
-<h3 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h3><p>假设开发的package name 为 example-package，即package.json里的name字段值。</p>
-<ul>
-<li>在正在开发的package目录中执行<code>npm link</code></li>
-<li>在需要引入这个package项目中执行 <code>npm link example-package</code></li>
-</ul>
-<p>然后就通过软连接的方式引入这个包了，你在原目录修改这个包都会同步到项目中去。</p>
-<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><blockquote>
-<p><a href="https://github.com/atian25/blog/issues/17" target="_blank" rel="noopener">你所不知道的模块调试技巧</a></p>
-</blockquote>
-
-      <script>
-        window.disqusProxy={
-          shortname: 'housers-blog',
-          username: 'Houser Qu',
-          server: '207.148.19.236',
-          port: 5509,
-          adminAvatar: '/avatars/admin-avatar.jpg',
-          identifier: '2018/06/08/本地引用开发中的npm包/',
-        };
-        window.disqus_config = function () {
-          this.page.url = window.location.href;
-          this.page.identifier = window.disqusProxy.identifier;
-        };
-      </script>
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-      
-    
   </section>
 
   
@@ -2125,7 +2161,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">41</span>
+                <span class="site-state-item-count">42</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -2147,7 +2183,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">43</span>
+                <span class="site-state-item-count">44</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

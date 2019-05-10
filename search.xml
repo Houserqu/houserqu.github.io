@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[阿里云日志服务配合Apache使用]]></title>
+    <url>%2F2019%2F05%2F10%2F%E9%98%BF%E9%87%8C%E4%BA%91%E6%97%A5%E5%BF%97%E6%9C%8D%E5%8A%A1%E9%85%8D%E5%90%88Apache%E4%BD%BF%E7%94%A8%2F</url>
+    <content type="text"><![CDATA[背景我个人有在维护一些网站，有时候会出现 CPU 突然占用过高的情况，或者想分析一下有没有恶意爬虫等，现有的方式就是分析 Apache 访问日志，发现非常不直观，无意间了解到阿里云到日志服务这个产品，可以实现日志的复杂条件查询和数据可视化，于是尝试了一下，发现的确方便很多，在此记录一下我在该服务与 Apache 结合使用的配置过程。 阿里云日志服务官方介绍 日志服务（Log Service，简称 LOG/原 SLS）是针对实时数据一站式服务，在阿里集团经历大量大数据场景锤炼而成。提供日志类数据采集、消费、投递及查询分析功能，全面提升海量日志处理/分析能力，服务智能研发/运维/运营/安全等场景。 本示例环境 Ubuntu：16 Apache：2.4.18 我只在当前环境下进行过配置，其他环境请酌情参考。 流程一：开通日志服务官方网站官方文档 目前计费标准 计费项 公有云价格 金融云价格 免费额度 读写流量 0.18 元/GB 0.342 元/GB 500 MB / 月 索引流量 0.35 元/GB 0.665 元/GB 500 MB / 月 存储空间 0.0115 元/GB*天 0.01725 元/GB*天 500 MB / 月 二：创建 Project 和 日志库此部分配置建议参考官方的 五分钟快速入门 的 步骤一，需要注意到是 Project 与服务器最好在同一个区域，这样会通过内网获取日志，速度更快，也能避免产生公网流量。 三：服务器配置添加自定义 Apache 日志格式 本示例中 apache 安装目录是 /etc/apache2，日志存储目录是 /var/log/apache2，读者请根据自己安装情况进行更改 Apache 日志配置参数在 /etc/apache2/apache2.conf 文件中，默认提供 combined、common 甚至更多配置格式，不建议使用，因为包含的信息不是很全面，编辑此文件新增日志格式。 1LogFormat &quot;%h %l %u %t \&quot;%r\&quot; %&gt;s %b \&quot;%&#123;Referer&#125;i\&quot; \&quot;%&#123;User-Agent&#125;i\&quot; %D %f %k %p %q %R %T %I %O&quot; customized customized 为该日志格式的名称 编辑网站配置文件 /etc/apache2/sites-available/{自己定义的网站名}.conf 本示例网站配置文件 1234567&lt;VirtualHost *:80&gt; ServerName &#123;你的域名&#125; ServerAdmin &#123;邮箱&#125; DocumentRoot &#123;网站源代码目录&#125; ErrorLog &quot;/var/log/apache2/edunuke_errors.log&quot; CustomLog &quot;/var/log/apache2/edunuke_accesses.log&quot; customized&lt;/VirtualHost&gt; 其中 CustomLog 项配置的是网站访问日志保存的路径和文件名，可以自定义，路径后面的 customized 是/etc/apache2/apache2.conf中配置的日志格式名，这里使用刚刚新建的日志格式 customized。保存此处配置的日志存储路径用于后续操作 配置完后重启 Apache: 1# /usr/sbin/apachectl restart 四：安装阿里云 Logtail 工具 官方详细文档 Linux 安装教程 建议通过自动选择安装参数方式安装，安装完毕后在app_info.json文件中查看当前服务器 ip 地址。保存该 ip 地址用于后续的机器组配置。 app_info.json文件路径： 123Linux：/usr/local/ilogtail/app_info.jsonWindows x64：C:\Program Files (x86)\Alibaba\Logtail\app_info.jsonWindows x32：C:\Program Files\Alibaba\Logtail\app_info.json 五：阿里云控制台配置 Apache 日志服务此部分配置建议参考官方文档的 分析 Apache 日志 部分 在该教程中的操作步骤部分的第 4 步中，日志格式选择自定义，Apache 配置字段填写前文新增的自定义日志格式参数。在该教程中的操作步骤部分的第 5 步中创建机器组的时候，需要填写的 服务器 ip 为前文中 Logtail 工具获取的 ip 地址。 创建完毕后进入日志库的 Logtail 机器组 选项检查状态，操作如图： 如果心跳 OK 说明连接成功。 六：查询日志进入日志库，找到刚刚创建 Logstore，点击查询进入查询界面就可以看到已经获取到的日志信息，查询界面可以进行复杂条件的语句查询和可视化配置。 示例：查询用户 ip 所在省份并生成可视化图表查询语句 * | select ip_to_province(remote_addr) as address, count(1) as count group by address order by count desc limit 10 然后选择统计图表，切换到中国地图部分，就能查看到所生成的图表。也可以将该图表添加到仪表盘，后续可以直接浏览。 具体操作请看官方文档用户指南目录下的 查询与分析 和 数据可视化 两部分。]]></content>
+      <tags>
+        <tag>云服务</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[前端多页面应用开发脚手架]]></title>
     <url>%2F2019%2F04%2F09%2F%E5%89%8D%E7%AB%AF%E5%A4%9A%E9%A1%B5%E9%9D%A2%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91%E8%84%9A%E6%89%8B%E6%9E%B6%2F</url>
     <content type="text"><![CDATA[create-mutiple-page-webapp愉快的开发多 html 页面应用 About有些时候，前端开发不一定都是单页应用，而是传统多 html 页面，然后将这些页面交给后端进行部署，也可以理解为多页应用的前后端分离开发。这种类型的项目是以多个 html 文件为入口的，所以类似于 React 等项目构建方式不太适用，因为 webpack 是以 js 文件为入口的。 所以为了能够用 typescript、less 等高级语法编写这种类型的项目，又能很好兼容浏览器，我搭建了一个基于 gulp 的多页面项目脚手架. Installget code1git clone --depth 1 https://github.com/Houserqu/create-mutiple-page-webapp install dependenceyarnpkg or npm i Deployment开发模式使用 npm run dev 命令会在本地启动开发服务器，当代码文件变动时会自动刷新页面。 构建使用 npm run build 命令构建代码到 dist 目录 目录结构123456789101112131415161718192021222324252627282930├── LICENSE├── README.md├── gulpfile.js // gulp 配置文件，可以根据需要更改├── package.json├── src // 源代码目录│ ├── 404.ejs│ ├── LICENSE.txt│ ├── browserconfig.xml│ ├── doc // h5-Boilerplate 说明│ │ ├── ...│ ├── favicon.ico│ ├── humans.txt│ ├── icon.png│ ├── index.ejs // 默认首页│ ├── js // js 文件│ │ ├── main.ts // ts 文件都会通过 browserify 打包│ │ ├── utils.ts│ │ └── vendor // 类库文件，不会被打包│ │ └── modernizr-3.7.1.min.js│ ├── robots.txt│ ├── site.webmanifest│ ├── style // less 样式文件目录│ │ ├── main.less│ │ └── normalize.less│ ├── template-public // 公共 ejs 模板文件木│ │ └── header.ejs│ ├── tile-wide.png│ └── tile.png├── tsconfig.json // typescript 配置文件└── yarn.lock Built With gulp 构建工具 Typescript js 语言版本 Less css 预处理器 ejs html 模板引擎 html5-boilerplate 前端文件模板 Contributing欢迎 PR Authors 瞿浩 Houser Qu - Initial work LicenseMIT licensed]]></content>
@@ -107,10 +115,10 @@
       <tags>
         <tag>javascript</tag>
         <tag>react</tag>
+        <tag>前端</tag>
         <tag>websocket</tag>
         <tag>spa</tag>
         <tag>nodejs</tag>
-        <tag>前端</tag>
         <tag>后端</tag>
       </tags>
   </entry>
@@ -356,8 +364,8 @@
       </categories>
       <tags>
         <tag>react</tag>
-        <tag>webpack</tag>
         <tag>react-router</tag>
+        <tag>webpack</tag>
         <tag>redux</tag>
       </tags>
   </entry>
