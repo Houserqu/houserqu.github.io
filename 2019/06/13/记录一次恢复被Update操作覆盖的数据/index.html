@@ -90,7 +90,7 @@
 <meta property="og:site_name" content="Houser&#39;s Blog">
 <meta property="og:description" content="背景最近开发的时候，Mysql 中配置了一条非常复杂且重要的数据记录，但是由于之后的一次不规范的 Update 操作，本想只更新其中一个字段值，结果却更新了整个记录，导致保存了 JSON 文本的字段值被初始成了默认值，数据丢失。从新配置该值太麻烦，于是踏上了数据恢复之路。 Binary Log binlog 是 Mysql sever 层维护的一种二进制日志，与 innodb 引擎中的 redo/">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-06-13T10:03:04.562Z">
+<meta property="og:updated_time" content="2019-06-13T10:05:47.851Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="记录一次恢复 Mysql 中被 Update 操作覆盖的数据的过程">
 <meta name="twitter:description" content="背景最近开发的时候，Mysql 中配置了一条非常复杂且重要的数据记录，但是由于之后的一次不规范的 Update 操作，本想只更新其中一个字段值，结果却更新了整个记录，导致保存了 JSON 文本的字段值被初始成了默认值，数据丢失。从新配置该值太麻烦，于是踏上了数据恢复之路。 Binary Log binlog 是 Mysql sever 层维护的一种二进制日志，与 innodb 引擎中的 redo/">
@@ -415,7 +415,10 @@
 <p>为了避免无关数据量太多，可以用开始时间、结束时间进行范围限定，也可以通过 query 类型限定。</p>
 <h3 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h3><p>本文只是介绍了我的这种特殊场景下的 binlog 的使用，没有对 binlog 展开详细讲解，只是起到一个抛砖引玉的作用，请合理参考。</p>
 <h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><blockquote>
-<p><a href="https://mp.weixinbridge.com/mp/wapredirect?url=http%3A%2F%2Flaijianfeng.org%2F2019%2F03%2FMySQL-Binlog-%25E4%25BB%258B%25E7%25BB%258D%2F" target="_blank" rel="noopener">MySQL Binlog 介绍</a> &gt; <a href="https://my.oschina.net/u/3486280/blog/1605031" target="_blank" rel="noopener">mysql 被删除的数据库恢复 binlog 恢复数据库</a></p>
+<p><a href="https://mp.weixinbridge.com/mp/wapredirect?url=http%3A%2F%2Flaijianfeng.org%2F2019%2F03%2FMySQL-Binlog-%25E4%25BB%258B%25E7%25BB%258D%2F" target="_blank" rel="noopener">MySQL Binlog 介绍</a></p>
+</blockquote>
+<blockquote>
+<p><a href="https://my.oschina.net/u/3486280/blog/1605031" target="_blank" rel="noopener">mysql 被删除的数据库恢复 binlog 恢复数据库</a></p>
 </blockquote>
 
       <script>
