@@ -91,7 +91,7 @@
 <meta property="og:description" content="背景我个人有在维护一些网站，有时候会出现 CPU 突然占用过高的情况，或者想分析一下有没有恶意爬虫等，现有的方式就是分析 Apache 访问日志，发现非常不直观，无意间了解到阿里云到日志服务这个产品，可以实现日志的复杂条件查询和数据可视化，于是尝试了一下，发现的确方便很多，在此记录一下我在该服务与 Apache 结合使用的配置过程。 阿里云日志服务官方介绍 日志服务（Log Service，简称">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://houser.oss-cn-shanghai.aliyuncs.com/others/QQ20190510-155522.png">
-<meta property="og:updated_time" content="2019-05-10T08:16:38.008Z">
+<meta property="og:updated_time" content="2019-05-10T08:18:42.775Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="阿里云日志服务配合Apache使用">
 <meta name="twitter:description" content="背景我个人有在维护一些网站，有时候会出现 CPU 突然占用过高的情况，或者想分析一下有没有恶意爬虫等，现有的方式就是分析 Apache 访问日志，发现非常不直观，无意间了解到阿里云到日志服务这个产品，可以实现日志的复杂条件查询和数据可视化，于是尝试了一下，发现的确方便很多，在此记录一下我在该服务与 Apache 结合使用的配置过程。 阿里云日志服务官方介绍 日志服务（Log Service，简称">
@@ -458,7 +458,7 @@
 <p>配置完后重启 Apache:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># /usr/sbin/apachectl restart</span></span><br></pre></td></tr></table></figure>
 <h3 id="四：安装阿里云-Logtail-工具"><a href="#四：安装阿里云-Logtail-工具" class="headerlink" title="四：安装阿里云 Logtail 工具"></a>四：安装阿里云 Logtail 工具</h3><blockquote>
-<p>官方详细文档 <a href="https://help.aliyun.com/document_detail/28982.html" target="_blank" rel="noopener">Linux 安装教程</a></p>
+<p>官方详细安装文档 <a href="https://help.aliyun.com/document_detail/28982.html" target="_blank" rel="noopener">Linux 安装教程</a></p>
 </blockquote>
 <p>建议通过<strong>自动选择安装参数</strong>方式安装，安装完毕后在<code>app_info.json</code>文件中查看当前服务器 ip 地址。<strong>保存该 ip 地址用于后续的机器组配置</strong>。</p>
 <p><code>app_info.json</code>文件路径：</p>
@@ -538,6 +538,10 @@
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/2019/06/13/记录一次恢复被Update操作覆盖的数据/" rel="prev" title="记录一次恢复 Mysql 中被 Update 操作覆盖的数据的过程">
+                记录一次恢复 Mysql 中被 Update 操作覆盖的数据的过程 <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -608,7 +612,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">42</span>
+                <span class="site-state-item-count">43</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
